@@ -35,6 +35,12 @@
     <Reference Include="FluentScheduler">
       <HintPath>..\..\packages\FluentScheduler.3.1.45\lib\net40\FluentScheduler.dll</HintPath>
     </Reference>
+    <Reference Include="Nelibur">
+      <HintPath>..\..\packages\Nelibur.3.0.2\lib\net45\Nelibur.dll</HintPath>
+    </Reference>
+    <Reference Include="Nelibur.Core">
+      <HintPath>..\..\packages\Nelibur.3.0.2\lib\net45\Nelibur.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
@@ -57,6 +63,11 @@
   <ItemGroup>
     <Compile Include="Clients\ISantaPostOfficeClient.cs" />
     <Compile Include="Clients\SantaPostOfficeClient.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Schedulers\GoodBoyRegistry.cs" />
     <Compile Include="Schedulers\GoodBoyTaskFactory.cs" />
     <Compile Include="Modules\GoodBoyModule.cs" />
@@ -71,19 +82,19 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SantaHo.Core\SantaHo.Core.csproj">
       <Project>{9af869c7-117d-49c3-9762-4f1b0af8767f}</Project>
       <Name>SantaHo.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SantaHo.Domain\SantaHo.Domain.csproj">
-      <Project>{6df91132-b02b-4b67-bfc5-1ad5561d3a0e}</Project>
-      <Name>SantaHo.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SantaHo.Infrastructure\SantaHo.Infrastructure.csproj">
-      <Project>{9be57860-75d8-451e-8b6c-b86a6e72c407}</Project>
-      <Name>SantaHo.Infrastructure</Name>
+    <ProjectReference Include="..\SantaHo.ServiceContracts\SantaHo.ServiceContracts.csproj">
+      <Project>{782AACBB-9E17-466A-95DA-31B0D339104B}</Project>
+      <Name>SantaHo.ServiceContracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

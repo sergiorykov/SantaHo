@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using SantaHo.Core.Extensions;
-using SantaHo.Domain.IncomingLetters;
+using SantaHo.ServiceContracts.Letters;
 
 namespace GoodBoy.Bot.Tasks
 {
-    public class LetterProvider
+    public sealed class LetterProvider
     {
         private static readonly Dictionary<int, string> Wishes = GetWishesPool()
             .Select((x, i) => new KeyValuePair<int, string>(i, x))
@@ -32,9 +32,9 @@ namespace GoodBoy.Bot.Tasks
             };
         }
 
-        public Letter Create()
+        public WishListLetterRequest Create()
         {
-            return new Letter
+            return new WishListLetterRequest
             {
                 Name = "Good boy {0}".F(Guid.NewGuid().ToString()),
                 Wishes = GetCoupleOfWishes()
