@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaHo.Console", "Source\SantaHo.Console\SantaHo.Console.csproj", "{A8AC2F15-09CD-4545-8849-088EC61F9C2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaHo.Infrastructure", "Source\SantaHo.Infrastructure\SantaHo.Infrastructure.csproj", "{9BE57860-75D8-451E-8B6C-B86A6E72C407}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodBoy.Bot", "Source\GoodBoy.Bot\GoodBoy.Bot.csproj", "{1A5ACF8B-D9B2-4EA5-8E31-E861618B2297}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaHo.Application", "Source\SantaHo.Application\SantaHo.Application.csproj", "{1F7F1FFC-1ACC-49F6-A546-9ACB6E85C2BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaHo.Domain", "Source\SantaHo.Domain\SantaHo.Domain.csproj", "{6DF91132-B02B-4B67-BFC5-1AD5561D3A0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaHo.Core", "Source\SantaHo.Core\SantaHo.Core.csproj", "{9AF869C7-117D-49C3-9762-4F1B0AF8767F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A8AC2F15-09CD-4545-8849-088EC61F9C2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8AC2F15-09CD-4545-8849-088EC61F9C2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8AC2F15-09CD-4545-8849-088EC61F9C2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8AC2F15-09CD-4545-8849-088EC61F9C2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BE57860-75D8-451E-8B6C-B86A6E72C407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BE57860-75D8-451E-8B6C-B86A6E72C407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BE57860-75D8-451E-8B6C-B86A6E72C407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BE57860-75D8-451E-8B6C-B86A6E72C407}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A5ACF8B-D9B2-4EA5-8E31-E861618B2297}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A5ACF8B-D9B2-4EA5-8E31-E861618B2297}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A5ACF8B-D9B2-4EA5-8E31-E861618B2297}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A5ACF8B-D9B2-4EA5-8E31-E861618B2297}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F7F1FFC-1ACC-49F6-A546-9ACB6E85C2BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F7F1FFC-1ACC-49F6-A546-9ACB6E85C2BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F7F1FFC-1ACC-49F6-A546-9ACB6E85C2BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F7F1FFC-1ACC-49F6-A546-9ACB6E85C2BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DF91132-B02B-4B67-BFC5-1AD5561D3A0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DF91132-B02B-4B67-BFC5-1AD5561D3A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DF91132-B02B-4B67-BFC5-1AD5561D3A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DF91132-B02B-4B67-BFC5-1AD5561D3A0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AF869C7-117D-49C3-9762-4F1B0AF8767F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AF869C7-117D-49C3-9762-4F1B0AF8767F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AF869C7-117D-49C3-9762-4F1B0AF8767F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AF869C7-117D-49C3-9762-4F1B0AF8767F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
