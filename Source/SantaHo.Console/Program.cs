@@ -13,7 +13,7 @@ namespace SantaHo.Console
 
             var incomingQueue = new IncomingLettersQueue(connection);
             incomingQueue.Create();
-            incomingQueue.Send(new Letter
+            incomingQueue.Enque(new Letter
             {
                 Name = "Vasia",
                 Wishes =

@@ -26,7 +26,7 @@ namespace SantaHo.Infrastructure.Queues
             _channel.QueueBind(QueueName, ExchangeName, RoutingKey, null);
         }
 
-        public void Send(Letter letter)
+        public void Enque(Letter letter)
         {
             string json = JsonSerializer.SerializeToString(letter);
             byte[] messageBodyBytes = Encoding.UTF8.GetBytes(json);

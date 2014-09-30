@@ -32,6 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Nelibur">
+      <HintPath>..\..\packages\Nelibur.3.0.2\lib\net45\Nelibur.dll</HintPath>
+    </Reference>
+    <Reference Include="Nelibur.Core">
+      <HintPath>..\..\packages\Nelibur.3.0.2\lib\net45\Nelibur.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
@@ -55,7 +61,6 @@
   <ItemGroup>
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="Modules\ApplicationModule.cs" />
-    <Compile Include="Modules\InfrastructureModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -85,6 +90,10 @@
     <ProjectReference Include="..\SantaHo.Infrastructure\SantaHo.Infrastructure.csproj">
       <Project>{9be57860-75d8-451e-8b6c-b86a6e72c407}</Project>
       <Name>SantaHo.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SantaHo.ServiceHosts\SantaHo.ServiceHosts.csproj">
+      <Project>{1001E7EF-CCC9-4042-99DA-E82674A5E87F}</Project>
+      <Name>SantaHo.ServiceHosts</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
