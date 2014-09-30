@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="ApplicationServices\IApplicationService.cs" />
     <Compile Include="DisposableAction.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

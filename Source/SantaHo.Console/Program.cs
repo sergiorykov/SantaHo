@@ -1,5 +1,6 @@
 ﻿using RabbitMQ.Client;
 using SantaHo.Domain.IncomingLetters;
+using SantaHo.Infrastructure.Factories;
 using SantaHo.Infrastructure.Queues;
 
 namespace SantaHo.Console

@@ -4,7 +4,7 @@ using SantaHo.Domain.IncomingLetters;
 using SantaHo.Infrastructure.Queues;
 using SantaHo.Infrastructure.Services;
 
-namespace SantaHo.Console.Dependencies
+namespace SantaHo.Console.Modules
 {
     public sealed class InfrastructureModule : NinjectModule
     {

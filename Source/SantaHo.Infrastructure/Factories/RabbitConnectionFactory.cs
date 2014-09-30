@@ -1,6 +1,6 @@
 using RabbitMQ.Client;
 
-namespace SantaHo.Infrastructure.Queues
+namespace SantaHo.Infrastructure.Factories
 {
     public static class RabbitConnectionFactory
     {

@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using Ninject;
 using NLog;
 using RabbitMQ.Client;
-using SantaHo.Console.Dependencies;
+using SantaHo.Console.Modules;
 using SantaHo.Core;
 using SantaHo.Core.ApplicationServices;
-using SantaHo.Infrastructure.Queues;
+using SantaHo.Infrastructure.Factories;
 
 namespace SantaHo.Console
 {
     public class ApplicationContext
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
         private readonly IKernel _kernel = new StandardKernel(
             new NinjectSettings(),
             new ApplicationModule());
@@ -21,10 +22,10 @@ namespace SantaHo.Console
 
         public IDisposable Start()
         {
-            OpenConnections();
+            FailIfNot(OpenConnections);
             foreach (IApplicationService service in GetServices())
             {
-                Start(service);
+                FailIfNot(() => service.Start());
             }
 
             return DisposableAction.From(Stop);
@@ -32,24 +33,27 @@ namespace SantaHo.Console
 
         private void Stop()
         {
-            CloseConnections();
+            ExecuteIgnoreResult(CloseConnections);
             foreach (IApplicationService service in GetServices())
             {
                 ExecuteIgnoreResult(() => service.Stop());
             }
         }
 
-        private void Start(IApplicationService service)
+        private void FailIfNot(Action action)
         {
             try
             {
-                service.Start();
+                action();
             }
             catch (Exception e)
             {
                 Logger.Warn(e);
+
                 Logger.Error("Application failed to start. Stopping...");
                 Stop();
+
+                throw new InvalidOperationException("Application failed to start");
             }
         }
 

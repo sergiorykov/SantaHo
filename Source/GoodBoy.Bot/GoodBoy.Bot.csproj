@@ -32,6 +32,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentScheduler">
+      <HintPath>..\..\packages\FluentScheduler.3.1.45\lib\net40\FluentScheduler.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=3.1.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\NLog.3.1.0.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=4.0.31.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\ServiceStack.Text.4.0.31\lib\net40\ServiceStack.Text.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,13 +55,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clients\ISantaPostOfficeClient.cs" />
+    <Compile Include="Clients\SantaPostOfficeClient.cs" />
+    <Compile Include="Schedulers\GoodBoyRegistry.cs" />
+    <Compile Include="Schedulers\GoodBoyTaskFactory.cs" />
+    <Compile Include="Modules\GoodBoyModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\LetterProvider.cs" />
+    <Compile Include="Tasks\SendLetterToSantaTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SantaHo.Core\SantaHo.Core.csproj">
+      <Project>{9af869c7-117d-49c3-9762-4f1b0af8767f}</Project>
+      <Name>SantaHo.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SantaHo.Domain\SantaHo.Domain.csproj">
       <Project>{6df91132-b02b-4b67-bfc5-1ad5561d3a0e}</Project>
       <Name>SantaHo.Domain</Name>

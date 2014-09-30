@@ -2,7 +2,7 @@
 using SantaHo.Application.IncomingLetters;
 using SantaHo.Domain.IncomingLetters;
 
-namespace SantaHo.Console.Dependencies
+namespace SantaHo.Console.Modules
 {
     public sealed class ApplicationModule : NinjectModule
     {
