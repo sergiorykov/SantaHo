@@ -14,19 +14,21 @@ namespace SantaHo.Infrastructure.Services
     {
         private const string QueueName = "incoming-letters";
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-        private readonly IModel _channel;
+        private readonly IConnection _connection;
+        private readonly IIncomingLetterProcessor _processor;
+        private IModel _channel;
         private QueueingBasicConsumer _consumer;
         private Task _waitingNewLetters;
-        private readonly IIncomingLetterProcessor _processor;
 
         public IncomingLetterQueueProcessingService(IConnection connection, IIncomingLetterProcessor processor)
         {
+            _connection = connection;
             _processor = processor;
-            _channel = connection.CreateModel();
         }
 
         public void Start()
         {
+            _channel = _connection.CreateModel();
             _channel.QueueDeclare(QueueName, false, false, false, null);
             _consumer = new QueueingBasicConsumer(_channel);
             _channel.BasicConsume(QueueName, true, _consumer);

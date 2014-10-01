@@ -9,7 +9,7 @@ namespace GoodBoy.Bot.Modules
         public override void Load()
         {
             Bind<LetterProvider>().ToSelf();
-            Bind<ISantaPostOfficeClient>().To<SantaPostOfficeClient>();
+            Bind<ISantaPostOfficeClient>().ToConstant(new SantaPostOfficeClient());
         }
     }
 }

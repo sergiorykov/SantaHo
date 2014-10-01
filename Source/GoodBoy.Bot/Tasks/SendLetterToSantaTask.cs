@@ -21,7 +21,7 @@ namespace GoodBoy.Bot.Tasks
         public void Execute()
         {
             WishListLetterRequest request = _provider.Create();
-            bool sent = _santaPostOffice.Send(request);
+            bool sent = _santaPostOffice.Send(request).Result;
             if (!sent)
             {
                 Logger.Info("Что-то не так с письмом. Печалька.");

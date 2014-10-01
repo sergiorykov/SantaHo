@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Ninject;
 using NLog;
 using RabbitMQ.Client;
@@ -22,11 +23,14 @@ namespace SantaHo.Console
             new ServiceHostsModule());
 
         private IConnection _connection;
+        private List<IApplicationService> _services = new List<IApplicationService>();
 
         public IDisposable Start()
         {
             FailIfNot(OpenConnections);
-            foreach (IApplicationService service in GetServices())
+
+            _services = GetServices();
+            foreach (IApplicationService service in _services)
             {
                 FailIfNot(() => service.Start());
             }
@@ -37,7 +41,7 @@ namespace SantaHo.Console
         private void Stop()
         {
             ExecuteIgnoreResult(CloseConnections);
-            foreach (IApplicationService service in GetServices())
+            foreach (IApplicationService service in _services)
             {
                 ExecuteIgnoreResult(() => service.Stop());
             }
@@ -86,9 +90,9 @@ namespace SantaHo.Console
             _kernel.Bind<IConnection>().ToConstant(_connection);
         }
 
-        private IEnumerable<IApplicationService> GetServices()
+        private List<IApplicationService> GetServices()
         {
-            return _kernel.GetAll<IApplicationService>();
+            return _kernel.GetAll<IApplicationService>().ToList();
         }
     }
 }

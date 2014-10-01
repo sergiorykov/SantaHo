@@ -1,9 +1,10 @@
-﻿using SantaHo.ServiceContracts.Letters;
+﻿using System.Threading.Tasks;
+using SantaHo.ServiceContracts.Letters;
 
 namespace GoodBoy.Bot.Clients
 {
     public interface ISantaPostOfficeClient
     {
-        bool Send(WishListLetterRequest request);
+        Task<bool> Send(WishListLetterRequest request);
     }
 }

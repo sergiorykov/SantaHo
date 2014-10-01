@@ -31,7 +31,7 @@ namespace SantaHo.Infrastructure.Queues
             string json = JsonSerializer.SerializeToString(letter);
             byte[] messageBodyBytes = Encoding.UTF8.GetBytes(json);
             _channel.BasicPublish(ExchangeName, RoutingKey, null, messageBodyBytes);
-            Logger.Debug("Sent {0}", letter.Dump());
+            Logger.Debug("Enqueued {0}", letter.Dump());
         }
         
     }

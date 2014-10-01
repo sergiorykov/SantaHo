@@ -31,5 +31,14 @@ namespace GoodBoy.Bot.Properties {
                 return ((string)(this["SantaPostOfficeAddress"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int InParallel {
+            get {
+                return ((int)(this["InParallel"]));
+            }
+        }
     }
 }

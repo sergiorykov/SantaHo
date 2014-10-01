@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using GoodBoy.Bot.Properties;
 using Nelibur.ServiceModel.Clients;
 using NLog;
@@ -14,15 +15,15 @@ namespace GoodBoy.Bot.Clients
 
         public SantaPostOfficeClient()
         {
-            var address = Settings.Default.SantaPostOfficeAddress;
+            string address = Settings.Default.SantaPostOfficeAddress;
             _client = new JsonServiceClient(address);
         }
 
-        public bool Send(WishListLetterRequest request)
+        public async Task<bool> Send(WishListLetterRequest request)
         {
             try
             {
-                _client.Post(request);
+                await _client.PostAsync(request);
                 Logger.Debug("Letter sent {0}", request.Dump());
 
                 return true;
