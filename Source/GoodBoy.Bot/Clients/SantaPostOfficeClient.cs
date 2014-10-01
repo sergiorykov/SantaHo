@@ -4,7 +4,6 @@ using GoodBoy.Bot.Properties;
 using Nelibur.ServiceModel.Clients;
 using NLog;
 using SantaHo.ServiceContracts.Letters;
-using ServiceStack.Text;
 
 namespace GoodBoy.Bot.Clients
 {
@@ -24,7 +23,7 @@ namespace GoodBoy.Bot.Clients
             try
             {
                 await _client.PostAsync(request);
-                Logger.Debug("Letter sent {0}", request.Dump());
+                Logger.Debug("Letter sent from {0}", request.Name);
 
                 return true;
             }

@@ -34,10 +34,10 @@ namespace GoodBoy.Bot.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
-        public int InParallel {
+        [global::System.Configuration.DefaultSettingValueAttribute("7")]
+        public int UseProcessors {
             get {
-                return ((int)(this["InParallel"]));
+                return ((int)(this["UseProcessors"]));
             }
         }
     }

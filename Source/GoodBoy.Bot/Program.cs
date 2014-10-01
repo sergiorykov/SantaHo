@@ -13,7 +13,7 @@ namespace GoodBoy.Bot
         {
             var kernel = new StandardKernel(new GoodBoyModule());
             TaskManager.TaskFactory = new GoodBoyTaskFactory(kernel);
-            TaskManager.Initialize(new GoodBoyRegistry(Settings.Default.InParallel));
+            TaskManager.Initialize(new GoodBoyRegistry(Settings.Default.UseProcessors));
 
             Console.ReadKey();
         }
