@@ -1,8 +1,8 @@
-﻿using Ninject.Modules;
+﻿using Ninject;
+using Ninject.Modules;
 using SantaHo.Core.ApplicationServices;
 using SantaHo.Domain.IncomingLetters;
 using SantaHo.Infrastructure.Queues;
-using SantaHo.Infrastructure.Services;
 
 namespace SantaHo.Infrastructure.Modules
 {
@@ -10,8 +10,15 @@ namespace SantaHo.Infrastructure.Modules
     {
         public override void Load()
         {
-            Bind<IIncomingLettersQueue>().To<IncomingLettersQueue>().InSingletonScope();
-            Bind<IApplicationService>().To<IncomingLetterQueueProcessingService>().InSingletonScope(); 
+            Bind<IncomingLettersQueueManager>().ToSelf().InSingletonScope();
+
+            Bind<IIncomingLettersEnqueuer>()
+                .ToMethod(x => Kernel.Get<IncomingLettersQueueManager>().GetEnqueuer())
+                .InSingletonScope();
+
+            Bind<IIncomingLettersDequeuer>()
+                .ToMethod(x => Kernel.Get<IncomingLettersQueueManager>().GetDequeuer())
+                .InSingletonScope();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Ninject.Modules;
 using SantaHo.Application.IncomingLetters;
+using SantaHo.Core.ApplicationServices;
 using SantaHo.Domain.IncomingLetters;
 
 namespace SantaHo.Console.Modules
@@ -8,7 +9,11 @@ namespace SantaHo.Console.Modules
     {
         public override void Load()
         {
-            Bind<IIncomingLetterProcessor>().To<IncomingLetterProcessor>();
+            Bind<IIncomingLetterProcessor>().To<IncomingLetterProcessor>().InSingletonScope();
+
+            Bind<IApplicationService>()
+                .To<IncomingLettersApplicationService>()
+                .InSingletonScope();
         }
     }
 }

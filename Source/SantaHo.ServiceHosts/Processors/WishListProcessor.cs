@@ -13,11 +13,11 @@ namespace SantaHo.ServiceHosts.Processors
     public class WishListProcessor : IPostOneWay<WishListLetterRequest>
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-        private readonly IIncomingLettersQueue _queue;
+        private readonly IIncomingLettersEnqueuer _enqueuer;
 
-        public WishListProcessor(IIncomingLettersQueue queue)
+        public WishListProcessor(IIncomingLettersEnqueuer enqueuer)
         {
-            _queue = queue;
+            _enqueuer = enqueuer;
         }
 
         public void PostOneWay(WishListLetterRequest request)
@@ -33,7 +33,7 @@ namespace SantaHo.ServiceHosts.Processors
         private void Enqueue(WishListLetterRequest request)
         {
             Letter letter = Mapper.Map<WishListLetterRequest, Letter>(request);
-            _queue.Enque(letter);
+            _enqueuer.Enque(letter);
         }
 
         private void Execute(Action action)

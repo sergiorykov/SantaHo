@@ -1,8 +1,9 @@
+using System;
+
 namespace SantaHo.Domain.IncomingLetters
 {
-    public interface IIncomingLettersQueue 
+    public interface IIncomingLettersEnqueuer : IDisposable
     {
         void Enque(Letter letter);
-        void Prepare();
     }
 }

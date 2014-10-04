@@ -54,8 +54,7 @@
     <Compile Include="Factories\RabbitConnectionFactory.cs" />
     <Compile Include="Modules\InfrastructureModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queues\IncomingLettersQueue.cs" />
-    <Compile Include="Services\IncomingLetterQueueProcessingService.cs" />
+    <Compile Include="Queues\IncomingLettersQueueManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
