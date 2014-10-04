@@ -1,13 +1,14 @@
-﻿using FluentScheduler;
+﻿using System;
+using System.Threading;
+using FluentScheduler;
 using GoodBoy.Bot.Clients;
-using NLog;
 using SantaHo.ServiceContracts.Letters;
 
 namespace GoodBoy.Bot.Tasks
 {
     public sealed class SendLetterToSantaTask : ITask
     {
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        private static readonly TimeSpan OutOfBusiness = TimeSpan.FromSeconds(30);
 
         private readonly LetterProvider _provider;
         private readonly ISantaPostOfficeClient _santaPostOffice;
@@ -20,12 +21,21 @@ namespace GoodBoy.Bot.Tasks
 
         public void Execute()
         {
-            WishListLetterRequest request = _provider.Create();
-            bool sent = _santaPostOffice.Send(request).Result;
-            if (!sent)
+            while (true)
             {
-                Logger.Info("Что-то не так с письмом. Печалька.");
+                EnsureOfficeIsOpen();
+                WishListLetterRequest request = _provider.Create();
+                _santaPostOffice.Send(request);
             }
+        }
+
+        private void EnsureOfficeIsOpen()
+        {
+//            bool isOpen = SpinWait.SpinUntil(_santaPostOffice.IsOpen, OutOfBusiness);
+//            if (!isOpen)
+//            {
+//                throw new InvalidOperationException("Santa has gone.");
+//            }
         }
     }
 }

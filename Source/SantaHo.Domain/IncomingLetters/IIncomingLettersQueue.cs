@@ -1,7 +1,8 @@
 namespace SantaHo.Domain.IncomingLetters
 {
-    public interface IIncomingLettersQueue
+    public interface IIncomingLettersQueue 
     {
         void Enque(Letter letter);
+        void Prepare();
     }
 }

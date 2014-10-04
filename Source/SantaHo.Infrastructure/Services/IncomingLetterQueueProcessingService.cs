@@ -16,18 +16,25 @@ namespace SantaHo.Infrastructure.Services
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IConnection _connection;
         private readonly IIncomingLetterProcessor _processor;
+        private readonly IIncomingLettersQueue _queue;
         private IModel _channel;
         private QueueingBasicConsumer _consumer;
         private Task _waitingNewLetters;
 
-        public IncomingLetterQueueProcessingService(IConnection connection, IIncomingLetterProcessor processor)
+        public IncomingLetterQueueProcessingService(
+            IConnection connection,
+            IIncomingLetterProcessor processor,
+            IIncomingLettersQueue queue)
         {
+            _queue = queue;
             _connection = connection;
             _processor = processor;
         }
 
         public void Start()
         {
+            _queue.Prepare();
+
             _channel = _connection.CreateModel();
             _channel.QueueDeclare(QueueName, false, false, false, null);
             _consumer = new QueueingBasicConsumer(_channel);
@@ -66,7 +73,7 @@ namespace SantaHo.Infrastructure.Services
         {
             try
             {
-                Logger.Debug("Received {0}", letter.Dump());
+                // Logger.Debug("Received {0}", letter.Dump());
                 _processor.Process(letter);
             }
             catch (Exception e)

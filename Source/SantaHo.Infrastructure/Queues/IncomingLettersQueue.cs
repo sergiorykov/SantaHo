@@ -6,7 +6,7 @@ using ServiceStack.Text;
 
 namespace SantaHo.Infrastructure.Queues
 {
-    public class IncomingLettersQueue : IIncomingLettersQueue
+    public sealed class IncomingLettersQueue : IIncomingLettersQueue
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         const string ExchangeName = "incoming-letters-direct-exchange";
@@ -19,7 +19,7 @@ namespace SantaHo.Infrastructure.Queues
             _channel = connection.CreateModel();
         }
 
-        public void Create()
+        public void Prepare()
         {
             _channel.ExchangeDeclare(ExchangeName, ExchangeType.Direct);
             _channel.QueueDeclare(QueueName, false, false, false, null);

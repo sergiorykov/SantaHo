@@ -7,9 +7,9 @@ namespace GoodBoy.Bot.Schedulers
 {
     public class GoodBoyRegistry : Registry
     {
-        public GoodBoyRegistry(int useProcessors)
+        public GoodBoyRegistry(int bots)
         {
-            Enumerable.Range(1, Math.Min(useProcessors, Environment.ProcessorCount))
+            Enumerable.Range(1, bots)
                 .ToList()
                 .ForEach(x => ScheduleLetterSending());
             
@@ -17,7 +17,7 @@ namespace GoodBoy.Bot.Schedulers
 
         private void ScheduleLetterSending()
         {
-            Schedule<SendLetterToSantaTask>().ToRunNow().AndEvery(1).Seconds();
+            Schedule<SendLetterToSantaTask>().ToRunOnceIn(1).Seconds();
         }
     }
 }

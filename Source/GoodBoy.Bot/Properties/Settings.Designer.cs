@@ -34,10 +34,10 @@ namespace GoodBoy.Bot.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("7")]
-        public int UseProcessors {
+        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        public int Bots {
             get {
-                return ((int)(this["UseProcessors"]));
+                return ((int)(this["Bots"]));
             }
         }
     }

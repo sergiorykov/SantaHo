@@ -10,8 +10,8 @@ namespace SantaHo.Infrastructure.Modules
     {
         public override void Load()
         {
-            Bind<IIncomingLettersQueue>().To<IncomingLettersQueue>();
-            Bind<IApplicationService>().To<IncomingLetterQueueProcessingService>();
+            Bind<IIncomingLettersQueue>().To<IncomingLettersQueue>().InSingletonScope();
+            Bind<IApplicationService>().To<IncomingLetterQueueProcessingService>().InSingletonScope(); 
         }
     }
 }

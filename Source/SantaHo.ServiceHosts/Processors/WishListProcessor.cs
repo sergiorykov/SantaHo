@@ -45,6 +45,7 @@ namespace SantaHo.ServiceHosts.Processors
             catch (Exception e)
             {
                 Logger.Warn(e);
+                throw new WebFaultException(HttpStatusCode.InternalServerError);
             }
         }
     }

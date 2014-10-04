@@ -5,8 +5,8 @@
     <Setting Name="SantaPostOfficeAddress" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://localhost:9090/santa</Value>
     </Setting>
-    <Setting Name="UseProcessors" Type="System.Int32" Scope="Application">
-      <Value Profile="(Default)">7</Value>
+    <Setting Name="Bots" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">8</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Threading.Tasks;
+using System.Threading;
 using GoodBoy.Bot.Properties;
 using Nelibur.ServiceModel.Clients;
 using NLog;
@@ -11,6 +11,7 @@ namespace GoodBoy.Bot.Clients
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly JsonServiceClient _client;
+        private long _consecutiveFails;
 
         public SantaPostOfficeClient()
         {
@@ -18,13 +19,13 @@ namespace GoodBoy.Bot.Clients
             _client = new JsonServiceClient(address);
         }
 
-        public async Task<bool> Send(WishListLetterRequest request)
+        public bool Send(WishListLetterRequest request)
         {
             try
             {
-                await _client.PostAsync(request);
-                Logger.Debug("Letter sent from {0}", request.Name);
-
+                _client.Post(request);
+                long number = Interlocked.Increment(ref _consecutiveFails);
+                Logger.Debug("Letter \t{2}#{1} sent from {0}", request.Name, number, Environment.CurrentManagedThreadId);
                 return true;
             }
             catch (Exception e)
