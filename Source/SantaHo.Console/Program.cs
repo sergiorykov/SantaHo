@@ -1,14 +1,22 @@
-﻿namespace SantaHo.Console
+﻿using System.Diagnostics;
+using Topshelf;
+
+namespace SantaHo.Console
 {
     internal class Program
     {
         private static void Main(string[] args)
         {
-            var application = new ApplicationContext();
-            using (application.Start())
+            HostFactory.New(x =>
             {
-                System.Console.ReadKey();
-            }
+                x.Service<ApplicationService>();
+                x.RunAsLocalSystem();
+                x.StartAutomatically();
+
+                x.SetDescription("Santa Ho Host");
+                x.SetDisplayName("SantaHo");
+                x.SetServiceName("SantaHo");
+            }).Run();
         }
     }
 }

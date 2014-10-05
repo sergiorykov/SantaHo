@@ -5,7 +5,6 @@ using Ninject;
 using NLog;
 using RabbitMQ.Client;
 using SantaHo.Console.Modules;
-using SantaHo.Core;
 using SantaHo.Core.ApplicationServices;
 using SantaHo.Infrastructure.Factories;
 using SantaHo.Infrastructure.Modules;
@@ -25,7 +24,7 @@ namespace SantaHo.Console
         private IConnection _connection;
         private List<IApplicationService> _services = new List<IApplicationService>();
 
-        public IDisposable Start()
+        public bool Start()
         {
             FailIfNot(OpenConnections);
 
@@ -35,10 +34,10 @@ namespace SantaHo.Console
                 FailIfNot(() => service.Start());
             }
 
-            return DisposableAction.From(Stop);
+            return true;
         }
 
-        private void Stop()
+        public void Stop()
         {
             ExecuteIgnoreResult(CloseConnections);
             foreach (IApplicationService service in _services)
