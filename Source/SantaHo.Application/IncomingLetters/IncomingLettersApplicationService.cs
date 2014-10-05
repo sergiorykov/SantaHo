@@ -50,13 +50,19 @@ namespace SantaHo.Application.IncomingLetters
 
         private void WaitAndProcessNext()
         {
+            IObservableMessage<Letter> letter = null;
             try
             {
-                Letter letter = _dequeuer.Dequeue();
+                letter = _dequeuer.Dequeue();
                 _processor.Process(letter);
             }
             catch (Exception e)
             {
+                if (letter != null)
+                {
+                    letter.Failed();
+                }
+
                 Logger.Warn(e);
             }
         }

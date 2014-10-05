@@ -9,10 +9,12 @@ namespace SantaHo.Application.IncomingLetters
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private int _processed;
 
-        public void Process(Letter letter)
+        public void Process(IObservableMessage<Letter> letter)
         {
             int letterNumber = Interlocked.Increment(ref _processed);
-            Logger.Info("Processing letter \t{0}: {1}", letterNumber, letter.Name);
+            Logger.Info("Processing letter \t{0}: {1}", letterNumber, letter.Message.Name);
+            Thread.Sleep(1000);
+            letter.Completed();
         }
     }
 }

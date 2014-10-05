@@ -37,6 +37,7 @@ namespace SantaHo.Infrastructure.Queues
             public IncomingLettersEnqueuer(IConnection connection)
             {
                 _channel = connection.CreateModel();
+                _channel.BasicQos(0, 16 * 1024, false);
                 _channel.ExchangeDeclare(ExchangeName, ExchangeType.Direct);
                 _channel.QueueDeclare(QueueName, true, false, false, null);
                 _channel.QueueBind(QueueName, ExchangeName, RoutingKey, null);
@@ -72,16 +73,15 @@ namespace SantaHo.Infrastructure.Queues
             {
                 _channel = connection.CreateModel();
                 _channel.QueueDeclare(QueueName, true, false, false, null);
+                _channel.BasicQos(0, 16*1024, false);
                 _consumer = new QueueingBasicConsumer(_channel);
-                _channel.BasicConsume(QueueName, true, _consumer);
+                _channel.BasicConsume(QueueName, false, _consumer);
             }
-            
-            public Letter Dequeue()
+
+            public IObservableMessage<Letter> Dequeue()
             {
                 BasicDeliverEventArgs deliverEventArgs = _consumer.Queue.Dequeue();
-                byte[] body = deliverEventArgs.Body;
-                string message = Encoding.UTF8.GetString(body);
-                return JsonSerializer.DeserializeFromString<Letter>(message);
+                return new ObservableMessage(deliverEventArgs, _channel);
             }
 
             public void Dispose()
@@ -89,6 +89,34 @@ namespace SantaHo.Infrastructure.Queues
                 if (_channel != null)
                 {
                     _channel.Dispose();
+                }
+            }
+
+            private sealed class ObservableMessage : IObservableMessage<Letter>
+            {
+                private readonly BasicDeliverEventArgs _deliverEventArgs;
+                private readonly IModel _channel;
+
+                public ObservableMessage(BasicDeliverEventArgs deliverEventArgs, IModel channel)
+                {
+                    _deliverEventArgs = deliverEventArgs;
+                    _channel = channel;
+
+                    byte[] body = deliverEventArgs.Body;
+                    string message = Encoding.UTF8.GetString(body);
+                    Message = JsonSerializer.DeserializeFromString<Letter>(message);
+                }
+
+                public Letter Message { get; private set; }
+
+                public void Completed()
+                {
+                    _channel.BasicAck(_deliverEventArgs.DeliveryTag, false);
+                }
+
+                public void Failed()
+                {
+                    _channel.BasicReject(_deliverEventArgs.DeliveryTag, true);
                 }
             }
         }

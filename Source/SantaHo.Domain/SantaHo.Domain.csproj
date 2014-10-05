@@ -42,6 +42,7 @@
     <Compile Include="IncomingLetters\IIncomingLetterProcessor.cs" />
     <Compile Include="IncomingLetters\IIncomingLettersDequeuer.cs" />
     <Compile Include="IncomingLetters\IIncomingLettersEnqueuer.cs" />
+    <Compile Include="IncomingLetters\IObservableMessage.cs" />
     <Compile Include="IncomingLetters\Letter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

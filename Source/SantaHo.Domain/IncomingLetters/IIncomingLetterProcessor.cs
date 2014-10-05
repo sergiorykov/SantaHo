@@ -2,6 +2,6 @@
 {
     public interface IIncomingLetterProcessor
     {
-        void Process(Letter letter);
+        void Process(IObservableMessage<Letter> letter);
     }
 }
