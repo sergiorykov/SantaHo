@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using FluentScheduler;
 using GoodBoy.Bot.Modules;
 using GoodBoy.Bot.Properties;
@@ -11,6 +12,8 @@ namespace GoodBoy.Bot
     {
         private static void Main(string[] args)
         {
+            ServicePointManager.DefaultConnectionLimit = 25;
+
             var kernel = new StandardKernel(new GoodBoyModule());
             TaskManager.TaskFactory = new GoodBoyTaskFactory(kernel);
             TaskManager.Initialize(new GoodBoyRegistry(Settings.Default.Bots));

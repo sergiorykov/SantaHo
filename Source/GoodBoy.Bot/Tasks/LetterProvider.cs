@@ -43,9 +43,9 @@ namespace GoodBoy.Bot.Tasks
 
         private List<string> GetCoupleOfWishes()
         {
-            int howMany = _random.Next(Wishes.Count - 1);
+            int howMany = _random.Next(1, Wishes.Count);
             return Enumerable.Range(1, howMany)
-                .Select(x => _random.Next(x))
+                .Select(x => _random.Next(Wishes.Count - 1))
                 .Select(x => Wishes[x])
                 .ToList();
         }

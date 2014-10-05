@@ -1,4 +1,6 @@
-﻿using RabbitMQ.Client;
+﻿using System;
+using System.Threading;
+using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using SantaHo.Domain.IncomingLetters;
 using ServiceStack.Text;
@@ -36,7 +38,7 @@ namespace SantaHo.Infrastructure.Queues
             {
                 _channel = connection.CreateModel();
                 _channel.ExchangeDeclare(ExchangeName, ExchangeType.Direct);
-                _channel.QueueDeclare(QueueName, false, false, false, null);
+                _channel.QueueDeclare(QueueName, true, false, false, null);
                 _channel.QueueBind(QueueName, ExchangeName, RoutingKey, null);
             }
             
@@ -69,7 +71,7 @@ namespace SantaHo.Infrastructure.Queues
             public IncomingLettersDequeuer(IConnection connection)
             {
                 _channel = connection.CreateModel();
-                _channel.QueueDeclare(QueueName, false, false, false, null);
+                _channel.QueueDeclare(QueueName, true, false, false, null);
                 _consumer = new QueueingBasicConsumer(_channel);
                 _channel.BasicConsume(QueueName, true, _consumer);
             }
