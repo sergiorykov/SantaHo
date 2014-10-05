@@ -1,10 +1,9 @@
-﻿using System;
-using System.Threading;
+﻿using System.Text;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using SantaHo.Core.Queues;
 using SantaHo.Domain.IncomingLetters;
 using ServiceStack.Text;
-using System.Text;
 
 namespace SantaHo.Infrastructure.Queues
 {
@@ -30,44 +29,10 @@ namespace SantaHo.Infrastructure.Queues
             return new IncomingLettersDequeuer(_connection);
         }
 
-        private sealed class IncomingLettersEnqueuer : IIncomingLettersEnqueuer
-        {
-            private readonly IModel _channel;
-
-            public IncomingLettersEnqueuer(IConnection connection)
-            {
-                _channel = connection.CreateModel();
-                _channel.BasicQos(0, 16 * 1024, false);
-                _channel.ExchangeDeclare(ExchangeName, ExchangeType.Direct);
-                _channel.QueueDeclare(QueueName, true, false, false, null);
-                _channel.QueueBind(QueueName, ExchangeName, RoutingKey, null);
-            }
-            
-            public void Enque(Letter letter)
-            {
-                string json = JsonSerializer.SerializeToString(letter);
-                byte[] messageBodyBytes = Encoding.UTF8.GetBytes(json);
-                IBasicProperties props = _channel.CreateBasicProperties();
-                props.DeliveryMode = 2;
-                lock (_channel)
-                {
-                    _channel.BasicPublish(ExchangeName, RoutingKey, props, messageBodyBytes);
-                }
-            }
-
-            public void Dispose()
-            {
-                if (_channel != null)
-                {
-                    _channel.Dispose();
-                }
-            }
-        }
-        
         private sealed class IncomingLettersDequeuer : IIncomingLettersDequeuer
         {
-            private readonly QueueingBasicConsumer _consumer;
             private readonly IModel _channel;
+            private readonly QueueingBasicConsumer _consumer;
 
             public IncomingLettersDequeuer(IConnection connection)
             {
@@ -94,8 +59,8 @@ namespace SantaHo.Infrastructure.Queues
 
             private sealed class ObservableMessage : IObservableMessage<Letter>
             {
-                private readonly BasicDeliverEventArgs _deliverEventArgs;
                 private readonly IModel _channel;
+                private readonly BasicDeliverEventArgs _deliverEventArgs;
 
                 public ObservableMessage(BasicDeliverEventArgs deliverEventArgs, IModel channel)
                 {
@@ -117,6 +82,40 @@ namespace SantaHo.Infrastructure.Queues
                 public void Failed()
                 {
                     _channel.BasicReject(_deliverEventArgs.DeliveryTag, true);
+                }
+            }
+        }
+
+        private sealed class IncomingLettersEnqueuer : IIncomingLettersEnqueuer
+        {
+            private readonly IModel _channel;
+
+            public IncomingLettersEnqueuer(IConnection connection)
+            {
+                _channel = connection.CreateModel();
+                _channel.BasicQos(0, 16*1024, false);
+                _channel.ExchangeDeclare(ExchangeName, ExchangeType.Direct);
+                _channel.QueueDeclare(QueueName, true, false, false, null);
+                _channel.QueueBind(QueueName, ExchangeName, RoutingKey, null);
+            }
+
+            public void Enque(Letter letter)
+            {
+                string json = JsonSerializer.SerializeToString(letter);
+                byte[] messageBodyBytes = Encoding.UTF8.GetBytes(json);
+                IBasicProperties props = _channel.CreateBasicProperties();
+                props.DeliveryMode = 2;
+                lock (_channel)
+                {
+                    _channel.BasicPublish(ExchangeName, RoutingKey, props, messageBodyBytes);
+                }
+            }
+
+            public void Dispose()
+            {
+                if (_channel != null)
+                {
+                    _channel.Dispose();
                 }
             }
         }

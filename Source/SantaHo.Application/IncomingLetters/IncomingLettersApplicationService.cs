@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using NLog;
 using SantaHo.Core.ApplicationServices;
+using SantaHo.Core.Queues;
 using SantaHo.Domain.IncomingLetters;
 
 namespace SantaHo.Application.IncomingLetters

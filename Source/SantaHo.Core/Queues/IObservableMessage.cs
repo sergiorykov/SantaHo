@@ -1,4 +1,4 @@
-﻿namespace SantaHo.Domain.IncomingLetters
+﻿namespace SantaHo.Core.Queues
 {
     public interface IObservableMessage<out TMessage>
     {
