@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Nelibur">
       <HintPath>..\..\packages\Nelibur.3.0.2\lib\net45\Nelibur.dll</HintPath>
@@ -69,6 +72,7 @@
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="app.manifest" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
