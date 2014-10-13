@@ -4,6 +4,7 @@ using GoodBoy.Bot.Properties;
 using Nelibur.ServiceModel.Clients;
 using NLog;
 using SantaHo.ServiceContracts.Letters;
+using SantaHo.ServiceContracts.Monitoring;
 
 namespace GoodBoy.Bot.Clients
 {
@@ -26,6 +27,20 @@ namespace GoodBoy.Bot.Clients
                 _client.Post(request);
                 long number = Interlocked.Increment(ref _consecutiveFails);
                 Logger.Debug("Letter \t{2}#{1} sent from {0}", request.Name, number, Environment.CurrentManagedThreadId);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Logger.Warn(e);
+                return false;
+            }
+        }
+
+        public bool Hartbeat()
+        {
+            try
+            {
+                _client.Post(new HartbeatRequest());
                 return true;
             }
             catch (Exception e)

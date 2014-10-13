@@ -1,7 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using FluentScheduler;
-using GoodBoy.Bot.Tasks;
+using GoodBoy.Bot.Clients;
+using GoodBoy.Bot.Monitoring;
 
 namespace GoodBoy.Bot.Schedulers
 {
@@ -12,12 +12,13 @@ namespace GoodBoy.Bot.Schedulers
             Enumerable.Range(1, bots)
                 .ToList()
                 .ForEach(x => ScheduleLetterSending());
-            
+
+            Schedule<HartbeatSantaOfficeTask>().ToRunNow().AndEvery(5).Seconds();
         }
 
         private void ScheduleLetterSending()
         {
-            Schedule<SendLetterToSantaTask>().ToRunOnceIn(1).Seconds();
+            Schedule<StressTestSantaOfficeTask>().ToRunOnceIn(1).Seconds();
         }
     }
 }

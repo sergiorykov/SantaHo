@@ -4,9 +4,9 @@ using System.Linq;
 using SantaHo.Core.Extensions;
 using SantaHo.ServiceContracts.Letters;
 
-namespace GoodBoy.Bot.Tasks
+namespace GoodBoy.Bot.Clients
 {
-    public sealed class LetterProvider
+    public sealed class WishRequestProvider
     {
         private static readonly Dictionary<int, string> Wishes = GetWishesPool()
             .Select((x, i) => new KeyValuePair<int, string>(i, x))
@@ -14,7 +14,7 @@ namespace GoodBoy.Bot.Tasks
 
         private readonly Random _random;
 
-        public LetterProvider()
+        public WishRequestProvider()
         {
             _random = new Random(Environment.TickCount);
         }

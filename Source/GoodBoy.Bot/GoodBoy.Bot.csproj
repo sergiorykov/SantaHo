@@ -57,8 +57,10 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Monitoring\HartbeatSantaOfficeTask.cs" />
     <Compile Include="Clients\ISantaPostOfficeClient.cs" />
     <Compile Include="Clients\SantaPostOfficeClient.cs" />
+    <Compile Include="Clients\SantaPostOfficeState.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -69,8 +71,8 @@
     <Compile Include="Modules\GoodBoyModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tasks\LetterProvider.cs" />
-    <Compile Include="Tasks\SendLetterToSantaTask.cs" />
+    <Compile Include="Clients\WishRequestProvider.cs" />
+    <Compile Include="Clients\StressTestSantaOfficeTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

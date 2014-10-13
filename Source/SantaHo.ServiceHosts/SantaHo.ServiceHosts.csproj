@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Mappings\ContractsMappingManager.cs" />
     <Compile Include="Modules\ServiceHostsModule.cs" />
+    <Compile Include="Processors\MonitoringProcessor.cs" />
     <Compile Include="Processors\WishListProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SantaPostOfficeService.cs" />

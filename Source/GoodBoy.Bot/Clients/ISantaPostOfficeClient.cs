@@ -5,5 +5,6 @@ namespace GoodBoy.Bot.Clients
     public interface ISantaPostOfficeClient
     {
         bool Send(WishListLetterRequest request);
+        bool Hartbeat();
     }
 }
