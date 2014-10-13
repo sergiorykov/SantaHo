@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using SantaHo.Core.Queues;
+using SantaHo.Core.Processing;
 using SantaHo.Domain.IncomingLetters;
 using ServiceStack.Text;
 

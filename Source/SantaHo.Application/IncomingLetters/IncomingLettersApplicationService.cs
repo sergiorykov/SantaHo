@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using NLog;
 using SantaHo.Core.ApplicationServices;
-using SantaHo.Core.Queues;
+using SantaHo.Core.Processing;
 using SantaHo.Domain.IncomingLetters;
 
 namespace SantaHo.Application.IncomingLetters
@@ -24,6 +24,7 @@ namespace SantaHo.Application.IncomingLetters
 
         public void Start()
         {
+            _processor.Start();
             _waitingNewLetters = Task.Factory.StartNew(ProcessAwaitingLetters);
         }
 
@@ -34,6 +35,8 @@ namespace SantaHo.Application.IncomingLetters
                 _waitingNewLetters.Dispose();
                 _waitingNewLetters = null;
             }
+
+            _processor.Stop();
 
             if (_dequeuer != null)
             {
@@ -51,6 +54,11 @@ namespace SantaHo.Application.IncomingLetters
 
         private void WaitAndProcessNext()
         {
+            if (_processor.IsBusy)
+            {
+                return;
+            }
+
             IObservableMessage<Letter> letter = null;
             try
             {

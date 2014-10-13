@@ -1,4 +1,4 @@
-﻿namespace SantaHo.Core.Queues
+﻿namespace SantaHo.Core.Processing
 {
     public interface IObservableMessage<out TMessage>
     {

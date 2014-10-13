@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using Topshelf;
+﻿using Topshelf;
 
 namespace SantaHo.Console
 {

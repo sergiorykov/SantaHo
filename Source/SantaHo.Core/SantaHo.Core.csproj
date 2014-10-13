@@ -46,8 +46,10 @@
     <Compile Include="DisposableAction.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Ninject\NinjectApplicationService.cs" />
+    <Compile Include="Processing\ITaskFactory.cs" />
+    <Compile Include="Processing\SantaTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queues\IObservableMessage.cs" />
+    <Compile Include="Processing\IObservableMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

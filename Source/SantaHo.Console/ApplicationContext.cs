@@ -6,6 +6,7 @@ using NLog;
 using RabbitMQ.Client;
 using SantaHo.Console.Modules;
 using SantaHo.Core.ApplicationServices;
+using SantaHo.Domain.Configuration;
 using SantaHo.Infrastructure.Modules;
 using SantaHo.Infrastructure.Rabbit;
 using SantaHo.ServiceHosts.Modules;
@@ -26,6 +27,7 @@ namespace SantaHo.Console
 
         public bool Start()
         {
+            FailIfNot(MigrateSettings);
             FailIfNot(OpenConnections);
 
             _services = GetServices();
@@ -92,6 +94,15 @@ namespace SantaHo.Console
         private List<IApplicationService> GetServices()
         {
             return _kernel.GetAll<IApplicationService>().ToList();
+        }
+
+        private void MigrateSettings()
+        {
+            var migration = _kernel.Get<SettingsMigration>();
+            List<ISupportSettingsMigration> configurators = _kernel.GetAll<ISupportSettingsMigration>().ToList();
+            configurators.ForEach(x => x.PrepareSettings(migration));
+
+            migration.Apply();
         }
     }
 }

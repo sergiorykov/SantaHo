@@ -53,8 +53,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IncomingLetters\IncomingLetterProcessingSettings.cs" />
     <Compile Include="IncomingLetters\IncomingLetterProcessor.cs" />
     <Compile Include="IncomingLetters\IncomingLettersApplicationService.cs" />
+    <Compile Include="IncomingLetters\ProcessIncomingLetterSantaTask.cs" />
+    <Compile Include="IncomingLetters\ProcessIncomingLetterTaskFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -21,7 +21,13 @@ namespace SantaHo.Infrastructure.Modules
                 .ToMethod(x => Kernel.Get<IncomingLettersQueueManager>().GetDequeuer())
                 .InSingletonScope();
 
-            Bind<ISettingsRepository>().ToConstant(new SettingsRepository(RedisConnectionFactory.Create())).InSingletonScope();
+            Bind<SettingsMigration>().ToSelf().InSingletonScope();
+            Bind<ISettingsMigrationRegistrar>().ToMethod(x => x.Kernel.Get<SettingsMigration>()).InSingletonScope();
+
+            Bind<KeyEvaluator>().ToSelf().InSingletonScope();
+            Bind<ISettingsRepository>()
+                .ToConstructor(x => new SettingsRepository(RedisConnectionFactory.Create(), x.Inject<KeyEvaluator>()))
+                .InSingletonScope();
         }
     }
 }

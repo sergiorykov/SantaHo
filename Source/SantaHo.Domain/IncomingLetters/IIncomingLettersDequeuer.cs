@@ -1,5 +1,5 @@
 using System;
-using SantaHo.Core.Queues;
+using SantaHo.Core.Processing;
 
 namespace SantaHo.Domain.IncomingLetters
 {
