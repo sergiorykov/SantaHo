@@ -39,10 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\ISettingsRepository.cs" />
     <Compile Include="IncomingLetters\IIncomingLetterProcessor.cs" />
     <Compile Include="IncomingLetters\IIncomingLettersDequeuer.cs" />
     <Compile Include="IncomingLetters\IIncomingLettersEnqueuer.cs" />
     <Compile Include="IncomingLetters\Letter.cs" />
+    <Compile Include="Presents\Present.cs" />
+    <Compile Include="Presents\Gift.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

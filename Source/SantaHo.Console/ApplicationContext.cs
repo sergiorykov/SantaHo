@@ -6,8 +6,8 @@ using NLog;
 using RabbitMQ.Client;
 using SantaHo.Console.Modules;
 using SantaHo.Core.ApplicationServices;
-using SantaHo.Infrastructure.Factories;
 using SantaHo.Infrastructure.Modules;
+using SantaHo.Infrastructure.Rabbit;
 using SantaHo.ServiceHosts.Modules;
 
 namespace SantaHo.Console

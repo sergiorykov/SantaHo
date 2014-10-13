@@ -5,7 +5,7 @@ using SantaHo.Core.Queues;
 using SantaHo.Domain.IncomingLetters;
 using ServiceStack.Text;
 
-namespace SantaHo.Infrastructure.Queues
+namespace SantaHo.Infrastructure.Rabbit.Queues
 {
     public sealed class IncomingLettersQueueManager
     {

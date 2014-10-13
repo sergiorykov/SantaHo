@@ -1,8 +1,9 @@
 ﻿using Ninject;
 using Ninject.Modules;
-using SantaHo.Core.ApplicationServices;
+using SantaHo.Domain.Configuration;
 using SantaHo.Domain.IncomingLetters;
-using SantaHo.Infrastructure.Queues;
+using SantaHo.Infrastructure.Rabbit.Queues;
+using SantaHo.Infrastructure.Redis;
 
 namespace SantaHo.Infrastructure.Modules
 {
@@ -19,6 +20,8 @@ namespace SantaHo.Infrastructure.Modules
             Bind<IIncomingLettersDequeuer>()
                 .ToMethod(x => Kernel.Get<IncomingLettersQueueManager>().GetDequeuer())
                 .InSingletonScope();
+
+            Bind<ISettingsRepository>().ToConstant(new SettingsRepository(RedisConnectionFactory.Create())).InSingletonScope();
         }
     }
 }
