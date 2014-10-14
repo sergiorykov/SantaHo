@@ -13,6 +13,7 @@ So, please, welcome!
 
 
 Additional, secondary goals:
+
 * To write and think in english;
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo);
 * Experiment with development practises like feature-per-branch, git-flow;
