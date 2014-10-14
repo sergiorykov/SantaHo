@@ -61,6 +61,9 @@
     <Compile Include="IncomingLetters\IncomingLettersApplicationService.cs" />
     <Compile Include="IncomingLetters\ProcessIncomingLetterTask.cs" />
     <Compile Include="IncomingLetters\ProcessIncomingLetterTaskFactory.cs" />
+    <Compile Include="Presents\Cars\CarToyFactory.cs" />
+    <Compile Include="Presents\PresentOrderProcessor.cs" />
+    <Compile Include="Presents\ToyFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

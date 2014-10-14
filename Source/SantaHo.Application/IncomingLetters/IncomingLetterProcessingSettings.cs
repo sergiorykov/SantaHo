@@ -2,7 +2,7 @@
 
 namespace SantaHo.Application.IncomingLetters
 {
-    [SettingsKey("IncomingLetterProcessingSettings.Working")]
+    [SettingsKey("IncomingLetterProcessingSettings")]
     public class IncomingLetterProcessingSettings
     {
         public int MaxAwaiting { get; set; }

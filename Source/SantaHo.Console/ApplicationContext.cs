@@ -19,7 +19,9 @@ namespace SantaHo.Console
 
         private readonly IKernel _kernel = new StandardKernel(
             new InfrastructureModule(),
-            new ApplicationModule(),
+            new IncomingLettersModule(),
+            new PresentsModule(),
+            new SantaOfficeModule(),
             new ServiceHostsModule());
 
         private IConnection _connection;
