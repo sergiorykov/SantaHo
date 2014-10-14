@@ -4,6 +4,7 @@ Simple client-server application, that accepts and processes letters to Santa. Y
 
 So, please, welcome!
 
+![Greetings from Santa!](https://bytebucket.org/sergiorykov/santaho/raw/93651cd08da5112c9ae90e40f17af5c8b2512bbf/Build/logo.jpg?token=e49860ed2ca89d98c10034c10dd4edc81a483fea)
 ### This is a platform for me and may be for you too for ###
 
 * reaserching new techonologies (RabbitMQ, Redis, so on);
