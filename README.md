@@ -12,7 +12,7 @@ So, please, welcome!
 * an attempt to create distributed high load application;
 
 
-Additional, secondary goals:
+Secondary but pretty important goals:
 
 * To write and think in english;
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo);
