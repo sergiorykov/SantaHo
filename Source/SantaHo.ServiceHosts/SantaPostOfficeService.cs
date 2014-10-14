@@ -28,9 +28,10 @@ namespace SantaHo.ServiceHosts
             ContractsMappingManager.Configure();
         }
 
-        private void Bind<TRequest, TProcessor>(IConfiguration configuration)where TRequest : class where TProcessor : IRequestOperation
+        private void Bind<TRequest, TProcessor>(IConfiguration configuration) where TRequest : class
+            where TProcessor : IRequestOperation
         {
-            Func<TProcessor> processorFactory = () => Kirnel.Get<TProcessor>();
+            Func<TProcessor> processorFactory = () => Kernel.Get<TProcessor>();
             configuration.Bind<TRequest, TProcessor>(processorFactory);
         }
 

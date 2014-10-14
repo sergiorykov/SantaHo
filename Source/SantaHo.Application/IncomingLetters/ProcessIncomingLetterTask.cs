@@ -5,11 +5,11 @@ using SantaHo.Domain.IncomingLetters;
 
 namespace SantaHo.Application.IncomingLetters
 {
-    public class ProcessIncomingLetterSantaTask : ProcessingTask<IObservableMessage<Letter>>
+    public class ProcessIncomingLetterTask : ProcessingTask<IObservableMessage<Letter>>
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
-        public ProcessIncomingLetterSantaTask(IObservableMessage<Letter> letter): base(letter)
+        public ProcessIncomingLetterTask(IObservableMessage<Letter> letter): base(letter)
         {
         }
 
