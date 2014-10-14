@@ -1,6 +1,6 @@
 ﻿namespace SantaHo.Core.Processing
 {
-    public abstract class SantaTask
+    public abstract class ProcessingTask
     {
         public void Execute()
         {
@@ -10,9 +10,9 @@
         protected abstract void ExecuteCore();
     }
 
-    public abstract class SantaTask<TValue> : SantaTask
+    public abstract class ProcessingTask<TValue> : ProcessingTask
     {
-        protected SantaTask(TValue value)
+        protected ProcessingTask(TValue value)
         {
             Value = value;
         }
