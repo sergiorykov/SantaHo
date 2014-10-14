@@ -3,11 +3,11 @@ using SantaHo.Domain.IncomingLetters;
 
 namespace SantaHo.Application.IncomingLetters
 {
-    public class ProcessIncomingLetterTaskFactory : ITaskFactory<IObservableMessage<Letter>, ProcessIncomingLetterSantaTask>
+    public class ProcessIncomingLetterTaskFactory : ITaskFactory<IObservableMessage<Letter>, ProcessIncomingLetterTask>
     {
-        public ProcessIncomingLetterSantaTask Create(IObservableMessage<Letter> letter)
+        public ProcessIncomingLetterTask Create(IObservableMessage<Letter> letter)
         {
-            return new ProcessIncomingLetterSantaTask(letter);
+            return new ProcessIncomingLetterTask(letter);
         }
     }
 }

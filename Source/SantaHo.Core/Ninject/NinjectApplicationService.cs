@@ -7,10 +7,10 @@ namespace SantaHo.Core.Ninject
     {
         protected NinjectApplicationService(IKernel kernel)
         {
-            Kirnel = kernel;
+            Kernel = kernel;
         }
 
-        protected IKernel Kirnel { get; private set; }
+        protected IKernel Kernel { get; private set; }
 
         public abstract void Start();
 

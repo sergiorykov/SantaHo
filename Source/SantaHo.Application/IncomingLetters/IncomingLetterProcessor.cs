@@ -11,18 +11,17 @@ namespace SantaHo.Application.IncomingLetters
 {
     public class IncomingLetterProcessor : IIncomingLetterProcessor, ISupportSettingsMigration
     {
-        private readonly ConcurrentQueue<ProcessIncomingLetterSantaTask> _queue =
-            new ConcurrentQueue<ProcessIncomingLetterSantaTask>();
+        private readonly ConcurrentQueue<ProcessIncomingLetterTask> _queue =
+            new ConcurrentQueue<ProcessIncomingLetterTask>();
 
         private readonly ISettingsRepository _settingsRepository;
-        private readonly ITaskFactory<IObservableMessage<Letter>, ProcessIncomingLetterSantaTask> _taskFactory;
+        private readonly ProcessIncomingLetterTaskFactory _taskFactory;
         private CancellationTokenSource _cancellationTokenSource;
         private int _processed;
         private IncomingLetterProcessingSettings _settings = IncomingLetterProcessingSettings.Default;
 
         public IncomingLetterProcessor(
-            ISettingsRepository settingsRepository,
-            ITaskFactory<IObservableMessage<Letter>, ProcessIncomingLetterSantaTask> taskFactory)
+            ProcessIncomingLetterTaskFactory taskFactory, ISettingsRepository settingsRepository)
         {
             _settingsRepository = settingsRepository;
             _taskFactory = taskFactory;
@@ -32,7 +31,7 @@ namespace SantaHo.Application.IncomingLetters
         {
             int letterNumber = Interlocked.Increment(ref _processed);
 
-            ProcessIncomingLetterSantaTask task = _taskFactory.Create(letter);
+            ProcessIncomingLetterTask task = _taskFactory.Create(letter);
             _queue.Enqueue(task);
         }
 
@@ -81,7 +80,7 @@ namespace SantaHo.Application.IncomingLetters
         {
             while (true)
             {
-                ProcessIncomingLetterSantaTask task;
+                ProcessIncomingLetterTask task;
                 if (_queue.TryDequeue(out task))
                 {
                     task.Execute();
@@ -93,7 +92,7 @@ namespace SantaHo.Application.IncomingLetters
         {
             while (!_queue.IsEmpty)
             {
-                ProcessIncomingLetterSantaTask task;
+                ProcessIncomingLetterTask task;
                 if (_queue.TryDequeue(out task))
                 {
                     task.Abort();
