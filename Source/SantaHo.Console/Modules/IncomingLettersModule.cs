@@ -6,13 +6,12 @@ using SantaHo.Domain.IncomingLetters;
 
 namespace SantaHo.Console.Modules
 {
-    public sealed class ApplicationModule : NinjectModule
+    public sealed class IncomingLettersModule : NinjectModule
     {
         public override void Load()
         {
             Bind<IIncomingLetterProcessor>().To<IncomingLetterProcessor>().InSingletonScope();
             Bind<ProcessIncomingLetterTaskFactory>().ToSelf().InSingletonScope();
-
             Bind<ISupportSettingsMigration>().To<IncomingLetterProcessor>().InSingletonScope();
 
             Bind<IApplicationService>()

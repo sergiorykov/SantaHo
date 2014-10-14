@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace SantaHo.Domain.Presents
 {
@@ -8,6 +9,8 @@ namespace SantaHo.Domain.Presents
         {
             Toys = new List<Toy>();
         }
+
+        public Guid Id { get; set; }
 
         public string To { get; set; }
 

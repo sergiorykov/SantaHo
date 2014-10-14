@@ -9,7 +9,7 @@ namespace SantaHo.Domain.IncomingLetters
             Wishes = new List<string>();
         }
 
-        public string Name { get; set; }
+        public string From { get; set; }
         public List<string> Wishes { get; set; }
     }
 }

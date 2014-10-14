@@ -17,6 +17,6 @@
             Value = value;
         }
 
-        public TValue Value { get; private set; }
+        protected TValue Value { get; private set; }
     }
 }

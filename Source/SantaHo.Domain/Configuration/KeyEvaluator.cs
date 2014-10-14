@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using SantaHo.Core.Extensions;
 using ServiceStack;
 
 namespace SantaHo.Domain.Configuration
@@ -12,8 +14,14 @@ namespace SantaHo.Domain.Configuration
 
         protected virtual string GetKeyCore<TValue>()
         {
-            var valueType = typeof(TValue);
-            var settingsKey = valueType.AllAttributes<SettingsKeyAttribute>().FirstOrDefault();
+            string typeKey = GetTypeKey<TValue>();
+            return "{0}:working".F(typeKey);
+        }
+
+        private static string GetTypeKey<TValue>()
+        {
+            Type valueType = typeof (TValue);
+            SettingsKeyAttribute settingsKey = valueType.AllAttributes<SettingsKeyAttribute>().FirstOrDefault();
             if (settingsKey != null)
             {
                 return settingsKey.Key;

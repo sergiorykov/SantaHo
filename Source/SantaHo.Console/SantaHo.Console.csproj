@@ -70,7 +70,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationContext.cs" />
-    <Compile Include="Modules\ApplicationModule.cs" />
+    <Compile Include="Modules\IncomingLettersModule.cs" />
+    <Compile Include="Modules\PresentsModule.cs" />
+    <Compile Include="Modules\SantaOfficeModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
