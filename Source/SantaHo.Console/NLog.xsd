@@ -1226,7 +1226,7 @@
           <xs:element name="append" minOccurs="0" maxOccurs="1" type="xs:boolean" />
           <xs:element name="controlName" minOccurs="0" maxOccurs="1" type="xs:string" />
           <xs:element name="formName" minOccurs="0" maxOccurs="1" type="xs:string" />
-          <xs:element name="reversePresent" minOccurs="0" maxOccurs="1" type="xs:boolean" />
+          <xs:element name="reverseOrder" minOccurs="0" maxOccurs="1" type="xs:boolean" />
         </xs:choice>
         <xs:attribute name="name" type="xs:string">
           <xs:annotation>
@@ -1253,7 +1253,7 @@
             <xs:documentation>Name of the Form on which the control is located.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="reversePresent" type="xs:boolean">
+        <xs:attribute name="reverseOrder" type="xs:boolean">
           <xs:annotation>
             <xs:documentation>Whether new log entry are added to the start or the end of the control</xs:documentation>
           </xs:annotation>

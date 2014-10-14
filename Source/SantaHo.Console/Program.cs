@@ -8,12 +8,17 @@ namespace SantaHo.Console
         {
             HostFactory.New(x =>
             {
-                x.Service<ApplicationService>();
+                x.Service<ApplicationContext>(s =>
+                {
+                    s.ConstructUsing(() => new ApplicationContext());
+                    s.WhenStarted(app => app.Start());
+                    s.WhenStopped(app => app.Stop());
+                });
                 x.RunAsLocalSystem();
                 x.StartAutomatically();
 
                 x.SetDescription("Santa Ho Host");
-                x.SetDisplayName("SantaHo");
+                x.SetDisplayName("Santa Ho");
                 x.SetServiceName("SantaHo");
             }).Run();
         }
