@@ -7,13 +7,5 @@ namespace SantaHo.Application.Presents
         public void Process(PresentOrder order)
         {
         }
-
-        public void Start()
-        {
-        }
-
-        public void Stop()
-        {
-        }
     }
 }
