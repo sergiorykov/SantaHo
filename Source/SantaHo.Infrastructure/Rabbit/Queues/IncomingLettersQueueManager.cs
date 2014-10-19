@@ -3,7 +3,7 @@ using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using SantaHo.Core.Processing;
 using SantaHo.Domain.IncomingLetters;
-using ServiceStack.Text;
+using Newtonsoft.Json;
 
 namespace SantaHo.Infrastructure.Rabbit.Queues
 {
@@ -69,7 +69,7 @@ namespace SantaHo.Infrastructure.Rabbit.Queues
 
                     byte[] body = deliverEventArgs.Body;
                     string message = Encoding.UTF8.GetString(body);
-                    Message = JsonSerializer.DeserializeFromString<Letter>(message);
+                    Message = JsonConvert.DeserializeObject<Letter>(message);
                 }
 
                 public Letter Message { get; private set; }
@@ -101,7 +101,7 @@ namespace SantaHo.Infrastructure.Rabbit.Queues
 
             public void Enque(Letter letter)
             {
-                string json = JsonSerializer.SerializeToString(letter);
+                string json = JsonConvert.SerializeObject(letter);
                 byte[] messageBodyBytes = Encoding.UTF8.GetBytes(json);
                 IBasicProperties props = _channel.CreateBasicProperties();
                 props.DeliveryMode = 2;

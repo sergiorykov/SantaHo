@@ -1,5 +1,5 @@
 ﻿using SantaHo.Domain.Configuration;
-using ServiceStack.Text;
+using Newtonsoft.Json;
 using StackExchange.Redis;
 
 namespace SantaHo.Infrastructure.Redis
@@ -19,13 +19,13 @@ namespace SantaHo.Infrastructure.Redis
         {
             string key = _keyEvaluator.GetKey<TValue>();
             RedisValue value = _database.StringGet(key);
-            return new JsonSerializer<TValue>().DeserializeFromString(value);
+            return JsonConvert.DeserializeObject<TValue>(value);
         }
 
         public void Set<TValue>(TValue value) where TValue : class
         {
             string key = _keyEvaluator.GetKey<TValue>();
-            string serializedValue = new JsonSerializer<TValue>().SerializeToString(value);
+            string serializedValue = JsonConvert.SerializeObject(value);
             _database.StringSet(key, serializedValue);
         }
     }

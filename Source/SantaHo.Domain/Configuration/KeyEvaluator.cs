@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
 using SantaHo.Core.Extensions;
-using ServiceStack;
 
 namespace SantaHo.Domain.Configuration
 {
@@ -21,7 +21,7 @@ namespace SantaHo.Domain.Configuration
         private static string GetTypeKey<TValue>()
         {
             Type valueType = typeof (TValue);
-            SettingsKeyAttribute settingsKey = valueType.AllAttributes<SettingsKeyAttribute>().FirstOrDefault();
+            SettingsKeyAttribute settingsKey = valueType.GetCustomAttributes<SettingsKeyAttribute>().FirstOrDefault();
             if (settingsKey != null)
             {
                 return settingsKey.Key;
