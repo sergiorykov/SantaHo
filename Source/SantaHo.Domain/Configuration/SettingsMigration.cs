@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using SantaHo.Core.Extensions;
 
 namespace SantaHo.Domain.Configuration
 {
@@ -47,6 +49,13 @@ namespace SantaHo.Domain.Configuration
             where TCurrentSettings : class
         {
             var originalValue = _settingsRepository.Get<TOriginalSettings>();
+            if (originalValue == null)
+            {
+                "Settings not found for {0}:"
+                    .F(typeof (TOriginalSettings).FullName)
+                    .Throw<SettingsPropertyNotFoundException>();
+            }
+
             TCurrentSettings currentValue = converter.Convert(originalValue);
             _settingsRepository.Set(currentValue);
         }
