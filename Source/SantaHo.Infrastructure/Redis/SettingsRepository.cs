@@ -1,5 +1,5 @@
-﻿using SantaHo.Domain.Configuration;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
+using SantaHo.Core.Configuration;
 using StackExchange.Redis;
 
 namespace SantaHo.Infrastructure.Redis

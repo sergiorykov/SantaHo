@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SantaHo.Domain.Configuration
+namespace SantaHo.Core.Configuration
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
     public class SettingsKeyAttribute : Attribute

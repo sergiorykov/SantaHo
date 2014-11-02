@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Rabbit\Queues\ToyOrdersQueueManager.cs" />
     <Compile Include="Rabbit\RabbitConnectionFactory.cs" />
     <Compile Include="Modules\InfrastructureModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

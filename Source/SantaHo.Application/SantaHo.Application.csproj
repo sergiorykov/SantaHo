@@ -43,7 +43,6 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -54,9 +53,9 @@
     <Compile Include="IncomingLetters\IncomingLettersApplicationService.cs" />
     <Compile Include="IncomingLetters\ProcessIncomingLetterTask.cs" />
     <Compile Include="IncomingLetters\ProcessIncomingLetterTaskFactory.cs" />
-    <Compile Include="Presents\Cars\CarToyFactory.cs" />
+    <Compile Include="Presents\Cars\CarToyOrderProcessor.cs" />
     <Compile Include="Presents\PresentOrderProcessor.cs" />
-    <Compile Include="Presents\ToyFactory.cs" />
+    <Compile Include="Presents\PresentOrederApplictaionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

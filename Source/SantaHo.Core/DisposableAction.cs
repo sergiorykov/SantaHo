@@ -4,11 +4,16 @@ namespace SantaHo.Core
 {
     public class DisposableAction : IDisposable
     {
-        private Action _action;
+        private readonly Action _action;
 
         private DisposableAction(Action action)
         {
             _action = action;
+        }
+
+        public void Dispose()
+        {
+            _action();
         }
 
         public static IDisposable From(Action action)
@@ -19,11 +24,6 @@ namespace SantaHo.Core
             }
 
             return new DisposableAction(action);
-        }
-        
-        public void Dispose()
-        {
-            _action();
         }
     }
 }

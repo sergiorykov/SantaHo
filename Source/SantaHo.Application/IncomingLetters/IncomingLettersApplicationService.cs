@@ -21,7 +21,7 @@ namespace SantaHo.Application.IncomingLetters
             _processor = processor;
             _dequeuer = dequeuer;
         }
-
+        
         public void Start()
         {
             _processor.Start();

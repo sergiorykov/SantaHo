@@ -1,6 +1,4 @@
-﻿using SantaHo.Domain.Presents;
-
-namespace SantaHo.Application.Presents
+﻿namespace SantaHo.Domain.Presents
 {
     public abstract class ToyFactory<TToy> where TToy : Toy
     {

@@ -6,7 +6,8 @@ using NLog;
 using RabbitMQ.Client;
 using SantaHo.Console.Modules;
 using SantaHo.Core.ApplicationServices;
-using SantaHo.Domain.Configuration;
+using SantaHo.Core.Configuration;
+using SantaHo.Core.Infrastructure.Extensions;
 using SantaHo.Infrastructure.Modules;
 using SantaHo.Infrastructure.Rabbit;
 using SantaHo.ServiceHosts.Modules;
@@ -43,10 +44,12 @@ namespace SantaHo.Console
 
         public void Stop()
         {
-            ExecuteIgnoreResult(CloseConnections);
+            Logger.Info("Application is stopping...");
+
+            this.IgnoreFailureWhen(x => x.CloseConnections());
             foreach (IApplicationService service in _services)
             {
-                ExecuteIgnoreResult(() => service.Stop());
+                service.IgnoreFailureWhen(x => x.Stop());
             }
         }
 
@@ -59,8 +62,8 @@ namespace SantaHo.Console
             catch (Exception e)
             {
                 Logger.Warn(e);
+                Logger.Error("Application failed to start");
 
-                Logger.Error("Application failed to start. Stopping...");
                 Stop();
 
                 throw new InvalidOperationException("Application failed to start");
@@ -71,19 +74,7 @@ namespace SantaHo.Console
         {
             if (_connection != null)
             {
-                ExecuteIgnoreResult(() => _connection.Close());
-            }
-        }
-
-        private static void ExecuteIgnoreResult(Action action)
-        {
-            try
-            {
-                action();
-            }
-            catch (Exception e)
-            {
-                Logger.Warn(e);
+                _connection.IgnoreFailureWhen(x => x.Close());
             }
         }
 

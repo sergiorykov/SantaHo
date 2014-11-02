@@ -1,7 +1,7 @@
 ﻿using Ninject;
 using SantaHo.Core.ApplicationServices;
 
-namespace SantaHo.Core.Ninject
+namespace SantaHo.Core.Infrastructure.ApplicationServices
 {
     public abstract class NinjectApplicationService : IApplicationService
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using SantaHo.Core.Extensions;
 
-namespace SantaHo.Domain.Configuration
+namespace SantaHo.Core.Configuration
 {
     public class SettingsMigration : ISettingsMigrationRegistrar
     {

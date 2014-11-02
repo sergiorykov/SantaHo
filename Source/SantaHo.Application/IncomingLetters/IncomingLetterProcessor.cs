@@ -3,8 +3,8 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using SantaHo.Core.Configuration;
 using SantaHo.Core.Processing;
-using SantaHo.Domain.Configuration;
 using SantaHo.Domain.IncomingLetters;
 
 namespace SantaHo.Application.IncomingLetters
@@ -38,7 +38,7 @@ namespace SantaHo.Application.IncomingLetters
         public void Start()
         {
             _settings = _settingsRepository.Get<IncomingLetterProcessingSettings>();
-            _cancellationTokenSource = CreateProcessingTasks();
+            _cancellationTokenSource = StartProcessing();
         }
 
         public void Stop()
@@ -48,7 +48,7 @@ namespace SantaHo.Application.IncomingLetters
                 _cancellationTokenSource.Cancel();
             }
 
-            AbortAllPendingInQueue();
+            AbortAllPendingTasksInQueue();
         }
 
         public bool IsBusy
@@ -61,7 +61,7 @@ namespace SantaHo.Application.IncomingLetters
             registrar.Register(IncomingLetterProcessingSettings.Default);
         }
 
-        private CancellationTokenSource CreateProcessingTasks()
+        private CancellationTokenSource StartProcessing()
         {
             var cancellationSource = new CancellationTokenSource();
             int workingThreads = Math.Max(
@@ -88,7 +88,7 @@ namespace SantaHo.Application.IncomingLetters
             }
         }
 
-        private void AbortAllPendingInQueue()
+        private void AbortAllPendingTasksInQueue()
         {
             while (!_queue.IsEmpty)
             {

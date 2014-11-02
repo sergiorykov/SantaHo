@@ -1,4 +1,4 @@
-﻿using SantaHo.Domain.Configuration;
+﻿using SantaHo.Core.Configuration;
 
 namespace SantaHo.Application.IncomingLetters
 {

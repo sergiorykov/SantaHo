@@ -5,10 +5,12 @@ using Nelibur.ServiceModel.Services;
 using Nelibur.ServiceModel.Services.Default;
 using Nelibur.ServiceModel.Services.Operations;
 using Ninject;
-using SantaHo.Core.Ninject;
+using SantaHo.Core.Infrastructure;
+using SantaHo.Core.Infrastructure.ApplicationServices;
 using SantaHo.ServiceContracts.Letters;
 using SantaHo.ServiceContracts.Monitoring;
 using SantaHo.ServiceHosts.Mappings;
+using SantaHo.ServiceHosts.Modules;
 using SantaHo.ServiceHosts.Processors;
 
 namespace SantaHo.ServiceHosts
@@ -19,6 +21,8 @@ namespace SantaHo.ServiceHosts
 
         public SantaPostOfficeService(IKernel kernel) : base(kernel)
         {
+            kernel.Load(new ServiceHostsModule());
+
             NeliburRestService.Configure(x =>
             {
                 Bind<WishListLetterRequest, WishListProcessor>(x);

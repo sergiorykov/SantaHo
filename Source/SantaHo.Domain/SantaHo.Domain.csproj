@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NLog">
+      <HintPath>..\..\packages\NLog.3.1.0.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,20 +44,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\ISettingsMigrationRegistrar.cs" />
-    <Compile Include="Configuration\ISettingsRepository.cs" />
-    <Compile Include="Configuration\ISupportSettingsMigration.cs" />
-    <Compile Include="Configuration\KeyEvaluator.cs" />
-    <Compile Include="Configuration\SettingsConverter.cs" />
-    <Compile Include="Configuration\SettingsKeyAttribute.cs" />
-    <Compile Include="Configuration\SettingsMigration.cs" />
     <Compile Include="IncomingLetters\IIncomingLetterProcessor.cs" />
     <Compile Include="IncomingLetters\IIncomingLettersDequeuer.cs" />
     <Compile Include="IncomingLetters\IIncomingLettersEnqueuer.cs" />
     <Compile Include="IncomingLetters\Letter.cs" />
+    <Compile Include="Presents\Cars\CarToyFactory.cs" />
     <Compile Include="Presents\IPresentOrderProcessor.cs" />
+    <Compile Include="Presents\IToyOrderCategoryRegistrar.cs" />
     <Compile Include="Presents\Present.cs" />
     <Compile Include="Presents\PresentOrder.cs" />
+    <Compile Include="Presents\ToyFactory.cs" />
+    <Compile Include="SantaOffice\IToyOrderDequeuer.cs" />
+    <Compile Include="SantaOffice\IToyOrdersEnqueuer.cs" />
     <Compile Include="SantaOffice\RejectedWish.cs" />
     <Compile Include="Presents\Toy.cs" />
     <Compile Include="Presents\Cars\CarToy.cs" />
@@ -68,7 +69,9 @@
       <Name>SantaHo.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

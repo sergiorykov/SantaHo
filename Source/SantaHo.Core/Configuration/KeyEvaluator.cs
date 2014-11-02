@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using SantaHo.Core.Extensions;
 
-namespace SantaHo.Domain.Configuration
+namespace SantaHo.Core.Configuration
 {
     public class KeyEvaluator
     {

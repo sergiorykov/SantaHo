@@ -91,6 +91,10 @@
       <Project>{1f7f1ffc-1acc-49f6-a546-9acb6e85c2bd}</Project>
       <Name>SantaHo.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SantaHo.Core.Infrastructure\SantaHo.Core.Infrastructure.csproj">
+      <Project>{e8c4e7c2-7aef-4b7e-befc-142142c18f48}</Project>
+      <Name>SantaHo.Core.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SantaHo.Core\SantaHo.Core.csproj">
       <Project>{9af869c7-117d-49c3-9762-4f1b0af8767f}</Project>
       <Name>SantaHo.Core</Name>

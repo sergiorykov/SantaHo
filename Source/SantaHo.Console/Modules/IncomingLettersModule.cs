@@ -1,7 +1,7 @@
 ﻿using Ninject.Modules;
 using SantaHo.Application.IncomingLetters;
 using SantaHo.Core.ApplicationServices;
-using SantaHo.Domain.Configuration;
+using SantaHo.Core.Configuration;
 using SantaHo.Domain.IncomingLetters;
 
 namespace SantaHo.Console.Modules

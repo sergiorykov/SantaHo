@@ -1,9 +1,9 @@
-﻿using SantaHo.Domain.Presents.Cars;
-
-namespace SantaHo.Application.Presents.Cars
+﻿namespace SantaHo.Domain.Presents.Cars
 {
-    public class CarToyFactory : ToyFactory<CarToy>
+    public sealed class CarToyFactory : ToyFactory<CarToy>
     {
+        public const string Category = "car";
+
         protected override CarToy CreateCore()
         {
             return new CarToy
