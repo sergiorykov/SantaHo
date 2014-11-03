@@ -29,6 +29,10 @@ namespace SantaHo.Infrastructure.Modules
         {
             Bind<ToyOrdersQueueManager>().ToSelf().InSingletonScope();
 
+            Bind<IToyOrdersQueueManager>()
+                .ToMethod(x => Kernel.Get<ToyOrdersQueueManager>())
+                .InSingletonScope();
+
             Bind<IToyOrderCategoryRegistrar>()
                 .ToMethod(x => Kernel.Get<ToyOrdersQueueManager>())
                 .InSingletonScope();

@@ -51,6 +51,7 @@
     <Compile Include="Presents\Cars\CarToyFactory.cs" />
     <Compile Include="Presents\IPresentOrderProcessor.cs" />
     <Compile Include="Presents\IToyOrderCategoryRegistrar.cs" />
+    <Compile Include="Presents\IToyOrdersQueueManager.cs" />
     <Compile Include="Presents\Present.cs" />
     <Compile Include="Presents\PresentOrder.cs" />
     <Compile Include="Presents\ToyFactory.cs" />

@@ -1,18 +1,18 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using SantaHo.Core.Processing;
 using SantaHo.Domain.Presents;
-using SantaHo.Domain.Presents.Cars;
 using SantaHo.Domain.SantaOffice;
 
-namespace SantaHo.Application.Presents.Cars
+namespace SantaHo.Application.Presents
 {
-    public class CarToyOrderProcessor
+    public class ToyOrderProcessor<TToy> : IToyOrderProcessor where TToy : Toy
     {
         private readonly IToyOrderDequeuer _dequeuer;
-        private readonly ToyFactory<CarToy> _toyFactory;
+        private readonly ToyFactory<TToy> _toyFactory;
         private CancellationTokenSource _cancellationTokenSource;
 
-        public CarToyOrderProcessor(IToyOrderDequeuer dequeuer, ToyFactory<CarToy> toyFactory)
+        public ToyOrderProcessor(IToyOrderDequeuer dequeuer, ToyFactory<TToy> toyFactory)
         {
             _dequeuer = dequeuer;
             _toyFactory = toyFactory;
@@ -40,10 +40,9 @@ namespace SantaHo.Application.Presents.Cars
         {
             while (true)
             {
-                var order = _dequeuer.Dequeue();
+                IObservableMessage<ToyOrder> order = _dequeuer.Dequeue();
                 _toyFactory.Create();
             }
-            
         }
     }
 }

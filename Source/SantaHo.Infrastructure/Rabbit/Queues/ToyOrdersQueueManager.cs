@@ -12,7 +12,7 @@ using SantaHo.Domain.SantaOffice;
 
 namespace SantaHo.Infrastructure.Rabbit.Queues
 {
-    public sealed class ToyOrdersQueueManager : IToyOrderCategoryRegistrar
+    public sealed class ToyOrdersQueueManager : IToyOrderCategoryRegistrar, IToyOrdersQueueManager
     {
         private const string ExchangeName = "dispatch-toy-orders";
         private const string QueueNamePrefix = "make-toy-";

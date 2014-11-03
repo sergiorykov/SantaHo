@@ -53,15 +53,20 @@
     <Compile Include="IncomingLetters\IncomingLettersApplicationService.cs" />
     <Compile Include="IncomingLetters\ProcessIncomingLetterTask.cs" />
     <Compile Include="IncomingLetters\ProcessIncomingLetterTaskFactory.cs" />
-    <Compile Include="Presents\Cars\CarToyOrderProcessor.cs" />
+    <Compile Include="Presents\IToyOrderProcessor.cs" />
+    <Compile Include="Presents\ToyOrderProcessor.cs" />
     <Compile Include="Presents\PresentOrderProcessor.cs" />
-    <Compile Include="Presents\PresentOrederApplictaionService.cs" />
+    <Compile Include="Presents\PresentOrderApplictaionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SantaHo.Core.Infrastructure\SantaHo.Core.Infrastructure.csproj">
+      <Project>{E8C4E7C2-7AEF-4B7E-BEFC-142142C18F48}</Project>
+      <Name>SantaHo.Core.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SantaHo.Core\SantaHo.Core.csproj">
       <Project>{9af869c7-117d-49c3-9762-4f1b0af8767f}</Project>
       <Name>SantaHo.Core</Name>
