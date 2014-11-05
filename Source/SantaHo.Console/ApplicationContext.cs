@@ -7,7 +7,7 @@ using RabbitMQ.Client;
 using SantaHo.Console.Modules;
 using SantaHo.Core.ApplicationServices;
 using SantaHo.Core.Configuration;
-using SantaHo.Core.Infrastructure.Extensions;
+using SantaHo.Infrastructure.Core.Extensions;
 using SantaHo.Infrastructure.Modules;
 using SantaHo.Infrastructure.Rabbit;
 using SantaHo.ServiceHosts.Modules;

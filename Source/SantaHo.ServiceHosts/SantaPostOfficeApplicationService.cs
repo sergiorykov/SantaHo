@@ -5,8 +5,7 @@ using Nelibur.ServiceModel.Services;
 using Nelibur.ServiceModel.Services.Default;
 using Nelibur.ServiceModel.Services.Operations;
 using Ninject;
-using SantaHo.Core.Infrastructure;
-using SantaHo.Core.Infrastructure.ApplicationServices;
+using SantaHo.Infrastructure.Core.ApplicationServices;
 using SantaHo.ServiceContracts.Letters;
 using SantaHo.ServiceContracts.Monitoring;
 using SantaHo.ServiceHosts.Mappings;
@@ -15,11 +14,11 @@ using SantaHo.ServiceHosts.Processors;
 
 namespace SantaHo.ServiceHosts
 {
-    public class SantaPostOfficeService : NinjectApplicationService
+    public sealed class SantaPostOfficeApplicationService : NinjectApplicationService
     {
         private ServiceHost _serviceHost;
 
-        public SantaPostOfficeService(IKernel kernel) : base(kernel)
+        public SantaPostOfficeApplicationService(IKernel kernel) : base(kernel)
         {
             kernel.Load(new ServiceHostsModule());
 

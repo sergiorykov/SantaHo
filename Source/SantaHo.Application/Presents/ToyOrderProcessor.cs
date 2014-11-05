@@ -1,5 +1,7 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
+using NLog;
 using SantaHo.Core.Processing;
 using SantaHo.Domain.Presents;
 using SantaHo.Domain.SantaOffice;
@@ -8,6 +10,7 @@ namespace SantaHo.Application.Presents
 {
     public class ToyOrderProcessor<TToy> : IToyOrderProcessor where TToy : Toy
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly IToyOrderDequeuer _dequeuer;
         private readonly ToyFactory<TToy> _toyFactory;
         private CancellationTokenSource _cancellationTokenSource;
@@ -23,7 +26,7 @@ namespace SantaHo.Application.Presents
             if (_cancellationTokenSource == null)
             {
                 _cancellationTokenSource = new CancellationTokenSource();
-                Task.Factory.StartNew(AwaitAndProcessOrder, _cancellationTokenSource.Token);
+                Task.Factory.StartNew(AwaitDequeueAndProcess, _cancellationTokenSource.Token);
             }
         }
 
@@ -36,12 +39,26 @@ namespace SantaHo.Application.Presents
             }
         }
 
-        private void AwaitAndProcessOrder()
+        private void AwaitDequeueAndProcess()
         {
             while (true)
             {
                 IObservableMessage<ToyOrder> order = _dequeuer.Dequeue();
-                _toyFactory.Create();
+                Process(order);
+            }
+        }
+
+        private void Process(IObservableMessage<ToyOrder> order)
+        {
+            try
+            {
+                TToy toy = _toyFactory.Create();
+                order.Completed();
+            }
+            catch (Exception e)
+            {
+                Logger.Warn(e);
+                order.Failed();
             }
         }
     }

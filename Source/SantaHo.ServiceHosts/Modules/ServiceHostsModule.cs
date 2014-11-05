@@ -4,12 +4,14 @@ using SantaHo.ServiceHosts.Processors;
 
 namespace SantaHo.ServiceHosts.Modules
 {
-    public class ServiceHostsModule: NinjectModule
+    public class ServiceHostsModule : NinjectModule
     {
         public override void Load()
         {
             Bind<WishListProcessor>().ToSelf();
-            Bind<IApplicationService>().To<SantaPostOfficeService>(); 
+            Bind<MonitoringProcessor>().ToSelf();
+
+            Bind<IApplicationService>().To<SantaPostOfficeApplicationService>();
         }
     }
 }

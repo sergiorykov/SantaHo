@@ -33,11 +33,6 @@ namespace SantaHo.Infrastructure.Rabbit.Queues
             _categories[category] = category.ToLowerInvariant();
         }
 
-        public IToyOrdersEnqueuer GetEnqueuer()
-        {
-            return new ToyOrdersEnqueuer(_connection, _categories.Values);
-        }
-
         public IToyOrderDequeuer GetDequeuer(string category)
         {
             if (!_categories.ContainsKey(category))
@@ -46,6 +41,11 @@ namespace SantaHo.Infrastructure.Rabbit.Queues
             }
 
             return new ToyOrderDequeuer(_connection, category);
+        }
+
+        public IToyOrdersEnqueuer GetEnqueuer()
+        {
+            return new ToyOrdersEnqueuer(_connection, _categories.Values);
         }
 
         private static string CreateQueueNameByCategory(string category)
@@ -68,7 +68,6 @@ namespace SantaHo.Infrastructure.Rabbit.Queues
                 _consumer = new QueueingBasicConsumer(_channel);
                 _channel.BasicConsume(queueName, false, _consumer);
             }
-
 
             public IObservableMessage<ToyOrder> Dequeue()
             {
@@ -135,7 +134,7 @@ namespace SantaHo.Infrastructure.Rabbit.Queues
             {
                 string json = JsonConvert.SerializeObject(order);
                 byte[] messageBodyBytes = Encoding.UTF8.GetBytes(json);
-                
+
                 IBasicProperties props = _channel.CreateBasicProperties();
                 props.DeliveryMode = 2;
 

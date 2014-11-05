@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SantaHo.Core.Infrastructure.Extensions
+namespace SantaHo.Infrastructure.Core.Extensions
 {
     public static class EnumerableExtensions
     {

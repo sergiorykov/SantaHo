@@ -1,7 +1,7 @@
 ﻿using System;
 using NLog;
 
-namespace SantaHo.Core.Infrastructure.Extensions
+namespace SantaHo.Infrastructure.Core.Extensions
 {
     public static class ObjectExtensions
     {

@@ -1,9 +1,9 @@
 ﻿using System.Text;
+using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using SantaHo.Core.Processing;
 using SantaHo.Domain.IncomingLetters;
-using Newtonsoft.Json;
 
 namespace SantaHo.Infrastructure.Rabbit.Queues
 {

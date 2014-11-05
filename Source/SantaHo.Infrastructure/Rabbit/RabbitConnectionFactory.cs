@@ -11,11 +11,11 @@ namespace SantaHo.Infrastructure.Rabbit
                 UserName = "guest",
                 Password = "guest",
                 VirtualHost = "/",
-                Protocol = Protocols.FromEnvironment(),
+                Protocol = Protocols.DefaultProtocol,
                 HostName = "localhost",
                 Port = AmqpTcpEndpoint.UseDefaultPort
             };
             return factory.CreateConnection();
-        } 
+        }
     }
 }

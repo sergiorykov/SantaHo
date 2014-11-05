@@ -7,8 +7,8 @@ namespace SantaHo.Application.IncomingLetters
 {
     public class ProcessIncomingLetterTaskFactory : ITaskFactory<IObservableMessage<Letter>, ProcessIncomingLetterTask>
     {
-        private readonly Santa _santa;
         private readonly IPresentOrderProcessor _presentOrderProcessor;
+        private readonly Santa _santa;
 
         public ProcessIncomingLetterTaskFactory(Santa santa, IPresentOrderProcessor presentOrderProcessor)
         {

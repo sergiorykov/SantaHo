@@ -12,7 +12,7 @@ namespace GoodBoy.Bot.Clients
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private readonly JsonServiceClient _client;
-        private long _consecutiveFails;
+        private long _sentLetters;
 
         public SantaPostOfficeClient()
         {
@@ -25,7 +25,7 @@ namespace GoodBoy.Bot.Clients
             try
             {
                 _client.Post(request);
-                long number = Interlocked.Increment(ref _consecutiveFails);
+                long number = Interlocked.Increment(ref _sentLetters);
                 Logger.Debug("Letter \t{2}#{1} sent from {0}", request.Name, number, Environment.CurrentManagedThreadId);
                 return true;
             }

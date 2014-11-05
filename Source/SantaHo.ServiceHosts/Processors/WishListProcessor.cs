@@ -22,7 +22,7 @@ namespace SantaHo.ServiceHosts.Processors
 
         public void PostOneWay(WishListLetterRequest request)
         {
-            request.ToBag()
+            request.ToOption()
                 .Where(x => !string.IsNullOrWhiteSpace(x.Name))
                 .Where(x => x.Wishes.Count > 0)
                 .ThrowOnEmpty(() => new WebFaultException(HttpStatusCode.BadRequest));

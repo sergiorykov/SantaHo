@@ -63,9 +63,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SantaHo.Core.Infrastructure\SantaHo.Core.Infrastructure.csproj">
+    <ProjectReference Include="..\SantaHo.Infrastructure.Core\SantaHo.Infrastructure.Core.csproj">
       <Project>{E8C4E7C2-7AEF-4B7E-BEFC-142142C18F48}</Project>
-      <Name>SantaHo.Core.Infrastructure</Name>
+      <Name>SantaHo.Infrastructure.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\SantaHo.Core\SantaHo.Core.csproj">
       <Project>{9af869c7-117d-49c3-9762-4f1b0af8767f}</Project>

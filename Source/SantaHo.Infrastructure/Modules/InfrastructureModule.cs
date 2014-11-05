@@ -36,7 +36,7 @@ namespace SantaHo.Infrastructure.Modules
             Bind<IToyOrderCategoryRegistrar>()
                 .ToMethod(x => Kernel.Get<ToyOrdersQueueManager>())
                 .InSingletonScope();
-            
+
             Bind<IToyOrdersEnqueuer>()
                 .ToMethod(x => Kernel.Get<ToyOrdersQueueManager>().GetEnqueuer())
                 .InSingletonScope();

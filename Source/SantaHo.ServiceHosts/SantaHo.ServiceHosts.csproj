@@ -38,11 +38,13 @@
     <Reference Include="AutoMapper.Net4">
       <HintPath>..\..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
-    <Reference Include="Nelibur">
-      <HintPath>..\..\packages\Nelibur.3.0.2\lib\net45\Nelibur.dll</HintPath>
+    <Reference Include="Nelibur, Version=3.0.3.188, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Nelibur.3.0.3-beta1\lib\net45\Nelibur.dll</HintPath>
     </Reference>
-    <Reference Include="Nelibur.Core">
-      <HintPath>..\..\packages\Nelibur.3.0.2\lib\net45\Nelibur.Core.dll</HintPath>
+    <Reference Include="Nelibur.Core, Version=3.0.3.188, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Nelibur.3.0.3-beta1\lib\net45\Nelibur.Core.dll</HintPath>
     </Reference>
     <Reference Include="Ninject">
       <HintPath>..\..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
@@ -66,16 +68,16 @@
     <Compile Include="Processors\MonitoringProcessor.cs" />
     <Compile Include="Processors\WishListProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SantaPostOfficeService.cs" />
+    <Compile Include="SantaPostOfficeApplicationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\SantaHo.Core.Infrastructure\SantaHo.Core.Infrastructure.csproj">
+    <ProjectReference Include="..\SantaHo.Infrastructure.Core\SantaHo.Infrastructure.Core.csproj">
       <Project>{E8C4E7C2-7AEF-4B7E-BEFC-142142C18F48}</Project>
-      <Name>SantaHo.Core.Infrastructure</Name>
+      <Name>SantaHo.Infrastructure.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\SantaHo.Core\SantaHo.Core.csproj">
       <Project>{9AF869C7-117D-49C3-9762-4F1B0AF8767F}</Project>

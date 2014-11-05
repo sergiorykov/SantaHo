@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading;
-using FluentScheduler;
-using GoodBoy.Bot.Monitoring;
+﻿using FluentScheduler;
 using SantaHo.ServiceContracts.Letters;
 
 namespace GoodBoy.Bot.Clients

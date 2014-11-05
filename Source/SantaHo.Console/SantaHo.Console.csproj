@@ -39,11 +39,13 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Nelibur">
-      <HintPath>..\..\packages\Nelibur.3.0.2\lib\net45\Nelibur.dll</HintPath>
+    <Reference Include="Nelibur, Version=3.0.3.188, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Nelibur.3.0.3-beta1\lib\net45\Nelibur.dll</HintPath>
     </Reference>
-    <Reference Include="Nelibur.Core">
-      <HintPath>..\..\packages\Nelibur.3.0.2\lib\net45\Nelibur.Core.dll</HintPath>
+    <Reference Include="Nelibur.Core, Version=3.0.3.188, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Nelibur.3.0.3-beta1\lib\net45\Nelibur.Core.dll</HintPath>
     </Reference>
     <Reference Include="Ninject">
       <HintPath>..\..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
@@ -51,8 +53,9 @@
     <Reference Include="NLog">
       <HintPath>..\..\packages\NLog.3.1.0.0\lib\net45\NLog.dll</HintPath>
     </Reference>
-    <Reference Include="RabbitMQ.Client">
-      <HintPath>..\..\packages\RabbitMQ.Client.3.3.5\lib\net30\RabbitMQ.Client.dll</HintPath>
+    <Reference Include="RabbitMQ.Client, Version=3.4.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\RabbitMQ.Client.3.4.0\lib\net35\RabbitMQ.Client.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -91,9 +94,9 @@
       <Project>{1f7f1ffc-1acc-49f6-a546-9acb6e85c2bd}</Project>
       <Name>SantaHo.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SantaHo.Core.Infrastructure\SantaHo.Core.Infrastructure.csproj">
+    <ProjectReference Include="..\SantaHo.Infrastructure.Core\SantaHo.Infrastructure.Core.csproj">
       <Project>{e8c4e7c2-7aef-4b7e-befc-142142c18f48}</Project>
-      <Name>SantaHo.Core.Infrastructure</Name>
+      <Name>SantaHo.Infrastructure.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\SantaHo.Core\SantaHo.Core.csproj">
       <Project>{9af869c7-117d-49c3-9762-4f1b0af8767f}</Project>
