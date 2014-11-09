@@ -9,10 +9,10 @@ namespace SantaHo.Infrastructure.Redis
         private readonly IDatabase _database;
         private readonly KeyEvaluator _keyEvaluator;
 
-        public SettingsRepository(ConnectionMultiplexer connection, KeyEvaluator keyEvaluator)
+        public SettingsRepository(RedisConnectionFactory connectionFactory, KeyEvaluator keyEvaluator)
         {
             _keyEvaluator = keyEvaluator;
-            _database = connection.GetDatabase();
+            _database = connectionFactory.GetSettingsDatabase();
         }
 
         public TValue Get<TValue>() where TValue : class

@@ -12,21 +12,21 @@ namespace SantaHo.Infrastructure.Rabbit.Queues
         private const string ExchangeName = "incoming-letters-direct-exchange";
         private const string QueueName = "incoming-letters";
         private const string RoutingKey = "letter";
-        private readonly IConnection _connection;
+        private readonly RabbitConnectionFactory _connectionFactory;
 
-        public IncomingLettersQueueManager(IConnection connection)
+        public IncomingLettersQueueManager(RabbitConnectionFactory connectionFactory)
         {
-            _connection = connection;
+            _connectionFactory = connectionFactory;
         }
 
         public IIncomingLettersEnqueuer GetEnqueuer()
         {
-            return new IncomingLettersEnqueuer(_connection);
+            return new IncomingLettersEnqueuer(_connectionFactory.Create());
         }
 
         public IIncomingLettersDequeuer GetDequeuer()
         {
-            return new IncomingLettersDequeuer(_connection);
+            return new IncomingLettersDequeuer(_connectionFactory.Create());
         }
 
         private sealed class IncomingLettersDequeuer : IIncomingLettersDequeuer

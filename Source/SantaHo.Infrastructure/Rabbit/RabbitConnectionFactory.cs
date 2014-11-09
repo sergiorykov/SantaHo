@@ -1,12 +1,26 @@
+using System;
+using Nelibur.Sword.DataStructures;
+using Nelibur.Sword.Extensions;
 using RabbitMQ.Client;
+using SantaHo.Core.ApplicationServices.Resources;
 
 namespace SantaHo.Infrastructure.Rabbit
 {
-    public static class RabbitConnectionFactory
+    public sealed class RabbitConnectionFactory : IRequireLoading
     {
-        public static IConnection Connect()
+        private Option<ConnectionFactory> _connectionFactory;
+
+        public IConnection Create()
         {
-            var factory = new ConnectionFactory
+            return _connectionFactory
+                .ThrowOnEmpty(() => new InvalidOperationException("Load resource first"))
+                .Map(x => x.CreateConnection())
+                .Value;
+        }
+
+        public void Load()
+        {
+            _connectionFactory = new ConnectionFactory
             {
                 UserName = "guest",
                 Password = "guest",
@@ -14,8 +28,15 @@ namespace SantaHo.Infrastructure.Rabbit
                 Protocol = Protocols.DefaultProtocol,
                 HostName = "localhost",
                 Port = AmqpTcpEndpoint.UseDefaultPort
-            };
-            return factory.CreateConnection();
+            }.ToOption();
+        }
+
+        /// <summary>
+        /// ¬ыполн€ет определ€емые приложением задачи, св€занные с высвобождением или сбросом неуправл€емых ресурсов.
+        /// </summary>
+        public void Dispose()
+        {
+            _connectionFactory = Option<ConnectionFactory>.Empty;
         }
     }
 }

@@ -37,13 +37,12 @@
     <Reference Include="FluentScheduler">
       <HintPath>..\..\packages\FluentScheduler.3.1.45\lib\net40\FluentScheduler.dll</HintPath>
     </Reference>
-    <Reference Include="Nelibur, Version=3.0.3.188, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Nelibur, Version=3.0.3.205, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Nelibur.3.0.3-beta1\lib\net45\Nelibur.dll</HintPath>
+      <HintPath>..\..\packages\Nelibur.3.0.3-beta5\lib\net45\Nelibur.dll</HintPath>
     </Reference>
-    <Reference Include="Nelibur.Core, Version=3.0.3.188, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Nelibur.3.0.3-beta1\lib\net45\Nelibur.Core.dll</HintPath>
+    <Reference Include="Nelibur.Sword">
+      <HintPath>..\..\packages\Nelibur.Sword.3.0.3-beta5\lib\net45\Nelibur.Sword.dll</HintPath>
     </Reference>
     <Reference Include="Ninject">
       <HintPath>..\..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>

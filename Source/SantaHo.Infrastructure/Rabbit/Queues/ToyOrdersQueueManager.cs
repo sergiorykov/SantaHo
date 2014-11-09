@@ -20,11 +20,11 @@ namespace SantaHo.Infrastructure.Rabbit.Queues
         private readonly Dictionary<string, string> _categories =
             new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
 
-        private readonly IConnection _connection;
+        private readonly RabbitConnectionFactory _connectionFactory;
 
-        public ToyOrdersQueueManager(IConnection connection)
+        public ToyOrdersQueueManager(RabbitConnectionFactory connectionFactory)
         {
-            _connection = connection;
+            _connectionFactory = connectionFactory;
             RegisterCategory(CarToyFactory.Category);
         }
 
@@ -40,12 +40,12 @@ namespace SantaHo.Infrastructure.Rabbit.Queues
                 throw new ArgumentOutOfRangeException("category");
             }
 
-            return new ToyOrderDequeuer(_connection, category);
+            return new ToyOrderDequeuer(_connectionFactory.Create(), category);
         }
 
         public IToyOrdersEnqueuer GetEnqueuer()
         {
-            return new ToyOrdersEnqueuer(_connection, _categories.Values);
+            return new ToyOrdersEnqueuer(_connectionFactory.Create(), _categories.Values);
         }
 
         private static string CreateQueueNameByCategory(string category)

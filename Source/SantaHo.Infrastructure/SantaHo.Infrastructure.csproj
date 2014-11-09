@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Nelibur.Sword">
+      <HintPath>..\..\packages\Nelibur.Sword.3.0.3-beta5\lib\net45\Nelibur.Sword.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -51,6 +54,7 @@
       <HintPath>..\..\packages\StackExchange.Redis.1.0.371\lib\net45\StackExchange.Redis.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -78,6 +82,10 @@
     <ProjectReference Include="..\SantaHo.Domain\SantaHo.Domain.csproj">
       <Project>{6df91132-b02b-4b67-bfc5-1ad5561d3a0e}</Project>
       <Name>SantaHo.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SantaHo.Infrastructure.Core\SantaHo.Infrastructure.Core.csproj">
+      <Project>{E8C4E7C2-7AEF-4B7E-BEFC-142142C18F48}</Project>
+      <Name>SantaHo.Infrastructure.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

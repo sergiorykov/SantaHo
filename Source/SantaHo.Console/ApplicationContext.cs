@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Ninject;
 using NLog;
-using RabbitMQ.Client;
 using SantaHo.Console.Modules;
 using SantaHo.Core.ApplicationServices;
+using SantaHo.Core.ApplicationServices.Resources;
 using SantaHo.Core.Configuration;
 using SantaHo.Infrastructure.Core.Extensions;
 using SantaHo.Infrastructure.Modules;
-using SantaHo.Infrastructure.Rabbit;
 using SantaHo.ServiceHosts.Modules;
 
 namespace SantaHo.Console
@@ -25,13 +24,13 @@ namespace SantaHo.Console
             new SantaOfficeModule(),
             new ServiceHostsModule());
 
-        private IConnection _connection;
+        private readonly List<IDisposable> _resources = new List<IDisposable>();
         private List<IApplicationService> _services = new List<IApplicationService>();
 
         public bool Start()
         {
+            FailIfNot(LoadResources);
             FailIfNot(MigrateSettings);
-            FailIfNot(OpenConnections);
 
             _services = GetServices();
             foreach (IApplicationService service in _services)
@@ -42,15 +41,18 @@ namespace SantaHo.Console
             return true;
         }
 
+        private void LoadResources()
+        {
+            List<IRequireLoading> resources = _kernel.GetAll<IRequireLoading>().ToList();
+            resources.ForEach(x => x.FailIfNot(resource => resource.Load()));
+            _resources.AddRange(resources);
+        }
+
         public void Stop()
         {
             Logger.Info("Application is stopping...");
-
-            this.IgnoreFailureWhen(x => x.CloseConnections());
-            foreach (IApplicationService service in _services)
-            {
-                service.IgnoreFailureWhen(x => x.Stop());
-            }
+            _services.IgnoreFailuresWhen(x => x.Stop());
+            _resources.IgnoreFailuresWhen(x => x.Dispose());
         }
 
         private void FailIfNot(Action action)
@@ -68,20 +70,6 @@ namespace SantaHo.Console
 
                 throw new InvalidOperationException("Application failed to start");
             }
-        }
-
-        private void CloseConnections()
-        {
-            if (_connection != null)
-            {
-                _connection.IgnoreFailureWhen(x => x.Close());
-            }
-        }
-
-        private void OpenConnections()
-        {
-            _connection = RabbitConnectionFactory.Connect();
-            _kernel.Bind<IConnection>().ToConstant(_connection);
         }
 
         private List<IApplicationService> GetServices()

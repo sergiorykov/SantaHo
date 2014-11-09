@@ -1,9 +1,11 @@
 ﻿using Ninject;
 using Ninject.Modules;
+using SantaHo.Core.ApplicationServices.Resources;
 using SantaHo.Core.Configuration;
 using SantaHo.Domain.IncomingLetters;
 using SantaHo.Domain.Presents;
 using SantaHo.Domain.SantaOffice;
+using SantaHo.Infrastructure.Rabbit;
 using SantaHo.Infrastructure.Rabbit.Queues;
 using SantaHo.Infrastructure.Redis;
 
@@ -13,6 +15,9 @@ namespace SantaHo.Infrastructure.Modules
     {
         public override void Load()
         {
+            Bind<IRequireLoading>().To<RabbitConnectionFactory>().InSingletonScope();
+            Bind<IRequireLoading>().To<RedisConnectionFactory>().InSingletonScope();
+
             IncomingLetters();
             ToyOrders();
 
@@ -20,9 +25,7 @@ namespace SantaHo.Infrastructure.Modules
             Bind<ISettingsMigrationRegistrar>().ToMethod(x => x.Kernel.Get<SettingsMigration>()).InSingletonScope();
 
             Bind<KeyEvaluator>().ToSelf().InSingletonScope();
-            Bind<ISettingsRepository>()
-                .ToConstructor(x => new SettingsRepository(RedisConnectionFactory.Create(), x.Inject<KeyEvaluator>()))
-                .InSingletonScope();
+            Bind<ISettingsRepository>().To<SettingsRepository>().InSingletonScope();
         }
 
         private void ToyOrders()

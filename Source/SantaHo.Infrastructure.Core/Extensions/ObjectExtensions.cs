@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using NLog;
 
 namespace SantaHo.Infrastructure.Core.Extensions
@@ -16,6 +17,14 @@ namespace SantaHo.Infrastructure.Core.Extensions
             catch (Exception e)
             {
                 Logger.Warn(e);
+            }
+        }
+        
+        public static void IgnoreFailuresWhen<TValue>(this IEnumerable<TValue> values, Action<TValue> action)
+        {
+            foreach (TValue value in values)
+            {
+                value.IgnoreFailureWhen(action);
             }
         }
 

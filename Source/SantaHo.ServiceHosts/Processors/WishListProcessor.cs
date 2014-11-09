@@ -2,8 +2,8 @@
 using System.Net;
 using System.ServiceModel.Web;
 using AutoMapper;
-using Nelibur.Core.Extensions;
 using Nelibur.ServiceModel.Services.Operations;
+using Nelibur.Sword.Extensions;
 using NLog;
 using SantaHo.Domain.IncomingLetters;
 using SantaHo.ServiceContracts.Letters;
