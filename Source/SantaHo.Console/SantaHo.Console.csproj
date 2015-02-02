@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="Modules\IncomingLettersModule.cs" />
+    <Compile Include="Modules\InfrastructureModule.cs" />
     <Compile Include="Modules\PresentsModule.cs" />
     <Compile Include="Modules\SantaOfficeModule.cs" />
     <Compile Include="Program.cs" />

@@ -1,4 +1,4 @@
-﻿using Ninject;
+using Ninject;
 using Ninject.Modules;
 using SantaHo.Core.ApplicationServices.Resources;
 using SantaHo.Core.Configuration;
@@ -9,14 +9,17 @@ using SantaHo.Infrastructure.Rabbit;
 using SantaHo.Infrastructure.Rabbit.Queues;
 using SantaHo.Infrastructure.Redis;
 
-namespace SantaHo.Infrastructure.Modules
+namespace SantaHo.Console.Modules
 {
     public sealed class InfrastructureModule : NinjectModule
     {
         public override void Load()
         {
-            Bind<IRequireLoading>().To<RabbitConnectionFactory>().InSingletonScope();
-            Bind<IRequireLoading>().To<RedisConnectionFactory>().InSingletonScope();
+            Bind<RabbitConnectionFactory>().ToSelf().InSingletonScope();
+            Bind<IRequireLoading>().ToMethod(c => c.Kernel.Get<RabbitConnectionFactory>());
+
+            Bind<RedisConnectionFactory>().ToSelf().InSingletonScope();
+            Bind<IRequireLoading>().ToMethod(c => c.Kernel.Get<RedisConnectionFactory>());
 
             IncomingLetters();
             ToyOrders();

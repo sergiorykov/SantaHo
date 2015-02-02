@@ -12,7 +12,7 @@ namespace SantaHo.Infrastructure.Redis
         public SettingsRepository(RedisConnectionFactory connectionFactory, KeyEvaluator keyEvaluator)
         {
             _keyEvaluator = keyEvaluator;
-            _database = connectionFactory.GetSettingsDatabase();
+            _database = connectionFactory.GetDatabase();
         }
 
         public TValue Get<TValue>() where TValue : class

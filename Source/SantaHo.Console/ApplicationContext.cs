@@ -9,7 +9,6 @@ using SantaHo.Core.ApplicationServices.Resources;
 using SantaHo.Core.Configuration;
 using SantaHo.Infrastructure.Core.ApplicationServices.Resources;
 using SantaHo.Infrastructure.Core.Extensions;
-using SantaHo.Infrastructure.Modules;
 using SantaHo.ServiceHosts.Modules;
 
 namespace SantaHo.Console

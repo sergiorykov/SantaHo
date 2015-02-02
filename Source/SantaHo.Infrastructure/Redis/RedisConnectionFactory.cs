@@ -26,7 +26,7 @@ namespace SantaHo.Infrastructure.Redis
             _redis = ConnectionMultiplexer.Connect(connectionUri);
         }
 
-        public IDatabase GetSettingsDatabase()
+        public IDatabase GetDatabase()
         {
             if (_redis == null)
             {
