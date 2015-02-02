@@ -52,7 +52,7 @@ namespace SantaHo.Core.Configuration
             if (originalValue == null)
             {
                 "Settings not found for {0}:"
-                    .F(typeof (TOriginalSettings).FullName)
+                    .FormatWith(typeof (TOriginalSettings).FullName)
                     .Throw<SettingsPropertyNotFoundException>();
             }
 

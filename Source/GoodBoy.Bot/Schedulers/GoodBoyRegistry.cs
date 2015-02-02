@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using FluentScheduler;
 using GoodBoy.Bot.Clients;
-using GoodBoy.Bot.Monitoring;
+using GoodBoy.Bot.Tasks;
 
 namespace GoodBoy.Bot.Schedulers
 {

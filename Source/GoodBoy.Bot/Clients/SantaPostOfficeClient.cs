@@ -11,12 +11,12 @@ namespace GoodBoy.Bot.Clients
     public sealed class SantaPostOfficeClient : ISantaPostOfficeClient
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-        private readonly JsonServiceClient _client;
         private long _sentLetters;
+        private readonly JsonServiceClient _client;
 
         public SantaPostOfficeClient()
         {
-            string address = Settings.Default.SantaPostOfficeAddress;
+            var address = Settings.Default.SantaPostOfficeAddress;
             _client = new JsonServiceClient(address);
         }
 
@@ -25,8 +25,7 @@ namespace GoodBoy.Bot.Clients
             try
             {
                 _client.Post(request);
-                long number = Interlocked.Increment(ref _sentLetters);
-                Logger.Debug("Letter \t{2}#{1} sent from {0}", request.Name, number, Environment.CurrentManagedThreadId);
+                Stats();
                 return true;
             }
             catch (Exception e)
@@ -47,6 +46,15 @@ namespace GoodBoy.Bot.Clients
             {
                 Logger.Warn(e);
                 return false;
+            }
+        }
+
+        private void Stats()
+        {
+            var number = Interlocked.Increment(ref _sentLetters);
+            if (number%100 == 0)
+            {
+                Logger.Debug("({1}) Sent \t#{0}", number, Environment.CurrentManagedThreadId);
             }
         }
     }

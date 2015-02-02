@@ -5,7 +5,7 @@ namespace SantaHo.Core.Extensions
 {
     public static class StringExtensions
     {
-        public static string F(this string format, params object[] values)
+        public static string FormatWith(this string format, params object[] values)
         {
             return string.Format(format, values);
         }
@@ -18,12 +18,12 @@ namespace SantaHo.Core.Extensions
                 throw (TException) constructorInfo.Invoke(new object[] {message});
             }
 
-            throw new InvalidOperationException("Type {0} must have ctor(message)".F(typeof (TException).FullName));
+            throw new InvalidOperationException("Type {0} must have ctor(message)".FormatWith(typeof (TException).FullName));
         }
 
         public static void Throw<TException>(this string format, params object[] values) where TException : Exception
         {
-            format.F(values).Throw<TException>();
+            format.FormatWith(values).Throw<TException>();
         }
     }
 }

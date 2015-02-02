@@ -4,6 +4,6 @@ namespace SantaHo.Core.ApplicationServices.Resources
 {
     public interface IRequireLoading : IDisposable
     {
-        void Load();
+        void Load(IStartupSettings settings);
     }
 }

@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationServices\IApplicationService.cs" />
+    <Compile Include="ApplicationServices\IStartupSettings.cs" />
     <Compile Include="ApplicationServices\Resources\IRequireLoading.cs" />
     <Compile Include="Configuration\ISettingsMigrationRegistrar.cs" />
     <Compile Include="Configuration\ISettingsRepository.cs" />

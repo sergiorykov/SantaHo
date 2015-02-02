@@ -24,8 +24,9 @@ namespace SantaHo.Infrastructure.Modules
             Bind<SettingsMigration>().ToSelf().InSingletonScope();
             Bind<ISettingsMigrationRegistrar>().ToMethod(x => x.Kernel.Get<SettingsMigration>()).InSingletonScope();
 
-            Bind<KeyEvaluator>().ToSelf().InSingletonScope();
-            Bind<ISettingsRepository>().To<SettingsRepository>().InSingletonScope();
+            Bind<ISettingsRepository>()
+                .ToConstructor(x => new SettingsRepository(x.Inject<RedisConnectionFactory>(), new RedisKeyEvaluator()))
+                .InSingletonScope();
         }
 
         private void ToyOrders()
@@ -43,10 +44,6 @@ namespace SantaHo.Infrastructure.Modules
             Bind<IToyOrdersEnqueuer>()
                 .ToMethod(x => Kernel.Get<ToyOrdersQueueManager>().GetEnqueuer())
                 .InSingletonScope();
-
-//            Bind<IToyOrderDequeuer>()
-//                .ToMethod(x => Kernel.Get<ToyOrdersQueueManager>().GetDequeuer())
-//                .InSingletonScope();
         }
 
         private void IncomingLetters()

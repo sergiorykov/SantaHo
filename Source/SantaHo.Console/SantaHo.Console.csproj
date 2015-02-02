@@ -39,23 +39,24 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Nelibur, Version=3.0.3.205, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Nelibur, Version=3.0.3.213, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Nelibur.3.0.3-beta5\lib\net45\Nelibur.dll</HintPath>
+      <HintPath>..\..\packages\Nelibur.3.1.0\lib\net45\Nelibur.dll</HintPath>
     </Reference>
-    <Reference Include="Nelibur.Sword, Version=3.0.3.205, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Nelibur.Sword, Version=3.0.3.213, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Nelibur.Sword.3.0.3-beta5\lib\net45\Nelibur.Sword.dll</HintPath>
+      <HintPath>..\..\packages\Nelibur.Sword.3.1.0\lib\net45\Nelibur.Sword.dll</HintPath>
     </Reference>
     <Reference Include="Ninject">
       <HintPath>..\..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
-    <Reference Include="NLog">
-      <HintPath>..\..\packages\NLog.3.1.0.0\lib\net45\NLog.dll</HintPath>
-    </Reference>
-    <Reference Include="RabbitMQ.Client, Version=3.4.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
+    <Reference Include="NLog, Version=3.2.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\RabbitMQ.Client.3.4.0\lib\net35\RabbitMQ.Client.dll</HintPath>
+      <HintPath>..\..\packages\NLog.3.2.0.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="RabbitMQ.Client, Version=3.4.3.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\RabbitMQ.Client.3.4.3\lib\net35\RabbitMQ.Client.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -80,6 +81,7 @@
     <None Include="App.config" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <None Include="app.manifest">
       <SubType>Designer</SubType>

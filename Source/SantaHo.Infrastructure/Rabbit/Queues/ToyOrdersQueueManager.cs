@@ -50,7 +50,7 @@ namespace SantaHo.Infrastructure.Rabbit.Queues
 
         private static string CreateQueueNameByCategory(string category)
         {
-            return "{0}{1}".F(QueueNamePrefix, category.ToLowerInvariant());
+            return "{0}{1}".FormatWith(QueueNamePrefix, category.ToLowerInvariant());
         }
 
         private sealed class ToyOrderDequeuer : IToyOrderDequeuer

@@ -7,6 +7,7 @@ using SantaHo.Console.Modules;
 using SantaHo.Core.ApplicationServices;
 using SantaHo.Core.ApplicationServices.Resources;
 using SantaHo.Core.Configuration;
+using SantaHo.Infrastructure.Core.ApplicationServices.Resources;
 using SantaHo.Infrastructure.Core.Extensions;
 using SantaHo.Infrastructure.Modules;
 using SantaHo.ServiceHosts.Modules;
@@ -17,6 +18,7 @@ namespace SantaHo.Console
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
+        private readonly IStartupSettings _startupSettings = new AppStartupSettings();
         private readonly IKernel _kernel = new StandardKernel(
             new InfrastructureModule(),
             new IncomingLettersModule(),
@@ -44,7 +46,7 @@ namespace SantaHo.Console
         private void LoadResources()
         {
             List<IRequireLoading> resources = _kernel.GetAll<IRequireLoading>().ToList();
-            resources.ForEach(x => x.FailIfNot(resource => resource.Load()));
+            resources.ForEach(x => x.FailIfNot(resource => resource.Load(_startupSettings)));
             _resources.AddRange(resources);
         }
 

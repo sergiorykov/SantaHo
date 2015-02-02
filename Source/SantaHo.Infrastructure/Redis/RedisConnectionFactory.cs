@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using SantaHo.Core.ApplicationServices;
 using SantaHo.Core.ApplicationServices.Resources;
 using SantaHo.Infrastructure.Core.Extensions;
 using StackExchange.Redis;
@@ -7,6 +8,7 @@ namespace SantaHo.Infrastructure.Redis
 {
     public sealed class RedisConnectionFactory : IRequireLoading
     {
+        public const string UriStartupKey = "Redis:Uri";
         private ConnectionMultiplexer _redis;
 
         public void Dispose()
@@ -18,9 +20,10 @@ namespace SantaHo.Infrastructure.Redis
             }
         }
 
-        public void Load()
+        public void Load(IStartupSettings settings)
         {
-            _redis = ConnectionMultiplexer.Connect("192.168.242.129:6379");
+            var connectionUri = settings.GetValue<string>(UriStartupKey);
+            _redis = ConnectionMultiplexer.Connect(connectionUri);
         }
 
         public IDatabase GetSettingsDatabase()
