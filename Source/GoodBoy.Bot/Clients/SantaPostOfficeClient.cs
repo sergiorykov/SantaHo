@@ -3,8 +3,8 @@ using System.Threading;
 using GoodBoy.Bot.Properties;
 using Nelibur.ServiceModel.Clients;
 using NLog;
-using SantaHo.ServiceContracts.Letters;
-using SantaHo.ServiceContracts.Monitoring;
+using SantaHo.FrontEnd.ServiceContracts.Letters;
+using SantaHo.FrontEnd.ServiceContracts.Monitoring;
 
 namespace GoodBoy.Bot.Clients
 {

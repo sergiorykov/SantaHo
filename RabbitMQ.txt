@@ -1,0 +1,30 @@
+cmd /K "cd /d c:\Program Files (x86)\RabbitMQ Server\rabbitmq_server-3.3.5\sbin\"
+
+Conifgure: http://www.rabbitmq.com/configure.html
+
+rabbitmqctl stop_app
+rabbitmqctl start_app
+rabbitmqctl status
+
+Manage: http://www.rabbitmq.com/management.html
+    rabbitmq-plugins enable rabbitmq_management
+    http://localhost:15672/ default: guest/guest
+    
+
+Users: rabbitmqctl list_users
+
+rabbitmqctl add_user tonyg changeit
+rabbitmqctl delete_user tonyg
+rabbitmqctl change_password tonyg newpass
+
+rabbitmqctl set_user_tags tonyg administrator
+rabbitmqctl set_user_tags tonyg
+
+Permissions: rabbitmqctl list_user_permissions tonyg
+rabbitmqctl set_permissions -p /myvhost tonyg "^tonyg-.*" ".*" ".*"
+
+
+
+Santa config:
+rabbitmqctl add_user santa santapwd
+rabbitmqctl set_permissions -p / santa ".*" ".*" ".*"

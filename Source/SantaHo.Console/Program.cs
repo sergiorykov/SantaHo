@@ -1,6 +1,6 @@
 ﻿using Topshelf;
 
-namespace SantaHo.Console
+namespace SantaHo.SantaOffice.Service
 {
     internal class Program
     {

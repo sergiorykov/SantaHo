@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SantaHo.Core.Extensions;
-using SantaHo.ServiceContracts.Letters;
+using SantaHo.FrontEnd.ServiceContracts.Letters;
 
 namespace GoodBoy.Bot.Providers
 {

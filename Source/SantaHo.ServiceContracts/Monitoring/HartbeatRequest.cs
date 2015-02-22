@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace SantaHo.ServiceContracts.Monitoring
+namespace SantaHo.FrontEnd.ServiceContracts.Monitoring
 {
     [DataContract]
     public class HartbeatRequest

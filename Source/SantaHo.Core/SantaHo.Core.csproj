@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ApplicationServices\IApplicationService.cs" />
     <Compile Include="ApplicationServices\IStartupSettings.cs" />
+    <Compile Include="ApplicationServices\Resources\IApplicationResource.cs" />
     <Compile Include="ApplicationServices\Resources\IRequireLoading.cs" />
     <Compile Include="Configuration\ISettingsMigrationRegistrar.cs" />
     <Compile Include="Configuration\ISettingsRepository.cs" />
@@ -52,6 +53,9 @@
     <Compile Include="Configuration\SettingsKeyAttribute.cs" />
     <Compile Include="Configuration\SettingsMigration.cs" />
     <Compile Include="DisposableAction.cs" />
+    <Compile Include="Exceptions\QueueUnavailableException.cs" />
+    <Compile Include="Exceptions\StartupConfigurationException.cs" />
+    <Compile Include="Exceptions\ValidationException.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Processing\ITaskFactory.cs" />
     <Compile Include="Processing\ProcessingTask.cs" />

@@ -78,13 +78,13 @@
       <Project>{9af869c7-117d-49c3-9762-4f1b0af8767f}</Project>
       <Name>SantaHo.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SantaHo.Domain\SantaHo.Domain.csproj">
+    <ProjectReference Include="..\SantaHo.Domain\Domain.csproj">
       <Project>{6df91132-b02b-4b67-bfc5-1ad5561d3a0e}</Project>
-      <Name>SantaHo.Domain</Name>
+      <Name>Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SantaHo.Infrastructure.Core\SantaHo.Infrastructure.Core.csproj">
+    <ProjectReference Include="..\SantaHo.Infrastructure.Core\Infrastructure.Core.csproj">
       <Project>{E8C4E7C2-7AEF-4B7E-BEFC-142142C18F48}</Project>
-      <Name>SantaHo.Infrastructure.Core</Name>
+      <Name>Infrastructure.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

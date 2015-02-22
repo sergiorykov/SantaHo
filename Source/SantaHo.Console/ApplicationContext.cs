@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using Ninject;
 using NLog;
-using SantaHo.Console.Modules;
 using SantaHo.Core.ApplicationServices;
 using SantaHo.Core.ApplicationServices.Resources;
 using SantaHo.Core.Configuration;
 using SantaHo.Infrastructure.Core.ApplicationServices.Resources;
 using SantaHo.Infrastructure.Core.Extensions;
-using SantaHo.ServiceHosts.Modules;
+using SantaHo.SantaOffice.Service.Modules;
 
-namespace SantaHo.Console
+namespace SantaHo.SantaOffice.Service
 {
     public class ApplicationContext
     {
@@ -22,8 +21,7 @@ namespace SantaHo.Console
             new InfrastructureModule(),
             new IncomingLettersModule(),
             new PresentsModule(),
-            new SantaOfficeModule(),
-            new ServiceHostsModule());
+            new SantaOfficeModule());
 
         private readonly List<IDisposable> _resources = new List<IDisposable>();
         private List<IApplicationService> _services = new List<IApplicationService>();
@@ -36,7 +34,7 @@ namespace SantaHo.Console
             _services = GetServices();
             foreach (IApplicationService service in _services)
             {
-                FailIfNot(() => service.Start());
+                FailIfNot(() => service.Start(null));
             }
 
             return true;

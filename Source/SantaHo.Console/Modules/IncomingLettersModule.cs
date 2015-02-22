@@ -1,10 +1,10 @@
 ﻿using Ninject.Modules;
-using SantaHo.Application.IncomingLetters;
 using SantaHo.Core.ApplicationServices;
 using SantaHo.Core.Configuration;
 using SantaHo.Domain.IncomingLetters;
+using SantaHo.SantaOffice.Service.IncomingLetters;
 
-namespace SantaHo.Console.Modules
+namespace SantaHo.SantaOffice.Service.Modules
 {
     public sealed class IncomingLettersModule : NinjectModule
     {

@@ -9,7 +9,7 @@ using SantaHo.Infrastructure.Rabbit;
 using SantaHo.Infrastructure.Rabbit.Queues;
 using SantaHo.Infrastructure.Redis;
 
-namespace SantaHo.Console.Modules
+namespace SantaHo.SantaOffice.Service.Modules
 {
     public sealed class InfrastructureModule : NinjectModule
     {
@@ -52,10 +52,6 @@ namespace SantaHo.Console.Modules
         private void IncomingLetters()
         {
             Bind<IncomingLettersQueueManager>().ToSelf().InSingletonScope();
-
-            Bind<IIncomingLettersEnqueuer>()
-                .ToMethod(x => Kernel.Get<IncomingLettersQueueManager>().GetEnqueuer())
-                .InSingletonScope();
 
             Bind<IIncomingLettersDequeuer>()
                 .ToMethod(x => Kernel.Get<IncomingLettersQueueManager>().GetDequeuer())

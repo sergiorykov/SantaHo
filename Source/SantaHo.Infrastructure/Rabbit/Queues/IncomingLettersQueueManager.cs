@@ -18,12 +18,7 @@ namespace SantaHo.Infrastructure.Rabbit.Queues
         {
             _connectionFactory = connectionFactory;
         }
-
-        public IIncomingLettersEnqueuer GetEnqueuer()
-        {
-            return new IncomingLettersEnqueuer(_connectionFactory.Create());
-        }
-
+        
         public IIncomingLettersDequeuer GetDequeuer()
         {
             return new IncomingLettersDequeuer(_connectionFactory.Create());
@@ -86,38 +81,6 @@ namespace SantaHo.Infrastructure.Rabbit.Queues
             }
         }
 
-        private sealed class IncomingLettersEnqueuer : IIncomingLettersEnqueuer
-        {
-            private readonly IModel _channel;
-
-            public IncomingLettersEnqueuer(IConnection connection)
-            {
-                _channel = connection.CreateModel();
-                _channel.BasicQos(0, 16*1024, false);
-                _channel.ExchangeDeclare(ExchangeName, ExchangeType.Direct);
-                _channel.QueueDeclare(QueueName, true, false, false, null);
-                _channel.QueueBind(QueueName, ExchangeName, RoutingKey, null);
-            }
-
-            public void Enque(Letter letter)
-            {
-                string json = JsonConvert.SerializeObject(letter);
-                byte[] messageBodyBytes = Encoding.UTF8.GetBytes(json);
-                IBasicProperties props = _channel.CreateBasicProperties();
-                props.DeliveryMode = 2;
-                lock (_channel)
-                {
-                    _channel.BasicPublish(ExchangeName, RoutingKey, props, messageBodyBytes);
-                }
-            }
-
-            public void Dispose()
-            {
-                if (_channel != null)
-                {
-                    _channel.Dispose();
-                }
-            }
-        }
+        
     }
 }

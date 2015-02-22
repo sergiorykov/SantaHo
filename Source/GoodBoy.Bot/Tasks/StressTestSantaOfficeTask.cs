@@ -1,7 +1,7 @@
 ﻿using FluentScheduler;
 using GoodBoy.Bot.Clients;
 using GoodBoy.Bot.Providers;
-using SantaHo.ServiceContracts.Letters;
+using SantaHo.FrontEnd.ServiceContracts.Letters;
 
 namespace GoodBoy.Bot.Tasks
 {

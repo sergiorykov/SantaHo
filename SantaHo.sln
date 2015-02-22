@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaHo.Console", "Source\SantaHo.Console\SantaHo.Console.csproj", "{A8AC2F15-09CD-4545-8849-088EC61F9C2C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaOffice.Service", "Source\SantaHo.Console\SantaOffice.Service.csproj", "{A8AC2F15-09CD-4545-8849-088EC61F9C2C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaHo.Infrastructure", "Source\SantaHo.Infrastructure\SantaHo.Infrastructure.csproj", "{9BE57860-75D8-451E-8B6C-B86A6E72C407}"
 EndProject
@@ -11,13 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodBoy.Bot", "Source\GoodB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaHo.Application", "Source\SantaHo.Application\SantaHo.Application.csproj", "{1F7F1FFC-1ACC-49F6-A546-9ACB6E85C2BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaHo.Domain", "Source\SantaHo.Domain\SantaHo.Domain.csproj", "{6DF91132-B02B-4B67-BFC5-1AD5561D3A0E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Source\SantaHo.Domain\Domain.csproj", "{6DF91132-B02B-4B67-BFC5-1AD5561D3A0E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaHo.Core", "Source\SantaHo.Core\SantaHo.Core.csproj", "{9AF869C7-117D-49C3-9762-4F1B0AF8767F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaHo.ServiceHosts", "Source\SantaHo.ServiceHosts\SantaHo.ServiceHosts.csproj", "{1001E7EF-CCC9-4042-99DA-E82674A5E87F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaHo.ServiceContracts", "Source\SantaHo.ServiceContracts\SantaHo.ServiceContracts.csproj", "{782AACBB-9E17-466A-95DA-31B0D339104B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd.ServiceContracts", "Source\SantaHo.ServiceContracts\FrontEnd.ServiceContracts.csproj", "{782AACBB-9E17-466A-95DA-31B0D339104B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "Source\UnitTests\UnitTests.csproj", "{40EEFE1B-C165-465C-A1A7-59E110B64196}"
 EndProject
@@ -28,7 +26,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1020D3
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaHo.Infrastructure.Core", "Source\SantaHo.Infrastructure.Core\SantaHo.Infrastructure.Core.csproj", "{E8C4E7C2-7AEF-4B7E-BEFC-142142C18F48}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Core", "Source\SantaHo.Infrastructure.Core\Infrastructure.Core.csproj", "{E8C4E7C2-7AEF-4B7E-BEFC-142142C18F48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd.Service", "Source\FrontEnd.Service\FrontEnd.Service.csproj", "{2A4D4EDC-18EE-4D66-85F4-A63C5721DF00}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{1DC3B777-7380-4E8B-8BC8-B9506309EF54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{5471FD74-EA94-4890-8895-BAE1BDC89077}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Rabbit", "Source\Infrastructure.Rabbit\Infrastructure.Rabbit.csproj", "{EF588050-9EE9-44F3-8337-B08A48DD992F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bots", "Bots", "{44B66316-19FB-49D3-B650-C24D148F9C81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,10 +68,6 @@ Global
 		{9AF869C7-117D-49C3-9762-4F1B0AF8767F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AF869C7-117D-49C3-9762-4F1B0AF8767F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AF869C7-117D-49C3-9762-4F1B0AF8767F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1001E7EF-CCC9-4042-99DA-E82674A5E87F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1001E7EF-CCC9-4042-99DA-E82674A5E87F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1001E7EF-CCC9-4042-99DA-E82674A5E87F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1001E7EF-CCC9-4042-99DA-E82674A5E87F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{782AACBB-9E17-466A-95DA-31B0D339104B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{782AACBB-9E17-466A-95DA-31B0D339104B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{782AACBB-9E17-466A-95DA-31B0D339104B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -76,8 +80,24 @@ Global
 		{E8C4E7C2-7AEF-4B7E-BEFC-142142C18F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8C4E7C2-7AEF-4B7E-BEFC-142142C18F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8C4E7C2-7AEF-4B7E-BEFC-142142C18F48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A4D4EDC-18EE-4D66-85F4-A63C5721DF00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A4D4EDC-18EE-4D66-85F4-A63C5721DF00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A4D4EDC-18EE-4D66-85F4-A63C5721DF00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A4D4EDC-18EE-4D66-85F4-A63C5721DF00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF588050-9EE9-44F3-8337-B08A48DD992F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF588050-9EE9-44F3-8337-B08A48DD992F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF588050-9EE9-44F3-8337-B08A48DD992F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF588050-9EE9-44F3-8337-B08A48DD992F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9BE57860-75D8-451E-8B6C-B86A6E72C407} = {1DC3B777-7380-4E8B-8BC8-B9506309EF54}
+		{1A5ACF8B-D9B2-4EA5-8E31-E861618B2297} = {44B66316-19FB-49D3-B650-C24D148F9C81}
+		{782AACBB-9E17-466A-95DA-31B0D339104B} = {5471FD74-EA94-4890-8895-BAE1BDC89077}
+		{E8C4E7C2-7AEF-4B7E-BEFC-142142C18F48} = {1DC3B777-7380-4E8B-8BC8-B9506309EF54}
+		{2A4D4EDC-18EE-4D66-85F4-A63C5721DF00} = {5471FD74-EA94-4890-8895-BAE1BDC89077}
+		{EF588050-9EE9-44F3-8337-B08A48DD992F} = {1DC3B777-7380-4E8B-8BC8-B9506309EF54}
 	EndGlobalSection
 EndGlobal

@@ -11,9 +11,7 @@ namespace SantaHo.Infrastructure.Core.ApplicationServices
         }
 
         protected IKernel Kernel { get; private set; }
-
-        public abstract void Start();
-
+        public abstract void Start(IStartupSettings startupSettings);
         public abstract void Stop();
     }
 }

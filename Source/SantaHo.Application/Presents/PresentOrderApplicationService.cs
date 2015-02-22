@@ -18,7 +18,7 @@ namespace SantaHo.Application.Presents
             _toyOrderProcessors.Add(CreateProcessor<CarToyFactory, CarToy>(CarToyFactory.Category));
         }
 
-        public void Start()
+        public void Start(IStartupSettings startupSettings)
         {
             _toyOrderProcessors.ExecuteAllOrRollback(x => x.Start(), x => x.Stop());
         }
