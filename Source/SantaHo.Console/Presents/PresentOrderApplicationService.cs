@@ -5,7 +5,7 @@ using SantaHo.Domain.Presents.Cars;
 using SantaHo.Domain.SantaOffice;
 using SantaHo.Infrastructure.Core.Extensions;
 
-namespace SantaHo.Application.Presents
+namespace SantaHo.SantaOffice.Service.Presents
 {
     public class PresentOrderApplicationService : IApplicationService
     {

@@ -1,4 +1,4 @@
-﻿namespace SantaHo.Application.Presents
+﻿namespace SantaHo.SantaOffice.Service.Presents
 {
     public interface IToyOrderProcessor
     {

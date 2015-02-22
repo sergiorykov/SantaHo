@@ -6,7 +6,7 @@ using SantaHo.Core.Processing;
 using SantaHo.Domain.Presents;
 using SantaHo.Domain.SantaOffice;
 
-namespace SantaHo.Application.Presents
+namespace SantaHo.SantaOffice.Service.Presents
 {
     public class ToyOrderProcessor<TToy> : IToyOrderProcessor where TToy : Toy
     {

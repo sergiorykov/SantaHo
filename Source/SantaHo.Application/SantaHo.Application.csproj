@@ -49,10 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Presents\IToyOrderProcessor.cs" />
-    <Compile Include="Presents\ToyOrderProcessor.cs" />
-    <Compile Include="Presents\PresentOrderProcessor.cs" />
-    <Compile Include="Presents\PresentOrderApplicationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

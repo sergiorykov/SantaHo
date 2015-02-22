@@ -1,6 +1,6 @@
 ﻿using Ninject.Modules;
-using SantaHo.Application.Presents;
 using SantaHo.Domain.Presents;
+using SantaHo.SantaOffice.Service.Presents;
 
 namespace SantaHo.SantaOffice.Service.Modules
 {

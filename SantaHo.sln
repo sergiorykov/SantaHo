@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaHo.Infrastructure", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodBoy.Bot", "Source\GoodBoy.Bot\GoodBoy.Bot.csproj", "{1A5ACF8B-D9B2-4EA5-8E31-E861618B2297}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaHo.Application", "Source\SantaHo.Application\SantaHo.Application.csproj", "{1F7F1FFC-1ACC-49F6-A546-9ACB6E85C2BD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Source\SantaHo.Domain\Domain.csproj", "{6DF91132-B02B-4B67-BFC5-1AD5561D3A0E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaHo.Core", "Source\SantaHo.Core\SantaHo.Core.csproj", "{9AF869C7-117D-49C3-9762-4F1B0AF8767F}"
@@ -56,10 +54,6 @@ Global
 		{1A5ACF8B-D9B2-4EA5-8E31-E861618B2297}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A5ACF8B-D9B2-4EA5-8E31-E861618B2297}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A5ACF8B-D9B2-4EA5-8E31-E861618B2297}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1F7F1FFC-1ACC-49F6-A546-9ACB6E85C2BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F7F1FFC-1ACC-49F6-A546-9ACB6E85C2BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F7F1FFC-1ACC-49F6-A546-9ACB6E85C2BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1F7F1FFC-1ACC-49F6-A546-9ACB6E85C2BD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6DF91132-B02B-4B67-BFC5-1AD5561D3A0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6DF91132-B02B-4B67-BFC5-1AD5561D3A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DF91132-B02B-4B67-BFC5-1AD5561D3A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU

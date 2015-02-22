@@ -80,6 +80,10 @@
     <Compile Include="Modules\InfrastructureModule.cs" />
     <Compile Include="Modules\PresentsModule.cs" />
     <Compile Include="Modules\SantaOfficeModule.cs" />
+    <Compile Include="Presents\IToyOrderProcessor.cs" />
+    <Compile Include="Presents\PresentOrderApplicationService.cs" />
+    <Compile Include="Presents\PresentOrderProcessor.cs" />
+    <Compile Include="Presents\ToyOrderProcessor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -98,10 +102,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SantaHo.Application\SantaHo.Application.csproj">
-      <Project>{1f7f1ffc-1acc-49f6-a546-9acb6e85c2bd}</Project>
-      <Name>SantaHo.Application</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SantaHo.Infrastructure.Core\Infrastructure.Core.csproj">
       <Project>{e8c4e7c2-7aef-4b7e-befc-142142c18f48}</Project>
       <Name>Infrastructure.Core</Name>

@@ -1,7 +1,7 @@
 ﻿using SantaHo.Domain.Presents;
 using SantaHo.Domain.SantaOffice;
 
-namespace SantaHo.Application.Presents
+namespace SantaHo.SantaOffice.Service.Presents
 {
     public sealed class PresentOrderProcessor : IPresentOrderProcessor
     {
