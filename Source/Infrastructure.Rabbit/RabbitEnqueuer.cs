@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 
-namespace SantaHo.Infrastructure.Rabbit
+namespace FluffyRabbit
 {
     public sealed class RabbitEnqueuer<TMessage> : IMessageEnqueuer<TMessage>
     {

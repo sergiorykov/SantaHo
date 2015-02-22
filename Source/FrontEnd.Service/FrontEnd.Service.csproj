@@ -102,9 +102,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Infrastructure.Rabbit\Infrastructure.Rabbit.csproj">
+    <ProjectReference Include="..\Infrastructure.Rabbit\FluffyRabbit.csproj">
       <Project>{ef588050-9ee9-44f3-8337-b08a48dd992f}</Project>
-      <Name>Infrastructure.Rabbit</Name>
+      <Name>FluffyRabbit</Name>
     </ProjectReference>
     <ProjectReference Include="..\SantaHo.Core\SantaHo.Core.csproj">
       <Project>{9AF869C7-117D-49C3-9762-4F1B0AF8767F}</Project>

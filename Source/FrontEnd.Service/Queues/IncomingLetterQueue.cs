@@ -1,4 +1,5 @@
-﻿using Nelibur.Sword.DataStructures;
+﻿using FluffyRabbit;
+using Nelibur.Sword.DataStructures;
 using Nelibur.Sword.Extensions;
 using RabbitMQ.Client;
 using SantaHo.Core.ApplicationServices;
@@ -6,7 +7,6 @@ using SantaHo.Core.ApplicationServices.Resources;
 using SantaHo.Core.Exceptions;
 using SantaHo.Domain.IncomingLetters;
 using SantaHo.Infrastructure.Core.Constants;
-using SantaHo.Infrastructure.Rabbit;
 
 namespace SantaHo.FrontEnd.Service.Queues
 {

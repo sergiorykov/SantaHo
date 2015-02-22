@@ -7,8 +7,8 @@
     <ProjectGuid>{EF588050-9EE9-44F3-8337-B08A48DD992F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SantaHo.Infrastructure.Rabbit</RootNamespace>
-    <AssemblyName>SantaHo.Infrastructure.Rabbit</AssemblyName>
+    <RootNamespace>FluffyRabbit</RootNamespace>
+    <AssemblyName>FluffyRabbit</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>

@@ -1,6 +1,6 @@
 ﻿using RabbitMQ.Client;
 
-namespace SantaHo.Infrastructure.Rabbit
+namespace FluffyRabbit
 {
     public sealed class RabbitExchange
     {

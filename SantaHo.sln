@@ -34,7 +34,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FrontEnd", "FrontEnd", "{5471FD74-EA94-4890-8895-BAE1BDC89077}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Rabbit", "Source\Infrastructure.Rabbit\Infrastructure.Rabbit.csproj", "{EF588050-9EE9-44F3-8337-B08A48DD992F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluffyRabbit", "Source\Infrastructure.Rabbit\FluffyRabbit.csproj", "{EF588050-9EE9-44F3-8337-B08A48DD992F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bots", "Bots", "{44B66316-19FB-49D3-B650-C24D148F9C81}"
 EndProject

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SantaHo.Infrastructure.Rabbit
+namespace FluffyRabbit
 {
     public interface IMessageEnqueuer<in TMessage> : IDisposable
     {
