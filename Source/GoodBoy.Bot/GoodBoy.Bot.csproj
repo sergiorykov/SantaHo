@@ -88,9 +88,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SantaHo.Core\SantaHo.Core.csproj">
+    <ProjectReference Include="..\SantaHo.Core\Core.csproj">
       <Project>{9af869c7-117d-49c3-9762-4f1b0af8767f}</Project>
-      <Name>SantaHo.Core</Name>
+      <Name>Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\SantaHo.ServiceContracts\FrontEnd.ServiceContracts.csproj">
       <Project>{782AACBB-9E17-466A-95DA-31B0D339104B}</Project>

@@ -106,9 +106,9 @@
       <Project>{ef588050-9ee9-44f3-8337-b08a48dd992f}</Project>
       <Name>FluffyRabbit</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SantaHo.Core\SantaHo.Core.csproj">
+    <ProjectReference Include="..\SantaHo.Core\Core.csproj">
       <Project>{9AF869C7-117D-49C3-9762-4F1B0AF8767F}</Project>
-      <Name>SantaHo.Core</Name>
+      <Name>Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\SantaHo.Domain\Domain.csproj">
       <Project>{6DF91132-B02B-4B67-BFC5-1AD5561D3A0E}</Project>

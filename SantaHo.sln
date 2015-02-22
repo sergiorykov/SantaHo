@@ -5,13 +5,13 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaOffice.Service", "Source\SantaHo.Console\SantaOffice.Service.csproj", "{A8AC2F15-09CD-4545-8849-088EC61F9C2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaHo.Infrastructure", "Source\SantaHo.Infrastructure\SantaHo.Infrastructure.csproj", "{9BE57860-75D8-451E-8B6C-B86A6E72C407}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Source\SantaHo.Infrastructure\Infrastructure.csproj", "{9BE57860-75D8-451E-8B6C-B86A6E72C407}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodBoy.Bot", "Source\GoodBoy.Bot\GoodBoy.Bot.csproj", "{1A5ACF8B-D9B2-4EA5-8E31-E861618B2297}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Source\SantaHo.Domain\Domain.csproj", "{6DF91132-B02B-4B67-BFC5-1AD5561D3A0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SantaHo.Core", "Source\SantaHo.Core\SantaHo.Core.csproj", "{9AF869C7-117D-49C3-9762-4F1B0AF8767F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Source\SantaHo.Core\Core.csproj", "{9AF869C7-117D-49C3-9762-4F1B0AF8767F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd.ServiceContracts", "Source\SantaHo.ServiceContracts\FrontEnd.ServiceContracts.csproj", "{782AACBB-9E17-466A-95DA-31B0D339104B}"
 EndProject

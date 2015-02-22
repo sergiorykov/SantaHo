@@ -74,9 +74,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SantaHo.Core\SantaHo.Core.csproj">
+    <ProjectReference Include="..\SantaHo.Core\Core.csproj">
       <Project>{9af869c7-117d-49c3-9762-4f1b0af8767f}</Project>
-      <Name>SantaHo.Core</Name>
+      <Name>Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\SantaHo.Domain\Domain.csproj">
       <Project>{6df91132-b02b-4b67-bfc5-1ad5561d3a0e}</Project>
