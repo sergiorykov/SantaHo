@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using SantaHo.Core.Exceptions;
 
-namespace SantaHo.Domain.IncomingLetters
+namespace SantaHo.Domain.Letters
 {
     public sealed class Letter
     {

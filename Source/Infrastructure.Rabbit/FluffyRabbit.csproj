@@ -54,17 +54,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RabbitEnqueuer.cs" />
-    <Compile Include="IMessageEnqueuer.cs" />
+    <Compile Include="Consumers\IObservableMessageConsumer.cs" />
+    <Compile Include="Exchanges\IRabbitExchangeConfiguration.cs" />
+    <Compile Include="Queues\IRabbitQueueConfiguration.cs" />
+    <Compile Include="Producers\ProducerConfigurator.cs" />
+    <Compile Include="Producers\RabbitEnqueuer.cs" />
+    <Compile Include="Producers\IMessageEnqueuer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RabbitConnectionFactory.cs" />
-    <Compile Include="RabbitExchange.cs" />
+    <Compile Include="Exchanges\RabbitExchangeConfiguration.cs" />
+    <Compile Include="Exchanges\RabbitExchangeType.cs" />
     <Compile Include="RabbitQueue.cs" />
-    <Compile Include="RabbitQueueBuilder.cs" />
+    <Compile Include="Queues\RabbitQueueConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

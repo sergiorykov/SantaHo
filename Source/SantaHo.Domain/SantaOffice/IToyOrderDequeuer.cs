@@ -5,6 +5,6 @@ namespace SantaHo.Domain.SantaOffice
 {
     public interface IToyOrderDequeuer : IDisposable
     {
-        IObservableMessage<ToyOrder> Dequeue();
+        IObservableMessage1<ToyOrder> Dequeue();
     }
 }

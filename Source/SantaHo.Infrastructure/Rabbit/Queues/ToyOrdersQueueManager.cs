@@ -20,9 +20,9 @@ namespace SantaHo.Infrastructure.Rabbit.Queues
         private readonly Dictionary<string, string> _categories =
             new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
 
-        private readonly RabbitConnectionFactory _connectionFactory;
+        private readonly RabbitConnectionFactory1 _connectionFactory;
 
-        public ToyOrdersQueueManager(RabbitConnectionFactory connectionFactory)
+        public ToyOrdersQueueManager(RabbitConnectionFactory1 connectionFactory)
         {
             _connectionFactory = connectionFactory;
             RegisterCategory(CarToyFactory.Category);
@@ -69,10 +69,10 @@ namespace SantaHo.Infrastructure.Rabbit.Queues
                 _channel.BasicConsume(queueName, false, _consumer);
             }
 
-            public IObservableMessage<ToyOrder> Dequeue()
+            public IObservableMessage1<ToyOrder> Dequeue()
             {
                 BasicDeliverEventArgs deliverEventArgs = _consumer.Queue.Dequeue();
-                return new ObservableMessage(deliverEventArgs, _channel);
+                return new ObservableMessage1(deliverEventArgs, _channel);
             }
 
             public void Dispose()
@@ -83,12 +83,12 @@ namespace SantaHo.Infrastructure.Rabbit.Queues
                 }
             }
 
-            private sealed class ObservableMessage : IObservableMessage<ToyOrder>
+            private sealed class ObservableMessage1 : IObservableMessage1<ToyOrder>
             {
                 private readonly IModel _channel;
                 private readonly BasicDeliverEventArgs _deliverEventArgs;
 
-                public ObservableMessage(BasicDeliverEventArgs deliverEventArgs, IModel channel)
+                public ObservableMessage1(BasicDeliverEventArgs deliverEventArgs, IModel channel)
                 {
                     _deliverEventArgs = deliverEventArgs;
                     _channel = channel;

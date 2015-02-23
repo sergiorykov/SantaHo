@@ -60,7 +60,7 @@
     <Compile Include="Processing\ITaskFactory.cs" />
     <Compile Include="Processing\ProcessingTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Processing\IObservableMessage.cs" />
+    <Compile Include="Processing\IObservableMessage1.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

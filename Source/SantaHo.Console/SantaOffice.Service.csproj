@@ -47,6 +47,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Nelibur.Sword.3.1.0\lib\net45\Nelibur.Sword.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
@@ -71,12 +75,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationContext.cs" />
-    <Compile Include="IncomingLetters\IncomingLetterProcessingSettings.cs" />
     <Compile Include="IncomingLetters\IncomingLetterProcessor.cs" />
-    <Compile Include="IncomingLetters\IncomingLettersApplicationService.cs" />
-    <Compile Include="IncomingLetters\ProcessIncomingLetterTask.cs" />
-    <Compile Include="IncomingLetters\ProcessIncomingLetterTaskFactory.cs" />
-    <Compile Include="Modules\IncomingLettersModule.cs" />
+    <Compile Include="IncomingLetters\IncomingLetterQueue.cs" />
+    <Compile Include="IncomingLetters\IncomingLetterApplicationService.cs" />
+    <Compile Include="IncomingLetters\IncomingLetterSettings.cs" />
+    <Compile Include="IncomingLetters\IncomingLetterModule.cs" />
+    <Compile Include="IncomingLetters\IncomingLettersQueueManager.cs" />
     <Compile Include="Modules\InfrastructureModule.cs" />
     <Compile Include="Modules\PresentsModule.cs" />
     <Compile Include="Modules\SantaOfficeModule.cs" />
@@ -86,6 +90,7 @@
     <Compile Include="Presents\ToyOrderProcessor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queues\QueueApplicationResource.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -102,6 +107,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Infrastructure.Rabbit\FluffyRabbit.csproj">
+      <Project>{EF588050-9EE9-44F3-8337-B08A48DD992F}</Project>
+      <Name>FluffyRabbit</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SantaHo.Infrastructure.Core\Infrastructure.Core.csproj">
       <Project>{e8c4e7c2-7aef-4b7e-befc-142142c18f48}</Project>
       <Name>Infrastructure.Core</Name>

@@ -1,4 +1,4 @@
-﻿using SantaHo.Domain.IncomingLetters;
+﻿using SantaHo.Domain.Letters;
 
 namespace SantaHo.FrontEnd.Service.Queues
 {

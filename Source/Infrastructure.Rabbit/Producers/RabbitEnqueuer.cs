@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 
-namespace FluffyRabbit
+namespace FluffyRabbit.Producers
 {
     public sealed class RabbitEnqueuer<TMessage> : IMessageEnqueuer<TMessage>
     {
@@ -19,10 +19,7 @@ namespace FluffyRabbit
 
         public void Dispose()
         {
-            if (_channel != null)
-            {
-                _channel.Dispose();
-            }
+            _channel.Dispose();
         }
 
         public void Enque(TMessage message)

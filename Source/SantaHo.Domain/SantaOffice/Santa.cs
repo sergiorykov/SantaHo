@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading;
 using NLog;
-using SantaHo.Domain.IncomingLetters;
+using SantaHo.Domain.Letters;
 using SantaHo.Domain.Presents;
 
 namespace SantaHo.Domain.SantaOffice

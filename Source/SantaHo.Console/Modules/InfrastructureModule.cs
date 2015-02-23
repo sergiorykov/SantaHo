@@ -2,7 +2,6 @@ using Ninject;
 using Ninject.Modules;
 using SantaHo.Core.ApplicationServices.Resources;
 using SantaHo.Core.Configuration;
-using SantaHo.Domain.IncomingLetters;
 using SantaHo.Domain.Presents;
 using SantaHo.Domain.SantaOffice;
 using SantaHo.Infrastructure.Rabbit;
@@ -15,13 +14,12 @@ namespace SantaHo.SantaOffice.Service.Modules
     {
         public override void Load()
         {
-            Bind<RabbitConnectionFactory>().ToSelf().InSingletonScope();
-            Bind<IRequireLoading>().ToMethod(c => c.Kernel.Get<RabbitConnectionFactory>());
+            Bind<RabbitConnectionFactory1>().ToSelf().InSingletonScope();
+            Bind<IRequireLoading>().ToMethod(c => c.Kernel.Get<RabbitConnectionFactory1>());
 
             Bind<RedisConnectionFactory>().ToSelf().InSingletonScope();
             Bind<IRequireLoading>().ToMethod(c => c.Kernel.Get<RedisConnectionFactory>());
 
-            IncomingLetters();
             ToyOrders();
 
             Bind<SettingsMigration>().ToSelf().InSingletonScope();
@@ -46,15 +44,6 @@ namespace SantaHo.SantaOffice.Service.Modules
 
             Bind<IToyOrdersEnqueuer>()
                 .ToMethod(x => Kernel.Get<ToyOrdersQueueManager>().GetEnqueuer())
-                .InSingletonScope();
-        }
-
-        private void IncomingLetters()
-        {
-            Bind<IncomingLettersQueueManager>().ToSelf().InSingletonScope();
-
-            Bind<IIncomingLettersDequeuer>()
-                .ToMethod(x => Kernel.Get<IncomingLettersQueueManager>().GetDequeuer())
                 .InSingletonScope();
         }
     }

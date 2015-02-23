@@ -1,11 +1,13 @@
 ﻿using FluffyRabbit;
+using FluffyRabbit.Exchanges;
+using FluffyRabbit.Producers;
 using Nelibur.Sword.DataStructures;
 using Nelibur.Sword.Extensions;
 using RabbitMQ.Client;
 using SantaHo.Core.ApplicationServices;
 using SantaHo.Core.ApplicationServices.Resources;
 using SantaHo.Core.Exceptions;
-using SantaHo.Domain.IncomingLetters;
+using SantaHo.Domain.Letters;
 using SantaHo.Infrastructure.Core.Constants;
 
 namespace SantaHo.FrontEnd.Service.Queues
@@ -18,6 +20,7 @@ namespace SantaHo.FrontEnd.Service.Queues
         public void Dispose()
         {
             _connection.Do(x => x.Dispose());
+            _letterEnqueuer.Do(x => x.Dispose());
         }
 
         public void Load(IStartupSettings startupSettings)
@@ -30,16 +33,22 @@ namespace SantaHo.FrontEnd.Service.Queues
 
             _connection = connection.ToOption();
 
-            var letterEnqueuer = new RabbitQueue(connection.CreateModel())
-                .Exchange(QueueKeys.IncomingLetters.ExchangeName)
-                .Direct()
-                .ForQueue(QueueKeys.IncomingLetters.QueueName)
-                .Durable()
-                .PrefetchMax(16*1000)
-                .USeRoutingKey(QueueKeys.IncomingLetters.RoutingKey)
-                .CreateEnqueuer<Letter>();
+            var producer = RabbitQueue.Producer()
+                .UseExchange(x =>
+                {
+                    x.Name = QueueKeys.IncomingLetters.ExchangeName;
+                    x.Type = RabbitExchangeType.Direct;
+                })
+                .Queue(x =>
+                {
+                    x.Name = QueueKeys.IncomingLetters.QueueName;
+                    x.Durable = true;
+                    x.PrefetchCount = 16*1000;
+                    x.RoutingKey = QueueKeys.IncomingLetters.RoutingKey;
+                })
+                .Create<Letter>(connection);
 
-            _letterEnqueuer = letterEnqueuer.ToOption();
+            _letterEnqueuer = producer.ToOption();
         }
 
         public void Enqueue(Letter letter)

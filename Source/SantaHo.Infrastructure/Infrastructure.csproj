@@ -63,9 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Rabbit\Queues\ToyOrdersQueueManager.cs" />
-    <Compile Include="Rabbit\RabbitConnectionFactory.cs" />
+    <Compile Include="Rabbit\RabbitConnectionFactory1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rabbit\Queues\IncomingLettersQueueManager.cs" />
     <Compile Include="Redis\RedisConnectionFactory.cs" />
     <Compile Include="Redis\RedisKeyEvaluator.cs" />
     <Compile Include="Redis\SettingsRepository.cs" />

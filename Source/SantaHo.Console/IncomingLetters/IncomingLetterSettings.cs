@@ -2,18 +2,18 @@
 
 namespace SantaHo.SantaOffice.Service.IncomingLetters
 {
-    [SettingsKey("IncomingLetterProcessingSettings")]
-    public class IncomingLetterProcessingSettings
+    [SettingsKey("IncomingLetterSettings")]
+    public class IncomingLetterSettings
     {
         public int MaxAwaiting { get; set; }
 
         public int ParallelDegree { get; set; }
 
-        public static IncomingLetterProcessingSettings Default
+        public static IncomingLetterSettings Default
         {
             get
             {
-                return new IncomingLetterProcessingSettings
+                return new IncomingLetterSettings
                 {
                     MaxAwaiting = 1000,
                     ParallelDegree = 2

@@ -1,6 +1,6 @@
 ﻿namespace SantaHo.Core.Processing
 {
-    public interface IObservableMessage<out TMessage>
+    public interface IObservableMessage1<out TMessage>
     {
         TMessage Message { get; }
         void Completed();

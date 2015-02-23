@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FluffyRabbit
+namespace FluffyRabbit.Producers
 {
     public interface IMessageEnqueuer<in TMessage> : IDisposable
     {

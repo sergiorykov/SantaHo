@@ -1,25 +1,12 @@
-using System;
-using RabbitMQ.Client;
+using FluffyRabbit.Producers;
 
 namespace FluffyRabbit
 {
-    public sealed class RabbitQueue
+    public static class RabbitQueue
     {
-        private readonly IModel _channel;
-
-        public RabbitQueue(IModel channel)
+        public static ProducerConfigurator Producer()
         {
-            if (channel == null)
-            {
-                throw new ArgumentNullException("channel");
-            }
-
-            _channel = channel;
-        }
-
-        public RabbitExchange Exchange(string exchangeName)
-        {
-            return new RabbitExchange(_channel, exchangeName);
+            return new ProducerConfigurator();
         }
     }
 }

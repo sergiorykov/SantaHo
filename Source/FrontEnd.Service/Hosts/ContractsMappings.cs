@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using SantaHo.Domain.IncomingLetters;
+using SantaHo.Domain.Letters;
 using SantaHo.FrontEnd.ServiceContracts.Letters;
 
 namespace SantaHo.FrontEnd.Service.Hosts

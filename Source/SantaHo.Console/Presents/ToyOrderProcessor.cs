@@ -43,12 +43,12 @@ namespace SantaHo.SantaOffice.Service.Presents
         {
             while (true)
             {
-                IObservableMessage<ToyOrder> order = _dequeuer.Dequeue();
+                IObservableMessage1<ToyOrder> order = _dequeuer.Dequeue();
                 Process(order);
             }
         }
 
-        private void Process(IObservableMessage<ToyOrder> order)
+        private void Process(IObservableMessage1<ToyOrder> order)
         {
             try
             {

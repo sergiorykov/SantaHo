@@ -1,47 +1,42 @@
-﻿using System.Text;
+using System.Text;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using SantaHo.Core.Processing;
-using SantaHo.Domain.IncomingLetters;
+using SantaHo.Domain.Letters;
+using SantaHo.Infrastructure.Core.Constants;
+using SantaHo.Infrastructure.Rabbit;
 
-namespace SantaHo.Infrastructure.Rabbit.Queues
+namespace SantaHo.SantaOffice.Service.IncomingLetters
 {
     public sealed class IncomingLettersQueueManager
     {
-        private const string ExchangeName = "incoming-letters-direct-exchange";
-        private const string QueueName = "incoming-letters";
-        private const string RoutingKey = "letter";
-        private readonly RabbitConnectionFactory _connectionFactory;
+        private readonly RabbitConnectionFactory1 _connectionFactory;
 
-        public IncomingLettersQueueManager(RabbitConnectionFactory connectionFactory)
+        public IncomingLettersQueueManager(RabbitConnectionFactory1 connectionFactory)
         {
             _connectionFactory = connectionFactory;
         }
         
-        public IIncomingLettersDequeuer GetDequeuer()
-        {
-            return new IncomingLettersDequeuer(_connectionFactory.Create());
-        }
-
-        private sealed class IncomingLettersDequeuer : IIncomingLettersDequeuer
+        private sealed class IncomingLettersDequeuer1
         {
             private readonly IModel _channel;
             private readonly QueueingBasicConsumer _consumer;
 
-            public IncomingLettersDequeuer(IConnection connection)
+            public IncomingLettersDequeuer1(IConnection connection)
             {
                 _channel = connection.CreateModel();
-                _channel.QueueDeclare(QueueName, true, false, false, null);
+                _channel.QueueDeclare(QueueKeys.IncomingLetters.QueueName, true, false, false, null);
                 _channel.BasicQos(0, 16*1024, false);
+
                 _consumer = new QueueingBasicConsumer(_channel);
-                _channel.BasicConsume(QueueName, false, _consumer);
+                _channel.BasicConsume(QueueKeys.IncomingLetters.QueueName, false, _consumer);
             }
 
-            public IObservableMessage<Letter> Dequeue()
+            public IObservableMessage1<Letter> Dequeue()
             {
                 BasicDeliverEventArgs deliverEventArgs = _consumer.Queue.Dequeue();
-                return new ObservableMessage(deliverEventArgs, _channel);
+                return new ObservableMessage1(deliverEventArgs, _channel);
             }
 
             public void Dispose()
@@ -52,12 +47,12 @@ namespace SantaHo.Infrastructure.Rabbit.Queues
                 }
             }
 
-            private sealed class ObservableMessage : IObservableMessage<Letter>
+            private sealed class ObservableMessage1 : IObservableMessage1<Letter>
             {
                 private readonly IModel _channel;
                 private readonly BasicDeliverEventArgs _deliverEventArgs;
 
-                public ObservableMessage(BasicDeliverEventArgs deliverEventArgs, IModel channel)
+                public ObservableMessage1(BasicDeliverEventArgs deliverEventArgs, IModel channel)
                 {
                     _deliverEventArgs = deliverEventArgs;
                     _channel = channel;

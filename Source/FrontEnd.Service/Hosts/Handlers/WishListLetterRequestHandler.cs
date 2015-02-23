@@ -4,7 +4,7 @@ using AutoMapper;
 using Nelibur.ServiceModel.Services.Operations;
 using Nelibur.Sword.Extensions;
 using NLog;
-using SantaHo.Domain.IncomingLetters;
+using SantaHo.Domain.Letters;
 using SantaHo.FrontEnd.Service.Hosts.Executors;
 using SantaHo.FrontEnd.Service.Queues;
 using SantaHo.FrontEnd.ServiceContracts.Letters;
