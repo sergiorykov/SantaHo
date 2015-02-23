@@ -3,11 +3,11 @@ using Ninject;
 
 namespace GoodBoy.Bot.Schedulers
 {
-    public class GoodBoyTaskFactory : ITaskFactory
+    public class NinjectTaskFactory : ITaskFactory
     {
         private readonly IKernel _kernel;
 
-        public GoodBoyTaskFactory(IKernel kernel)
+        public NinjectTaskFactory(IKernel kernel)
         {
             _kernel = kernel;
         }

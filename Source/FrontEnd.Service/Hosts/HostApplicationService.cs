@@ -5,6 +5,7 @@ using Nelibur.ServiceModel.Services;
 using Nelibur.ServiceModel.Services.Default;
 using Nelibur.ServiceModel.Services.Operations;
 using Ninject;
+using NLog;
 using SantaHo.Core.ApplicationServices;
 using SantaHo.FrontEnd.Service.Hosts.Handlers;
 using SantaHo.FrontEnd.ServiceContracts.Letters;
@@ -15,6 +16,7 @@ namespace SantaHo.FrontEnd.Service.Hosts
 {
     public sealed class HostApplicationService : NinjectApplicationService
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private ServiceHost _serviceHost;
 
         public HostApplicationService(IKernel kernel)
@@ -49,8 +51,10 @@ namespace SantaHo.FrontEnd.Service.Hosts
 
         private void OpenServiceHost(HostSettings hostSettings)
         {
+            Logger.Info("Opening service host...");
             _serviceHost = new WebServiceHost(typeof (JsonServicePerCall), hostSettings.ServiceHostUri);
             _serviceHost.Open();
+            Logger.Info("Opened service host on {0}", hostSettings.ServiceHostUri);
         }
 
         public override void Stop()

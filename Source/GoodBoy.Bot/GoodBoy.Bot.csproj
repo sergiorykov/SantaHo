@@ -66,7 +66,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Schedulers\GoodBoyRegistry.cs" />
-    <Compile Include="Schedulers\GoodBoyTaskFactory.cs" />
+    <Compile Include="Schedulers\NinjectTaskFactory.cs" />
     <Compile Include="Modules\GoodBoyModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

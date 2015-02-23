@@ -8,7 +8,8 @@ namespace SantaHo.FrontEnd.Service.Hosts
     {
         public static void Configure()
         {
-            Mapper.CreateMap<WishListLetterRequest, Letter>();
+            Mapper.CreateMap<WishListLetterRequest, Letter>()
+                .ForMember(dest => dest.From, opt => opt.MapFrom(src => src.Name));
 
             Mapper.AssertConfigurationIsValid();
         }

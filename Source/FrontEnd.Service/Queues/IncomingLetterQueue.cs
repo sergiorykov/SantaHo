@@ -14,26 +14,23 @@ namespace SantaHo.FrontEnd.Service.Queues
 {
     public sealed class IncomingLetterQueue : IIncomingLetterQueue, IApplicationResource
     {
-        private Option<IConnection> _connection = Option<IConnection>.Empty;
+        private readonly QueueConnectionManager _manager;
         private Option<IMessageEnqueuer<Letter>> _letterEnqueuer = Option<IMessageEnqueuer<Letter>>.Empty;
+
+        public IncomingLetterQueue(QueueConnectionManager manager)
+        {
+            _manager = manager;
+        }
 
         public void Dispose()
         {
-            _connection.Do(x => x.Dispose());
             _letterEnqueuer.Do(x => x.Dispose());
         }
 
         public void Load(IStartupSettings startupSettings)
         {
-            var queueSettings = QueueSettings.Create(startupSettings);
-
-            var connection = new RabbitConnectionFactory()
-                .LinkTo(queueSettings.RabbitAmqpUri)
-                .Create();
-
-            _connection = connection.ToOption();
-
-            var producer = RabbitQueue.Producer()
+            IConnection connection = _manager.GetConnection();
+            IMessageEnqueuer<Letter> letterEnqueuer = RabbitQueue.Producer()
                 .UseExchange(x =>
                 {
                     x.Name = QueueKeys.IncomingLetters.ExchangeName;
@@ -48,7 +45,7 @@ namespace SantaHo.FrontEnd.Service.Queues
                 })
                 .Create<Letter>(connection);
 
-            _letterEnqueuer = producer.ToOption();
+            _letterEnqueuer = letterEnqueuer.ToOption();
         }
 
         public void Enqueue(Letter letter)
@@ -57,7 +54,7 @@ namespace SantaHo.FrontEnd.Service.Queues
                 .Do(x => x.Validate());
 
             _letterEnqueuer
-                .ThrowOnEmpty(() => new QueueUnavailableException(QueueKeys.IncomingLetters.ExchangeName))
+                .ThrowOnEmpty(() => new QueueUnavailableException())
                 .Do(x => x.Enque(letter));
         }
     }

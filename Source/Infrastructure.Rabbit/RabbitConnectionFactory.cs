@@ -36,6 +36,8 @@ namespace FluffyRabbit
 
         public IConnection Create()
         {
+            // BrokerUnreacheableException
+            // ConnectionFailureException
             return _connectionFactory
                 .ThrowOnEmpty(() => new InvalidOperationException("Factory not connected"))
                 .Map(x => x.CreateConnection())

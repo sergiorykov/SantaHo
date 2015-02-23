@@ -10,6 +10,7 @@ namespace SantaHo.FrontEnd.Service
             {
                 x.Service<ApplicationContext>(s =>
                 {
+                    s.ConstructUsing(() => new ApplicationContext());
                     s.WhenStarted(app => app.Start());
                     s.WhenStopped(app => app.Stop());
                 });
