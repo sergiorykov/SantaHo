@@ -9,6 +9,7 @@ using SantaHo.Core.Processing;
 using SantaHo.Domain.Presents;
 using SantaHo.Domain.Presents.Cars;
 using SantaHo.Domain.SantaOffice;
+using SantaHo.SantaOffice.Service.Toys;
 
 namespace SantaHo.SantaOffice.Service.Infrastructure.Rabbit.Queues
 {

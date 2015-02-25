@@ -8,7 +8,7 @@ using Nelibur.Sword.DataStructures;
 using Nelibur.Sword.Extensions;
 using NLog;
 using SantaHo.Core.ApplicationServices;
-using SantaHo.Domain.Letters;
+using SantaHo.Domain.SantaOffice.Letters;
 
 namespace SantaHo.SantaOffice.Service.IncomingLetters
 {
@@ -40,11 +40,11 @@ namespace SantaHo.SantaOffice.Service.IncomingLetters
 
         private void ProcessLetter(CancellationToken token)
         {
-            using (IObservableMessageDequeuer<Letter> dequeuer = _queue.CreateConsumer())
+            using (IObservableMessageDequeuer<IncomingChildLetter> dequeuer = _queue.CreateConsumer())
             {
                 while (!token.IsCancellationRequested)
                 {
-                    IObservableMessage<Letter> message = dequeuer.Dequeue();
+                    IObservableMessage<IncomingChildLetter> message = dequeuer.Dequeue();
                     try
                     {
                         _processor.Process(message.Message);

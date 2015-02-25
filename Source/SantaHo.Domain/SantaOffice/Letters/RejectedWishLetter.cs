@@ -1,8 +1,7 @@
-﻿namespace SantaHo.Domain.SantaOffice
+﻿namespace SantaHo.Domain.SantaOffice.Letters
 {
-    public abstract class RejectedWishLetter
+    public sealed class RejectedWishLetter : Letter
     {
-        public string To { get; set; }
         public string Wish { get; set; }
         public string Reason { get; set; }
     }

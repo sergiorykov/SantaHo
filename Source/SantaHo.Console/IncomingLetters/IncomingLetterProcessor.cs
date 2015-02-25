@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.Contracts;
-using SantaHo.Domain.Letters;
 using SantaHo.Domain.Presents;
 using SantaHo.Domain.SantaOffice;
+using SantaHo.Domain.SantaOffice.Letters;
 using SantaHo.SantaOffice.Service.Presents;
 
 namespace SantaHo.SantaOffice.Service.IncomingLetters
@@ -20,7 +20,7 @@ namespace SantaHo.SantaOffice.Service.IncomingLetters
             _presentOrderProcessor = presentOrderProcessor;
         }
 
-        public void Process(Letter letter)
+        public void Process(IncomingChildLetter letter)
         {
             Contract.Requires(letter != null);
 

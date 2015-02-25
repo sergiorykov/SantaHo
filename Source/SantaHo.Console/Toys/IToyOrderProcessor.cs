@@ -1,4 +1,4 @@
-﻿namespace SantaHo.SantaOffice.Service.Presents
+﻿namespace SantaHo.SantaOffice.Service.Toys
 {
     public interface IToyOrderProcessor
     {

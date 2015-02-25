@@ -1,9 +1,9 @@
-﻿using SantaHo.Domain.Letters;
+﻿using SantaHo.Domain.SantaOffice.Letters;
 
 namespace SantaHo.FrontEnd.Service.Queues
 {
     public interface IIncomingLetterQueue
     {
-        void Enqueue(Letter letter);
+        void Enqueue(IncomingChildLetter letter);
     }
 }

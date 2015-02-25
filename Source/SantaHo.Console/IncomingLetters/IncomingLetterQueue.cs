@@ -2,7 +2,7 @@
 using FluffyRabbit.Consumers;
 using SantaHo.Core.ApplicationServices;
 using SantaHo.Core.ApplicationServices.Resources;
-using SantaHo.Domain.Letters;
+using SantaHo.Domain.SantaOffice.Letters;
 using SantaHo.Infrastructure.Core.Constants;
 using SantaHo.SantaOffice.Service.Infrastructure.Queues;
 
@@ -17,7 +17,7 @@ namespace SantaHo.SantaOffice.Service.IncomingLetters
             _connectionFactory = connectionFactory;
         }
 
-        public IObservableMessageDequeuer<Letter> CreateConsumer()
+        public IObservableMessageDequeuer<IncomingChildLetter> CreateConsumer()
         {
             return RabbitQueue.Consumer()
                 .Queue(x =>
@@ -26,7 +26,7 @@ namespace SantaHo.SantaOffice.Service.IncomingLetters
                     x.Durable = true;
                     x.PrefetchCount = 16*1000;
                 })
-                .Create<Letter>(_connectionFactory.Create());
+                .Create<IncomingChildLetter>(_connectionFactory.Create());
         }
 
         public void Dispose()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using SantaHo.Domain.SantaOffice;
+using SantaHo.Domain.SantaOffice.Letters;
 
 namespace SantaHo.Domain.Presents
 {

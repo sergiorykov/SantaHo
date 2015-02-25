@@ -2,11 +2,10 @@ using Ninject;
 using Ninject.Modules;
 using SantaHo.Core.ApplicationServices.Resources;
 using SantaHo.Core.Configuration;
-using SantaHo.Domain.Presents;
-using SantaHo.Domain.SantaOffice;
 using SantaHo.SantaOffice.Service.Infrastructure.Rabbit;
 using SantaHo.SantaOffice.Service.Infrastructure.Rabbit.Queues;
 using SantaHo.SantaOffice.Service.Infrastructure.Redis;
+using SantaHo.SantaOffice.Service.Toys;
 
 namespace SantaHo.SantaOffice.Service.Bootstrap
 {

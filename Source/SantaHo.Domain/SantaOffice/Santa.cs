@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Threading;
 using NLog;
-using SantaHo.Domain.Letters;
 using SantaHo.Domain.Presents;
+using SantaHo.Domain.SantaOffice.Letters;
 
 namespace SantaHo.Domain.SantaOffice
 {
@@ -11,7 +11,7 @@ namespace SantaHo.Domain.SantaOffice
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
-        public PresentOrder Read(Letter letter)
+        public PresentOrder Read(IncomingChildLetter letter)
         {
             Logger.Info("Santa is reading letter from: {0}", letter.From);
             Thread.Sleep(100);

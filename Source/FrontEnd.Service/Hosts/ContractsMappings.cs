@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using SantaHo.Domain.Letters;
+using SantaHo.Domain.SantaOffice.Letters;
 using SantaHo.FrontEnd.ServiceContracts.Letters;
 
 namespace SantaHo.FrontEnd.Service.Hosts
@@ -8,7 +8,7 @@ namespace SantaHo.FrontEnd.Service.Hosts
     {
         public static void Configure()
         {
-            Mapper.CreateMap<WishListLetterRequest, Letter>()
+            Mapper.CreateMap<WishListLetterRequest, IncomingChildLetter>()
                 .ForMember(dest => dest.From, opt => opt.MapFrom(src => src.Name));
 
             Mapper.AssertConfigurationIsValid();

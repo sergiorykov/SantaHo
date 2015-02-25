@@ -89,7 +89,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Letters\Letter.cs" />
+    <Compile Include="SantaOffice\Letters\IncomingChildLetter.cs" />
+    <Compile Include="SantaOffice\Letters\Letter.cs" />
     <Compile Include="Toys\Cars\CarToyFactory.cs" />
     <Compile Include="Presents\Present.cs" />
     <Compile Include="Presents\PresentOrder.cs" />

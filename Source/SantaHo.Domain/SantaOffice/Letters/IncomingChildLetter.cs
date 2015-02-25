@@ -2,16 +2,14 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using SantaHo.Core.Exceptions;
 
-namespace SantaHo.Domain.Letters
+namespace SantaHo.Domain.SantaOffice.Letters
 {
-    public sealed class Letter
+    public sealed class IncomingChildLetter : Letter
     {
-        public Letter()
+        public IncomingChildLetter()
         {
             Wishes = new List<string>();
         }
-
-        public string From { get; set; }
 
         public List<string> Wishes { get; private set; }
 

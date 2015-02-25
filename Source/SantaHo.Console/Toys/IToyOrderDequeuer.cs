@@ -1,7 +1,8 @@
 using System;
 using SantaHo.Core.Processing;
+using SantaHo.Domain.SantaOffice;
 
-namespace SantaHo.Domain.SantaOffice
+namespace SantaHo.SantaOffice.Service.Toys
 {
     public interface IToyOrderDequeuer : IDisposable
     {

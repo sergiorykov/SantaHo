@@ -1,4 +1,4 @@
-﻿namespace SantaHo.Domain.Presents
+﻿namespace SantaHo.SantaOffice.Service.Toys
 {
     public interface IToyOrderCategoryRegistrar
     {
