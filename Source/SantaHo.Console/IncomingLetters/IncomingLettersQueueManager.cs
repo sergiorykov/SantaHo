@@ -5,7 +5,7 @@ using RabbitMQ.Client.Events;
 using SantaHo.Core.Processing;
 using SantaHo.Domain.Letters;
 using SantaHo.Infrastructure.Core.Constants;
-using SantaHo.Infrastructure.Rabbit;
+using SantaHo.SantaOffice.Service.Infrastructure.Rabbit;
 
 namespace SantaHo.SantaOffice.Service.IncomingLetters
 {

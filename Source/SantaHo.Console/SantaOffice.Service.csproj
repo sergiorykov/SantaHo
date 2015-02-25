@@ -100,7 +100,7 @@
     <Compile Include="Presents\ToyOrderProcessor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queues\QueueApplicationResource.cs" />
+    <Compile Include="Infrastructure\Queues\QueueApplicationResource.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -10,7 +10,7 @@ using SantaHo.Domain.Presents;
 using SantaHo.Domain.Presents.Cars;
 using SantaHo.Domain.SantaOffice;
 
-namespace SantaHo.Infrastructure.Rabbit.Queues
+namespace SantaHo.SantaOffice.Service.Infrastructure.Rabbit.Queues
 {
     public sealed class ToyOrdersQueueManager : IToyOrderCategoryRegistrar, IToyOrdersQueueManager
     {

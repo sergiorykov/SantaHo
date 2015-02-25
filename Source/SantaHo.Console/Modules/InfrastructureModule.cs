@@ -4,9 +4,9 @@ using SantaHo.Core.ApplicationServices.Resources;
 using SantaHo.Core.Configuration;
 using SantaHo.Domain.Presents;
 using SantaHo.Domain.SantaOffice;
-using SantaHo.Infrastructure.Rabbit;
-using SantaHo.Infrastructure.Rabbit.Queues;
-using SantaHo.Infrastructure.Redis;
+using SantaHo.SantaOffice.Service.Infrastructure.Rabbit;
+using SantaHo.SantaOffice.Service.Infrastructure.Rabbit.Queues;
+using SantaHo.SantaOffice.Service.Infrastructure.Redis;
 
 namespace SantaHo.SantaOffice.Service.Modules
 {

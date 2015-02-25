@@ -1,6 +1,6 @@
 ﻿using SantaHo.Core.Configuration;
 
-namespace SantaHo.Infrastructure.Redis
+namespace SantaHo.SantaOffice.Service.Infrastructure.Redis
 {
     public class RedisKeyEvaluator : KeyEvaluator
     {

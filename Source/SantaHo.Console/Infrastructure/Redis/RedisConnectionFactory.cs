@@ -4,7 +4,7 @@ using SantaHo.Core.ApplicationServices.Resources;
 using SantaHo.Infrastructure.Core.Extensions;
 using StackExchange.Redis;
 
-namespace SantaHo.Infrastructure.Redis
+namespace SantaHo.SantaOffice.Service.Infrastructure.Redis
 {
     public sealed class RedisConnectionFactory : IRequireLoading
     {

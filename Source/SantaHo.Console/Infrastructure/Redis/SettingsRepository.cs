@@ -2,7 +2,7 @@
 using SantaHo.Core.Configuration;
 using StackExchange.Redis;
 
-namespace SantaHo.Infrastructure.Redis
+namespace SantaHo.SantaOffice.Service.Infrastructure.Redis
 {
     public class SettingsRepository : ISettingsRepository
     {

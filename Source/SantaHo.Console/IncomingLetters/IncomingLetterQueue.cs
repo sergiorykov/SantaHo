@@ -3,7 +3,7 @@ using FluffyRabbit.Consumers;
 using SantaHo.Core.ApplicationServices;
 using SantaHo.Core.ApplicationServices.Resources;
 using SantaHo.Domain.Letters;
-using SantaHo.SantaOffice.Service.Queues;
+using SantaHo.SantaOffice.Service.Infrastructure.Queues;
 
 namespace SantaHo.SantaOffice.Service.IncomingLetters
 {

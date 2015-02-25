@@ -6,7 +6,7 @@ using SantaHo.Core.ApplicationServices;
 using SantaHo.Core.ApplicationServices.Resources;
 using SantaHo.Core.Exceptions;
 
-namespace SantaHo.SantaOffice.Service.Queues
+namespace SantaHo.SantaOffice.Service.Infrastructure.Queues
 {
     public interface IQueueConnectionFactory
     {

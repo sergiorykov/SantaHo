@@ -5,7 +5,7 @@ using RabbitMQ.Client;
 using SantaHo.Core.ApplicationServices;
 using SantaHo.Core.ApplicationServices.Resources;
 
-namespace SantaHo.Infrastructure.Rabbit
+namespace SantaHo.SantaOffice.Service.Infrastructure.Rabbit
 {
     public sealed class RabbitConnectionFactory1 : IRequireLoading
     {
