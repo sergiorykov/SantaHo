@@ -15,10 +15,10 @@ namespace SantaHo.SantaOffice.Service.Bootstrap
         public override void Load()
         {
             Bind<RabbitConnectionFactory1>().ToSelf().InSingletonScope();
-            Bind<IRequireLoading>().ToMethod(c => c.Kernel.Get<RabbitConnectionFactory1>());
+            Bind<IApplicationResource>().ToMethod(c => c.Kernel.Get<RabbitConnectionFactory1>());
 
             Bind<RedisConnectionFactory>().ToSelf().InSingletonScope();
-            Bind<IRequireLoading>().ToMethod(c => c.Kernel.Get<RedisConnectionFactory>());
+            Bind<IApplicationResource>().ToMethod(c => c.Kernel.Get<RedisConnectionFactory>());
 
             ToyOrders();
 

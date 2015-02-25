@@ -7,7 +7,7 @@ using StackExchange.Redis;
 
 namespace SantaHo.SantaOffice.Service.Infrastructure.Redis
 {
-    public sealed class RedisConnectionFactory : IRequireLoading
+    public sealed class RedisConnectionFactory : IApplicationResource
     {
         public const string UriStartupKey = "Redis:Uri";
         private ConnectionMultiplexer _redis;

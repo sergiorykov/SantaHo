@@ -44,7 +44,6 @@
     <Compile Include="ApplicationServices\IApplicationService.cs" />
     <Compile Include="ApplicationServices\IStartupSettings.cs" />
     <Compile Include="ApplicationServices\Resources\IApplicationResource.cs" />
-    <Compile Include="ApplicationServices\Resources\IRequireLoading.cs" />
     <Compile Include="Configuration\ISettingsMigrationRegistrar.cs" />
     <Compile Include="Configuration\ISettingsRepository.cs" />
     <Compile Include="Configuration\ISupportSettingsMigration.cs" />

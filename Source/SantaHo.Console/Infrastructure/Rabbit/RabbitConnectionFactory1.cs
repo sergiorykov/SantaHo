@@ -7,7 +7,7 @@ using SantaHo.Core.ApplicationServices.Resources;
 
 namespace SantaHo.SantaOffice.Service.Infrastructure.Rabbit
 {
-    public sealed class RabbitConnectionFactory1 : IRequireLoading
+    public sealed class RabbitConnectionFactory1 : IApplicationResource
     {
         public const string UriStartupKey = "RabbitMQ:Uri";
         private Option<ConnectionFactory> _connectionFactory;

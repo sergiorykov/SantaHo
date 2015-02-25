@@ -42,7 +42,7 @@ namespace SantaHo.SantaOffice.Service
 
         private void LoadResources()
         {
-            List<IRequireLoading> resources = _kernel.GetAll<IRequireLoading>().ToList();
+            List<IApplicationResource> resources = _kernel.GetAll<IApplicationResource>().ToList();
             resources.ForEach(x => x.FailIfNot(resource => resource.Load(_startupSettings)));
             _resources.AddRange(resources);
         }
