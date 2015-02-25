@@ -1,3 +1,5 @@
+using System;
+
 namespace SantaHo.Domain.SantaOffice.Letters
 {
     public class Letter

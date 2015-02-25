@@ -7,6 +7,7 @@ namespace SantaHo.Infrastructure.Core.Executors
         void Execute(Action<TTarget> action);
     }
 
+
     public interface IExecutor
     {
         void Execute(Action action);

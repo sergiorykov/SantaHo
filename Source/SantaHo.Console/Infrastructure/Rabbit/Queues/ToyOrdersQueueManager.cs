@@ -6,7 +6,6 @@ using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using SantaHo.Core.Extensions;
 using SantaHo.Core.Processing;
-using SantaHo.Domain.Presents;
 using SantaHo.Domain.Presents.Cars;
 using SantaHo.Domain.SantaOffice;
 using SantaHo.SantaOffice.Service.Toys;
@@ -54,6 +53,7 @@ namespace SantaHo.SantaOffice.Service.Infrastructure.Rabbit.Queues
             return "{0}{1}".FormatWith(QueueNamePrefix, category.ToLowerInvariant());
         }
 
+
         private sealed class ToyOrderDequeuer : IToyOrderDequeuer
         {
             private readonly IModel _channel;
@@ -65,7 +65,7 @@ namespace SantaHo.SantaOffice.Service.Infrastructure.Rabbit.Queues
 
                 _channel = connection.CreateModel();
                 _channel.QueueDeclare(queueName, true, false, false, null);
-                _channel.BasicQos(0, 16*1024, false);
+                _channel.BasicQos(0, 16 * 1024, false);
                 _consumer = new QueueingBasicConsumer(_channel);
                 _channel.BasicConsume(queueName, false, _consumer);
             }
@@ -83,6 +83,7 @@ namespace SantaHo.SantaOffice.Service.Infrastructure.Rabbit.Queues
                     _channel.Dispose();
                 }
             }
+
 
             private sealed class ObservableMessage1 : IObservableMessage1<ToyOrder>
             {
@@ -113,6 +114,7 @@ namespace SantaHo.SantaOffice.Service.Infrastructure.Rabbit.Queues
             }
         }
 
+
         private sealed class ToyOrdersEnqueuer : IToyOrdersEnqueuer
         {
             private readonly IModel _channel;
@@ -120,7 +122,7 @@ namespace SantaHo.SantaOffice.Service.Infrastructure.Rabbit.Queues
             public ToyOrdersEnqueuer(IConnection connection, IEnumerable<string> categories)
             {
                 _channel = connection.CreateModel();
-                _channel.BasicQos(0, 16*1024, false);
+                _channel.BasicQos(0, 16 * 1024, false);
                 _channel.ExchangeDeclare(ExchangeName, ExchangeType.Direct);
 
                 foreach (string category in categories)

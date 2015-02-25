@@ -1,4 +1,5 @@
-﻿using SantaHo.Core.Configuration;
+﻿using System;
+using SantaHo.Core.Configuration;
 
 namespace SantaHo.SantaOffice.Service.Infrastructure.Redis
 {

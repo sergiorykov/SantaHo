@@ -19,7 +19,7 @@ namespace SantaHo.Infrastructure.Core.Extensions
                 Logger.Warn(e);
             }
         }
-        
+
         public static void IgnoreFailuresWhen<TValue>(this IEnumerable<TValue> values, Action<TValue> action)
         {
             foreach (TValue value in values)

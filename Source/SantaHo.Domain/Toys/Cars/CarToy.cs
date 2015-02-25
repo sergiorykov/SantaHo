@@ -1,4 +1,6 @@
-﻿namespace SantaHo.Domain.Presents.Cars
+﻿using System;
+
+namespace SantaHo.Domain.Presents.Cars
 {
     public class CarToy : Toy
     {

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using SantaHo.Infrastructure.Core.Extensions;
 
 namespace SantaHo.Infrastructure.Core.Executors

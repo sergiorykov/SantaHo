@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SantaHo.Infrastructure.Core.Executors;
 
 namespace SantaHo.Infrastructure.Core.Extensions
 {
     public static class EnumerableExtensions
     {
         public static bool ExecuteAllOrRollback<TTarget>(this IEnumerable<TTarget> values, Action<TTarget> action,
-                                                         Action<TTarget> rollback)
+            Action<TTarget> rollback)
         {
             List<TTarget> rollbackValues = values
                 .TakeWhile(target => !target.FailIfNot(action))

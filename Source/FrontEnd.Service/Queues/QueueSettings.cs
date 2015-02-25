@@ -9,7 +9,6 @@ namespace SantaHo.FrontEnd.Service.Queues
     {
         private const string RabbitMqAmqpUriKey = "RabbitMQ:AmqpUri";
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
-
         public string RabbitAmqpUri { get; set; }
 
         public static QueueSettings Create(IStartupSettings settings)

@@ -1,3 +1,4 @@
+using System;
 using FluffyRabbit.Consumers;
 using FluffyRabbit.Producers;
 

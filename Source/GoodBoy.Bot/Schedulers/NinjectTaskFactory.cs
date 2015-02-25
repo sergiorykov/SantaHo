@@ -1,4 +1,5 @@
-﻿using FluentScheduler;
+﻿using System;
+using FluentScheduler;
 using Ninject;
 
 namespace GoodBoy.Bot.Schedulers

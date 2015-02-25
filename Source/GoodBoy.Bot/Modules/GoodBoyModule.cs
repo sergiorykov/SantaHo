@@ -1,4 +1,5 @@
-﻿using GoodBoy.Bot.Clients;
+﻿using System;
+using GoodBoy.Bot.Clients;
 using GoodBoy.Bot.Providers;
 using Ninject.Modules;
 

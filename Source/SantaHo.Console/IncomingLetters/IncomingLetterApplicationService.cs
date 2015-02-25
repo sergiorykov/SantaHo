@@ -2,7 +2,6 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using FluffyRabbit;
 using FluffyRabbit.Consumers;
 using Nelibur.Sword.DataStructures;
 using Nelibur.Sword.Extensions;
@@ -15,9 +14,9 @@ namespace SantaHo.SantaOffice.Service.IncomingLetters
     public sealed class IncomingLetterApplicationService : IApplicationService
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        private Option<CancellationTokenSource> _tokenSource = Option<CancellationTokenSource>.Empty;
         private readonly IncomingLetterProcessor _processor;
         private readonly IncomingLetterQueue _queue;
-        private Option<CancellationTokenSource> _tokenSource = Option<CancellationTokenSource>.Empty;
 
         public IncomingLetterApplicationService(IncomingLetterProcessor processor, IncomingLetterQueue queue)
         {
@@ -30,12 +29,14 @@ namespace SantaHo.SantaOffice.Service.IncomingLetters
             const int consumers = 4;
 
             CancellationTokenSource tokenSource = new CancellationTokenSource();
-            Enumerable.Range(0, consumers).Iter(x =>
-            {
-                Task.Factory.StartNew(() => ProcessLetter(tokenSource.Token), tokenSource.Token);
-            });
+            Enumerable.Range(0, consumers).Iter(x => { Task.Factory.StartNew(() => ProcessLetter(tokenSource.Token), tokenSource.Token); });
 
             _tokenSource = tokenSource.ToOption();
+        }
+
+        public void Stop()
+        {
+            _tokenSource.Do(x => x.Cancel());
         }
 
         private void ProcessLetter(CancellationToken token)
@@ -57,11 +58,6 @@ namespace SantaHo.SantaOffice.Service.IncomingLetters
                     }
                 }
             }
-        }
-
-        public void Stop()
-        {
-            _tokenSource.Do(x => x.Cancel());
         }
     }
 }

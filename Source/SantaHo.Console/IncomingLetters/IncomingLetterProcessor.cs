@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.Contracts;
+﻿using System;
+using System.Diagnostics.Contracts;
 using SantaHo.Domain.Presents;
 using SantaHo.Domain.SantaOffice;
 using SantaHo.Domain.SantaOffice.Letters;

@@ -8,12 +8,13 @@ using SantaHo.Domain.SantaOffice;
 
 namespace SantaHo.SantaOffice.Service.Toys
 {
-    public class ToyOrderProcessor<TToy> : IToyOrderProcessor where TToy : Toy
+    public class ToyOrderProcessor<TToy> : IToyOrderProcessor
+        where TToy : Toy
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        private CancellationTokenSource _cancellationTokenSource;
         private readonly IToyOrderDequeuer _dequeuer;
         private readonly ToyFactory<TToy> _toyFactory;
-        private CancellationTokenSource _cancellationTokenSource;
 
         public ToyOrderProcessor(IToyOrderDequeuer dequeuer, ToyFactory<TToy> toyFactory)
         {

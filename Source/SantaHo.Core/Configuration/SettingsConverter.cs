@@ -1,4 +1,6 @@
-﻿namespace SantaHo.Core.Configuration
+﻿using System;
+
+namespace SantaHo.Core.Configuration
 {
     public abstract class SettingsConverter<TOriginalSettings, TCurrentSettings>
     {

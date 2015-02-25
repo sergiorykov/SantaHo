@@ -1,4 +1,5 @@
-﻿using FluentScheduler;
+﻿using System;
+using FluentScheduler;
 using GoodBoy.Bot.Clients;
 using GoodBoy.Bot.Providers;
 using SantaHo.FrontEnd.ServiceContracts.Letters;

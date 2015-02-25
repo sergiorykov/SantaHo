@@ -1,4 +1,5 @@
-﻿using FluffyRabbit.Consumers;
+﻿using System;
+using FluffyRabbit.Consumers;
 using FluffyRabbit.Exchanges;
 using FluffyRabbit.Producers;
 using Nelibur.Sword.DataStructures;
@@ -21,7 +22,7 @@ namespace FluffyRabbit.Queues
         }
 
         public IMessageEnqueuer<TMessage> CreateEnqueuer<TMessage>(IModel channel,
-                                                                   Option<RabbitExchangeConfiguration> exchange)
+            Option<RabbitExchangeConfiguration> exchange)
         {
             var exchangeName = exchange
                 .Map(x => x.Name)

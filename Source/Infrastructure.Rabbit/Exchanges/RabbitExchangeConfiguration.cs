@@ -11,7 +11,6 @@ namespace FluffyRabbit.Exchanges
         }
 
         public string Name { get; set; }
-
         public RabbitExchangeType Type { get; set; }
 
         private string GetExchangeType()

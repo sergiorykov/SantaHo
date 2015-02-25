@@ -1,3 +1,4 @@
+using System;
 using Ninject;
 using Ninject.Modules;
 using SantaHo.Core.ApplicationServices.Resources;

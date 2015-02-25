@@ -1,9 +1,9 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.ServiceModel.Web;
 using AutoMapper;
 using Nelibur.ServiceModel.Services.Operations;
 using Nelibur.Sword.Extensions;
-using NLog;
 using SantaHo.Domain.SantaOffice.Letters;
 using SantaHo.FrontEnd.Service.Hosts.Executors;
 using SantaHo.FrontEnd.Service.Queues;
@@ -23,7 +23,7 @@ namespace SantaHo.FrontEnd.Service.Hosts.Handlers
         public void PostOneWay(WishListLetterRequest request)
         {
             request.ToOption()
-                .ThrowOnEmpty(() => new WebFaultException(HttpStatusCode.BadRequest));
+                   .ThrowOnEmpty(() => new WebFaultException(HttpStatusCode.BadRequest));
 
             HostExecutor.Execute(() => Enqueue(request));
         }

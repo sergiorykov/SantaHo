@@ -1,4 +1,6 @@
-﻿namespace FluffyRabbit.Consumers
+﻿using System;
+
+namespace FluffyRabbit.Consumers
 {
     public interface IObservableMessage<out TMessage>
     {

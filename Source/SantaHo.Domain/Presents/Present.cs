@@ -11,9 +11,7 @@ namespace SantaHo.Domain.Presents
         }
 
         public Guid Id { get; set; }
-
         public string To { get; set; }
-
         public List<Toy> Toys { get; set; }
     }
 }

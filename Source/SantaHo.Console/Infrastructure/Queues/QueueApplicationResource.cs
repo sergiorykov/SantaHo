@@ -1,4 +1,5 @@
-﻿using FluffyRabbit;
+﻿using System;
+using FluffyRabbit;
 using Nelibur.Sword.DataStructures;
 using Nelibur.Sword.Extensions;
 using RabbitMQ.Client;
@@ -12,6 +13,7 @@ namespace SantaHo.SantaOffice.Service.Infrastructure.Queues
     {
         IConnection Create();
     }
+
 
     public class QueueApplicationResource : IApplicationResource, IQueueConnectionFactory
     {

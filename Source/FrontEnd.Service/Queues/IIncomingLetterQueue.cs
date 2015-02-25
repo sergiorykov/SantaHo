@@ -1,4 +1,5 @@
-﻿using SantaHo.Domain.SantaOffice.Letters;
+﻿using System;
+using SantaHo.Domain.SantaOffice.Letters;
 
 namespace SantaHo.FrontEnd.Service.Queues
 {

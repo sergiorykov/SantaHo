@@ -1,4 +1,5 @@
-﻿using Ninject;
+﻿using System;
+using Ninject;
 using SantaHo.Core.ApplicationServices;
 
 namespace SantaHo.Infrastructure.Core.ApplicationServices

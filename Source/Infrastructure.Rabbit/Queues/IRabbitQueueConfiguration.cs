@@ -1,4 +1,6 @@
-﻿namespace FluffyRabbit.Queues
+﻿using System;
+
+namespace FluffyRabbit.Queues
 {
     public interface IRabbitQueueConfiguration
     {

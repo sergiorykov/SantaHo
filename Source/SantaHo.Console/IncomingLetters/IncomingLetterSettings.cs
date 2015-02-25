@@ -1,4 +1,5 @@
-﻿using SantaHo.Core.Configuration;
+﻿using System;
+using SantaHo.Core.Configuration;
 
 namespace SantaHo.SantaOffice.Service.IncomingLetters
 {
@@ -6,7 +7,6 @@ namespace SantaHo.SantaOffice.Service.IncomingLetters
     public class IncomingLetterSettings
     {
         public int MaxAwaiting { get; set; }
-
         public int ParallelDegree { get; set; }
 
         public static IncomingLetterSettings Default

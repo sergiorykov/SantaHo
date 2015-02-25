@@ -1,4 +1,6 @@
-﻿namespace SantaHo.Core.ApplicationServices
+﻿using System;
+
+namespace SantaHo.Core.ApplicationServices
 {
     public interface IStartupSettings
     {

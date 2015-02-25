@@ -1,4 +1,6 @@
-﻿namespace FluffyRabbit.Exchanges
+﻿using System;
+
+namespace FluffyRabbit.Exchanges
 {
     public interface IRabbitExchangeConfiguration
     {

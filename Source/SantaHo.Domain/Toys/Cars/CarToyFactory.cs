@@ -1,4 +1,6 @@
-﻿namespace SantaHo.Domain.Presents.Cars
+﻿using System;
+
+namespace SantaHo.Domain.Presents.Cars
 {
     public sealed class CarToyFactory : ToyFactory<CarToy>
     {
@@ -10,7 +12,7 @@
             {
                 Model = "Ferrary",
                 Color = "Red",
-                Weight = 1,
+                Weight = 1
             };
         }
     }

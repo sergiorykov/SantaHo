@@ -1,4 +1,5 @@
-﻿using Ninject.Modules;
+﻿using System;
+using Ninject.Modules;
 using SantaHo.Core.ApplicationServices;
 using SantaHo.FrontEnd.Service.Hosts;
 

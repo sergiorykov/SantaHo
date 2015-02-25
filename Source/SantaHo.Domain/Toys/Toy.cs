@@ -1,4 +1,6 @@
-﻿namespace SantaHo.Domain.Presents
+﻿using System;
+
+namespace SantaHo.Domain.Presents
 {
     public class Toy
     {

@@ -9,15 +9,14 @@ using SantaHo.Core.Configuration;
 using SantaHo.Infrastructure.Core.ApplicationServices.Resources;
 using SantaHo.Infrastructure.Core.Extensions;
 using SantaHo.SantaOffice.Service.Bootstrap;
-using SantaHo.SantaOffice.Service.IncomingLetters;
 
 namespace SantaHo.SantaOffice.Service
 {
     public class ApplicationContext
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        private List<IApplicationService> _services = new List<IApplicationService>();
 
-        private readonly IStartupSettings _startupSettings = new AppStartupSettings();
         private readonly IKernel _kernel = new StandardKernel(
             new InfrastructureModule(),
             new IncomingLettersModule(),
@@ -25,7 +24,7 @@ namespace SantaHo.SantaOffice.Service
             new SantaOfficeModule());
 
         private readonly List<IDisposable> _resources = new List<IDisposable>();
-        private List<IApplicationService> _services = new List<IApplicationService>();
+        private readonly IStartupSettings _startupSettings = new AppStartupSettings();
 
         public bool Start()
         {

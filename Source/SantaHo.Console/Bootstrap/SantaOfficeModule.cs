@@ -1,4 +1,5 @@
-﻿using Ninject.Modules;
+﻿using System;
+using Ninject.Modules;
 using SantaHo.Domain.SantaOffice;
 
 namespace SantaHo.SantaOffice.Service.Bootstrap

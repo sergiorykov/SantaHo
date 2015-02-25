@@ -1,5 +1,4 @@
 using System;
-using FluffyRabbit.Exchanges;
 using FluffyRabbit.Queues;
 using Nelibur.Sword.DataStructures;
 using Nelibur.Sword.Extensions;

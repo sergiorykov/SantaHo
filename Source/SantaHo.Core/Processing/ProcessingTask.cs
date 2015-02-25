@@ -1,4 +1,6 @@
-﻿namespace SantaHo.Core.Processing
+﻿using System;
+
+namespace SantaHo.Core.Processing
 {
     public abstract class ProcessingTask
     {
@@ -9,6 +11,7 @@
 
         protected abstract void ExecuteCore();
     }
+
 
     public abstract class ProcessingTask<TValue> : ProcessingTask
     {

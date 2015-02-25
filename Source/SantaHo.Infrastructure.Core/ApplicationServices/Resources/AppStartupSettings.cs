@@ -11,9 +11,11 @@ namespace SantaHo.Infrastructure.Core.ApplicationServices.Resources
         public TValue GetValue<TValue>(string key)
         {
             var value = GetRawValueBy(key);
-            if (typeof (Enum).IsAssignableFrom(typeof (TValue)))
-                return (TValue) Enum.Parse(typeof (TValue), value);
-            return (TValue) Convert.ChangeType(value, typeof (TValue));
+            if (typeof(Enum).IsAssignableFrom(typeof(TValue)))
+            {
+                return (TValue)Enum.Parse(typeof(TValue), value);
+            }
+            return (TValue)Convert.ChangeType(value, typeof(TValue));
         }
 
         private static string GetRawValueBy(string key)

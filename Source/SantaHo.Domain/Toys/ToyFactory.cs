@@ -1,6 +1,9 @@
-﻿namespace SantaHo.Domain.Presents
+﻿using System;
+
+namespace SantaHo.Domain.Presents
 {
-    public abstract class ToyFactory<TToy> where TToy : Toy
+    public abstract class ToyFactory<TToy>
+        where TToy : Toy
     {
         public TToy Create()
         {

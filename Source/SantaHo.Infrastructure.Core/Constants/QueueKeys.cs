@@ -1,4 +1,6 @@
-﻿namespace SantaHo.Infrastructure.Core.Constants
+﻿using System;
+
+namespace SantaHo.Infrastructure.Core.Constants
 {
     public static class QueueKeys
     {

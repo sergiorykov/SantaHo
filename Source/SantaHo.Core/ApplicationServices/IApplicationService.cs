@@ -1,9 +1,12 @@
-﻿namespace SantaHo.Core.ApplicationServices
+﻿using System;
+
+namespace SantaHo.Core.ApplicationServices
 {
     public interface IConfigurable
     {
         void Configure(IStartupSettings startupSettings);
     }
+
 
     public interface IApplicationService
     {

@@ -38,7 +38,7 @@ namespace SantaHo.Core.Configuration
 
         private static string GetTypeKey<TValue>()
         {
-            Type valueType = typeof (TValue);
+            Type valueType = typeof(TValue);
             SettingsKeyAttribute settingsKey = valueType.GetCustomAttributes<SettingsKeyAttribute>().FirstOrDefault();
             if (settingsKey != null)
             {

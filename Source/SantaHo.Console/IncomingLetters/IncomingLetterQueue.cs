@@ -1,4 +1,5 @@
-﻿using FluffyRabbit;
+﻿using System;
+using FluffyRabbit;
 using FluffyRabbit.Consumers;
 using SantaHo.Core.ApplicationServices;
 using SantaHo.Core.ApplicationServices.Resources;
@@ -17,24 +18,24 @@ namespace SantaHo.SantaOffice.Service.IncomingLetters
             _connectionFactory = connectionFactory;
         }
 
-        public IObservableMessageDequeuer<IncomingChildLetter> CreateConsumer()
-        {
-            return RabbitQueue.Consumer()
-                .Queue(x =>
-                {
-                    x.Name = QueueKeys.IncomingLetters.QueueName;
-                    x.Durable = true;
-                    x.PrefetchCount = 16*1000;
-                })
-                .Create<IncomingChildLetter>(_connectionFactory.Create());
-        }
-
         public void Dispose()
         {
         }
 
         public void Load(IStartupSettings startupSettings)
         {
+        }
+
+        public IObservableMessageDequeuer<IncomingChildLetter> CreateConsumer()
+        {
+            return RabbitQueue.Consumer()
+                              .Queue(x =>
+                              {
+                                  x.Name = QueueKeys.IncomingLetters.QueueName;
+                                  x.Durable = true;
+                                  x.PrefetchCount = 16 * 1000;
+                              })
+                              .Create<IncomingChildLetter>(_connectionFactory.Create());
         }
     }
 }

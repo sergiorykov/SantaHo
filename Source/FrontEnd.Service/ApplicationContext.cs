@@ -6,8 +6,6 @@ using NLog;
 using SantaHo.Core.ApplicationServices;
 using SantaHo.Core.ApplicationServices.Resources;
 using SantaHo.FrontEnd.Service.Bootstrap;
-using SantaHo.FrontEnd.Service.Hosts;
-using SantaHo.FrontEnd.Service.Queues;
 using SantaHo.Infrastructure.Core.ApplicationServices.Resources;
 using SantaHo.Infrastructure.Core.Executors;
 
@@ -46,25 +44,25 @@ namespace SantaHo.FrontEnd.Service
 
             _resources = GetResources();
             SequenceExecutor.For(_resources)
-                .RallbackOnError(x => x.Dispose())
-                .Execute(x => x.Load(startupSettings));
+                            .RallbackOnError(x => x.Dispose())
+                            .Execute(x => x.Load(startupSettings));
 
             _services = GetServices();
             SequenceExecutor.For(_services)
-                .RallbackOnError(x => x.Stop())
-                .Execute(x => x.Start(startupSettings));
+                            .RallbackOnError(x => x.Stop())
+                            .Execute(x => x.Start(startupSettings));
         }
 
         public void Stop()
         {
             Logger.Info("Application is stopping...");
             SequenceExecutor.For(_services)
-                .IgnoreErrors()
-                .Execute(x => x.Stop());
+                            .IgnoreErrors()
+                            .Execute(x => x.Stop());
 
             SequenceExecutor.For(_resources)
-                .IgnoreErrors()
-                .Execute(x => x.Dispose());
+                            .IgnoreErrors()
+                            .Execute(x => x.Dispose());
 
             Logger.Info("Application is stopped");
         }

@@ -12,14 +12,6 @@ namespace SantaHo.SantaOffice.Service.Infrastructure.Rabbit
         public const string UriStartupKey = "RabbitMQ:Uri";
         private Option<ConnectionFactory> _connectionFactory;
 
-        public IConnection Create()
-        {
-            return _connectionFactory
-                .ThrowOnEmpty(() => new InvalidOperationException("Load resource first"))
-                .Map(x => x.CreateConnection())
-                .Value;
-        }
-
         public void Load(IStartupSettings settings)
         {
             // http://www.rabbitmq.com/uri-spec.html
@@ -29,16 +21,24 @@ namespace SantaHo.SantaOffice.Service.Infrastructure.Rabbit
             _connectionFactory = new ConnectionFactory
             {
                 Uri = connectionUri,
-                Protocol = Protocols.DefaultProtocol,
+                Protocol = Protocols.DefaultProtocol
             }.ToOption();
         }
 
         /// <summary>
-        /// ¬ыполн€ет определ€емые приложением задачи, св€занные с высвобождением или сбросом неуправл€емых ресурсов.
+        ///     ¬ыполн€ет определ€емые приложением задачи, св€занные с высвобождением или сбросом неуправл€емых ресурсов.
         /// </summary>
         public void Dispose()
         {
             _connectionFactory = Option<ConnectionFactory>.Empty;
+        }
+
+        public IConnection Create()
+        {
+            return _connectionFactory
+                .ThrowOnEmpty(() => new InvalidOperationException("Load resource first"))
+                .Map(x => x.CreateConnection())
+                .Value;
         }
     }
 }

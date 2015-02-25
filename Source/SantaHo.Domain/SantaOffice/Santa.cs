@@ -18,17 +18,17 @@ namespace SantaHo.Domain.SantaOffice
             var order = new PresentOrder
             {
                 Id = Guid.NewGuid(),
-                To = letter.From,
+                To = letter.From
             };
 
             order.ToProduce = letter.Wishes
-                .Select(x => new ToyOrder
-                {
-                    PresentOrderId = order.Id,
-                    ToyCategory = x.ToLowerInvariant(),
-                    Wish = x
-                })
-                .ToList();
+                                    .Select(x => new ToyOrder
+                                    {
+                                        PresentOrderId = order.Id,
+                                        ToyCategory = x.ToLowerInvariant(),
+                                        Wish = x
+                                    })
+                                    .ToList();
 
             return order;
         }

@@ -52,7 +52,7 @@ namespace SantaHo.FrontEnd.Service.Hosts
         private void OpenServiceHost(HostSettings hostSettings)
         {
             Logger.Info("Opening service host...");
-            _serviceHost = new WebServiceHost(typeof (JsonServicePerCall), hostSettings.ServiceHostUri);
+            _serviceHost = new WebServiceHost(typeof(JsonServicePerCall), hostSettings.ServiceHostUri);
             _serviceHost.Open();
             Logger.Info("Opened service host on {0}", hostSettings.ServiceHostUri);
         }

@@ -1,4 +1,5 @@
-﻿using FluffyRabbit;
+﻿using System;
+using FluffyRabbit;
 using FluffyRabbit.Exchanges;
 using FluffyRabbit.Producers;
 using Nelibur.Sword.DataStructures;
@@ -14,8 +15,8 @@ namespace SantaHo.FrontEnd.Service.Queues
 {
     public sealed class IncomingLetterQueue : IIncomingLetterQueue, IApplicationResource
     {
-        private readonly QueueConnectionManager _manager;
         private Option<IMessageEnqueuer<IncomingChildLetter>> _letterEnqueuer = Option<IMessageEnqueuer<IncomingChildLetter>>.Empty;
+        private readonly QueueConnectionManager _manager;
 
         public IncomingLetterQueue(QueueConnectionManager manager)
         {
@@ -31,19 +32,19 @@ namespace SantaHo.FrontEnd.Service.Queues
         {
             IConnection connection = _manager.GetConnection();
             IMessageEnqueuer<IncomingChildLetter> letterEnqueuer = RabbitQueue.Producer()
-                .UseExchange(x =>
-                {
-                    x.Name = QueueKeys.IncomingLetters.ExchangeName;
-                    x.Type = RabbitExchangeType.Direct;
-                })
-                .Queue(x =>
-                {
-                    x.Name = QueueKeys.IncomingLetters.QueueName;
-                    x.Durable = true;
-                    x.PrefetchCount = 16*1000;
-                    x.RoutingKey = QueueKeys.IncomingLetters.RoutingKey;
-                })
-                .Create<IncomingChildLetter>(connection);
+                                                                              .UseExchange(x =>
+                                                                              {
+                                                                                  x.Name = QueueKeys.IncomingLetters.ExchangeName;
+                                                                                  x.Type = RabbitExchangeType.Direct;
+                                                                              })
+                                                                              .Queue(x =>
+                                                                              {
+                                                                                  x.Name = QueueKeys.IncomingLetters.QueueName;
+                                                                                  x.Durable = true;
+                                                                                  x.PrefetchCount = 16 * 1000;
+                                                                                  x.RoutingKey = QueueKeys.IncomingLetters.RoutingKey;
+                                                                              })
+                                                                              .Create<IncomingChildLetter>(connection);
 
             _letterEnqueuer = letterEnqueuer.ToOption();
         }
@@ -51,7 +52,7 @@ namespace SantaHo.FrontEnd.Service.Queues
         public void Enqueue(IncomingChildLetter letter)
         {
             letter.ToOption()
-                .Do(x => x.Validate());
+                  .Do(x => x.Validate());
 
             _letterEnqueuer
                 .ThrowOnEmpty(() => new QueueUnavailableException())

@@ -1,4 +1,5 @@
-﻿using SantaHo.FrontEnd.ServiceContracts.Letters;
+﻿using System;
+using SantaHo.FrontEnd.ServiceContracts.Letters;
 
 namespace GoodBoy.Bot.Clients
 {

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 using SantaHo.Core.Configuration;
 using StackExchange.Redis;
 

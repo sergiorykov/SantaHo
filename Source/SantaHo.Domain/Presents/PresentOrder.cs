@@ -14,9 +14,7 @@ namespace SantaHo.Domain.Presents
         }
 
         public Guid Id { get; set; }
-
         public string To { get; set; }
-
         public List<ToyOrder> ToProduce { get; set; }
         public List<RejectedWishLetter> Rejected { get; set; }
     }

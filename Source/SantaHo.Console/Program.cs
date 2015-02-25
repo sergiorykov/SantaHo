@@ -1,4 +1,5 @@
-﻿using Topshelf;
+﻿using System;
+using Topshelf;
 
 namespace SantaHo.SantaOffice.Service
 {

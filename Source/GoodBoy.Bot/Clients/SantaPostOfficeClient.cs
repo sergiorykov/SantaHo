@@ -52,7 +52,7 @@ namespace GoodBoy.Bot.Clients
         private void Stats()
         {
             var number = Interlocked.Increment(ref _sentLetters);
-            if (number%100 == 0)
+            if (number % 100 == 0)
             {
                 Logger.Debug("({1}) Sent \t#{0}", number, Environment.CurrentManagedThreadId);
             }

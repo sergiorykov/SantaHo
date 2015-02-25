@@ -1,6 +1,9 @@
-﻿namespace SantaHo.Core.Processing
+﻿using System;
+
+namespace SantaHo.Core.Processing
 {
-    public interface ITaskFactory<in TValue, out TTask> where TTask : ProcessingTask<TValue>
+    public interface ITaskFactory<in TValue, out TTask>
+        where TTask : ProcessingTask<TValue>
     {
         TTask Create(TValue value);
     }

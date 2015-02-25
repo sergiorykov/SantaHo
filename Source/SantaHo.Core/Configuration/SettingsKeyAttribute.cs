@@ -2,7 +2,7 @@
 
 namespace SantaHo.Core.Configuration
 {
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
+    [AttributeUsage(AttributeTargets.Class, Inherited = false)]
     public class SettingsKeyAttribute : Attribute
     {
         public SettingsKeyAttribute(string key)

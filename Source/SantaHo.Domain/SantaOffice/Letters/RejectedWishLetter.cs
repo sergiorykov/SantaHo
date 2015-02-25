@@ -1,4 +1,6 @@
-﻿namespace SantaHo.Domain.SantaOffice.Letters
+﻿using System;
+
+namespace SantaHo.Domain.SantaOffice.Letters
 {
     public sealed class RejectedWishLetter : Letter
     {
