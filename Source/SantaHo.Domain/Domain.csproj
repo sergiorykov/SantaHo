@@ -90,20 +90,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Letters\Letter.cs" />
-    <Compile Include="Presents\Cars\CarToyFactory.cs" />
-    <Compile Include="Presents\IToyOrderCategoryRegistrar.cs" />
-    <Compile Include="Presents\IToyOrdersQueueManager.cs" />
+    <Compile Include="Toys\Cars\CarToyFactory.cs" />
     <Compile Include="Presents\Present.cs" />
     <Compile Include="Presents\PresentOrder.cs" />
-    <Compile Include="Presents\ToyFactory.cs" />
-    <Compile Include="SantaOffice\IToyOrderDequeuer.cs" />
-    <Compile Include="SantaOffice\IToyOrdersEnqueuer.cs" />
-    <Compile Include="SantaOffice\RejectedWish.cs" />
-    <Compile Include="Presents\Toy.cs" />
-    <Compile Include="Presents\Cars\CarToy.cs" />
+    <Compile Include="Toys\ToyFactory.cs" />
+    <Compile Include="SantaOffice\Letters\RejectedWishLetter.cs" />
+    <Compile Include="Toys\Toy.cs" />
+    <Compile Include="Toys\Cars\CarToy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SantaOffice\Santa.cs" />
-    <Compile Include="SantaOffice\ToyOrder.cs" />
+    <Compile Include="SantaOffice\Orders\ToyOrder.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SantaHo.Core\Core.csproj">

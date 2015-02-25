@@ -101,6 +101,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Infrastructure\Queues\QueueApplicationResource.cs" />
+    <Compile Include="Toys\IToyOrderCategoryRegistrar.cs" />
+    <Compile Include="Toys\IToyOrderDequeuer.cs" />
+    <Compile Include="Toys\IToyOrdersEnqueuer.cs" />
+    <Compile Include="Toys\IToyOrdersQueueManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

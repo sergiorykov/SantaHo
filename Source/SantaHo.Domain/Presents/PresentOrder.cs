@@ -9,7 +9,7 @@ namespace SantaHo.Domain.Presents
         public PresentOrder()
         {
             ToProduce = new List<ToyOrder>();
-            Rejected = new List<RejectedWish>();
+            Rejected = new List<RejectedWishLetter>();
         }
 
         public Guid Id { get; set; }
@@ -17,6 +17,6 @@ namespace SantaHo.Domain.Presents
         public string To { get; set; }
 
         public List<ToyOrder> ToProduce { get; set; }
-        public List<RejectedWish> Rejected { get; set; }
+        public List<RejectedWishLetter> Rejected { get; set; }
     }
 }
