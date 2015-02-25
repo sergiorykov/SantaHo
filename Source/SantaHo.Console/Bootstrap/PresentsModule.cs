@@ -2,7 +2,7 @@
 using SantaHo.Domain.Presents;
 using SantaHo.SantaOffice.Service.Presents;
 
-namespace SantaHo.SantaOffice.Service.Modules
+namespace SantaHo.SantaOffice.Service.Bootstrap
 {
     public sealed class PresentsModule : NinjectModule
     {

@@ -8,7 +8,7 @@ using SantaHo.SantaOffice.Service.Infrastructure.Rabbit;
 using SantaHo.SantaOffice.Service.Infrastructure.Rabbit.Queues;
 using SantaHo.SantaOffice.Service.Infrastructure.Redis;
 
-namespace SantaHo.SantaOffice.Service.Modules
+namespace SantaHo.SantaOffice.Service.Bootstrap
 {
     public sealed class InfrastructureModule : NinjectModule
     {

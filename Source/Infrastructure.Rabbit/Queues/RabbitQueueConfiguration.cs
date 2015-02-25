@@ -1,4 +1,5 @@
-﻿using FluffyRabbit.Exchanges;
+﻿using FluffyRabbit.Consumers;
+using FluffyRabbit.Exchanges;
 using FluffyRabbit.Producers;
 using Nelibur.Sword.DataStructures;
 using Nelibur.Sword.Extensions;
@@ -13,15 +14,16 @@ namespace FluffyRabbit.Queues
         public ushort PrefetchCount { get; set; }
         public string RoutingKey { get; set; }
         public string Name { get; set; }
-        
+
         public IMessageEnqueuer<TMessage> CreateEnqueuer<TMessage>(IModel channel)
         {
             return CreateEnqueuer<TMessage>(channel, Option<RabbitExchangeConfiguration>.Empty);
         }
 
-        public IMessageEnqueuer<TMessage> CreateEnqueuer<TMessage>(IModel channel, Option<RabbitExchangeConfiguration> exchange)
+        public IMessageEnqueuer<TMessage> CreateEnqueuer<TMessage>(IModel channel,
+                                                                   Option<RabbitExchangeConfiguration> exchange)
         {
-            string exchangeName = exchange
+            var exchangeName = exchange
                 .Map(x => x.Name)
                 .MapOnEmpty(null)
                 .Value;
@@ -34,7 +36,19 @@ namespace FluffyRabbit.Queues
                 channel.BasicQos(0, PrefetchCount, false);
             }
 
-            return new RabbitEnqueuer<TMessage>(channel, exchangeName, RoutingKey);
+            return new MessageEnqueuer<TMessage>(channel, exchangeName, RoutingKey);
+        }
+
+        public IObservableMessageDequeuer<TMessage> CreateDequeuer<TMessage>(IModel channel)
+        {
+            channel.QueueDeclare(Name, Durable, false, AutoDelete, null);
+
+            if (PrefetchCount > 0)
+            {
+                channel.BasicQos(0, PrefetchCount, false);
+            }
+
+            return new ObservableMessageDequeuer<TMessage>(channel, Name);
         }
     }
 }

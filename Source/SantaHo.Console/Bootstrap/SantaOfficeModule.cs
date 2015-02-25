@@ -1,7 +1,7 @@
 ﻿using Ninject.Modules;
 using SantaHo.Domain.SantaOffice;
 
-namespace SantaHo.SantaOffice.Service.Modules
+namespace SantaHo.SantaOffice.Service.Bootstrap
 {
     public sealed class SantaOfficeModule : NinjectModule
     {

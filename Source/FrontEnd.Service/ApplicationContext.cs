@@ -5,6 +5,7 @@ using Ninject;
 using NLog;
 using SantaHo.Core.ApplicationServices;
 using SantaHo.Core.ApplicationServices.Resources;
+using SantaHo.FrontEnd.Service.Bootstrap;
 using SantaHo.FrontEnd.Service.Hosts;
 using SantaHo.FrontEnd.Service.Queues;
 using SantaHo.Infrastructure.Core.ApplicationServices.Resources;
@@ -19,7 +20,7 @@ namespace SantaHo.FrontEnd.Service
         private List<IApplicationService> _services = new List<IApplicationService>();
 
         private readonly IKernel _kernel = new StandardKernel(
-            new HostModule(),
+            new HostsModule(),
             new QueuesModule());
 
         public bool Start()

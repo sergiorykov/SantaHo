@@ -91,7 +91,6 @@
   <ItemGroup>
     <Compile Include="Letters\Letter.cs" />
     <Compile Include="Presents\Cars\CarToyFactory.cs" />
-    <Compile Include="Presents\IPresentOrderProcessor.cs" />
     <Compile Include="Presents\IToyOrderCategoryRegistrar.cs" />
     <Compile Include="Presents\IToyOrdersQueueManager.cs" />
     <Compile Include="Presents\Present.cs" />

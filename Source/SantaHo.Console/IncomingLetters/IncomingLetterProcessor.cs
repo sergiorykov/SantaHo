@@ -1,15 +1,15 @@
 ﻿using System.Diagnostics.Contracts;
-using SantaHo.Core.Processing;
 using SantaHo.Domain.Letters;
 using SantaHo.Domain.Presents;
 using SantaHo.Domain.SantaOffice;
+using SantaHo.SantaOffice.Service.Presents;
 
 namespace SantaHo.SantaOffice.Service.IncomingLetters
 {
     public sealed class IncomingLetterProcessor
     {
-        private readonly Santa _santa;
         private readonly IPresentOrderProcessor _presentOrderProcessor;
+        private readonly Santa _santa;
 
         public IncomingLetterProcessor(Santa santa, IPresentOrderProcessor presentOrderProcessor)
         {

@@ -19,9 +19,7 @@ namespace SantaHo.SantaOffice.Service.IncomingLetters
         private readonly IncomingLetterQueue _queue;
         private Option<CancellationTokenSource> _tokenSource = Option<CancellationTokenSource>.Empty;
 
-        public IncomingLetterApplicationService(
-            IncomingLetterProcessor processor,
-            IncomingLetterQueue queue)
+        public IncomingLetterApplicationService(IncomingLetterProcessor processor, IncomingLetterQueue queue)
         {
             _processor = processor;
             _queue = queue;
@@ -42,11 +40,11 @@ namespace SantaHo.SantaOffice.Service.IncomingLetters
 
         private void ProcessLetter(CancellationToken token)
         {
-            using (IObservableMessageConsumer<Letter> consumer = _queue.CreateConsumer())
+            using (IObservableMessageDequeuer<Letter> dequeuer = _queue.CreateConsumer())
             {
                 while (!token.IsCancellationRequested)
                 {
-                    IObservableMessage<Letter> message = consumer.Dequeue();
+                    IObservableMessage<Letter> message = dequeuer.Dequeue();
                     try
                     {
                         _processor.Process(message.Message);
@@ -55,7 +53,7 @@ namespace SantaHo.SantaOffice.Service.IncomingLetters
                     catch (Exception e)
                     {
                         Logger.Warn("Incoming letter processing failed", e);
-                        message.Completed();
+                        message.Failed();
                     }
                 }
             }

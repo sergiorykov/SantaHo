@@ -1,8 +1,9 @@
 using Ninject;
 using Ninject.Modules;
 using SantaHo.Core.ApplicationServices.Resources;
+using SantaHo.FrontEnd.Service.Queues;
 
-namespace SantaHo.FrontEnd.Service.Queues
+namespace SantaHo.FrontEnd.Service.Bootstrap
 {
     public class QueuesModule : NinjectModule
     {

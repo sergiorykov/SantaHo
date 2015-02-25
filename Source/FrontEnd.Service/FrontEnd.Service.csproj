@@ -131,11 +131,11 @@
     <Compile Include="Queues\IncomingLetterQueue.cs" />
     <Compile Include="Queues\QueueConnectionManager.cs" />
     <Compile Include="Queues\QueueSettings.cs" />
-    <Compile Include="Queues\QueuesModule.cs" />
+    <Compile Include="Bootstrap\QueuesModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Hosts\HostApplicationService.cs" />
-    <Compile Include="Hosts\HostModule.cs" />
+    <Compile Include="Bootstrap\HostsModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NLog.config">

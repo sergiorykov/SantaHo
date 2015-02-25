@@ -8,8 +8,8 @@ using SantaHo.Core.ApplicationServices.Resources;
 using SantaHo.Core.Configuration;
 using SantaHo.Infrastructure.Core.ApplicationServices.Resources;
 using SantaHo.Infrastructure.Core.Extensions;
+using SantaHo.SantaOffice.Service.Bootstrap;
 using SantaHo.SantaOffice.Service.IncomingLetters;
-using SantaHo.SantaOffice.Service.Modules;
 
 namespace SantaHo.SantaOffice.Service
 {
@@ -20,7 +20,7 @@ namespace SantaHo.SantaOffice.Service
         private readonly IStartupSettings _startupSettings = new AppStartupSettings();
         private readonly IKernel _kernel = new StandardKernel(
             new InfrastructureModule(),
-            new IncomingLetterModule(),
+            new IncomingLettersModule(),
             new PresentsModule(),
             new SantaOfficeModule());
 

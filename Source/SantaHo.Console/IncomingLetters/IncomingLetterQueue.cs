@@ -3,11 +3,12 @@ using FluffyRabbit.Consumers;
 using SantaHo.Core.ApplicationServices;
 using SantaHo.Core.ApplicationServices.Resources;
 using SantaHo.Domain.Letters;
+using SantaHo.Infrastructure.Core.Constants;
 using SantaHo.SantaOffice.Service.Infrastructure.Queues;
 
 namespace SantaHo.SantaOffice.Service.IncomingLetters
 {
-    public class IncomingLetterQueue : IApplicationResource
+    public abstract class IncomingLetterQueue : IApplicationResource
     {
         private readonly IQueueConnectionFactory _connectionFactory;
 
@@ -16,10 +17,16 @@ namespace SantaHo.SantaOffice.Service.IncomingLetters
             _connectionFactory = connectionFactory;
         }
 
-        public IObservableMessageConsumer<Letter> CreateConsumer()
+        public IObservableMessageDequeuer<Letter> CreateConsumer()
         {
-            //RabbitQueue.From(_connectionFactory.Create())
-            return null;
+            return RabbitQueue.Consumer()
+                .Queue(x =>
+                {
+                    x.Name = QueueKeys.IncomingLetters.QueueName;
+                    x.Durable = true;
+                    x.PrefetchCount = 16*1000;
+                })
+                .Create<Letter>(_connectionFactory.Create());
         }
 
         public void Dispose()

@@ -54,11 +54,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Consumers\IObservableMessageConsumer.cs" />
+    <Compile Include="Consumers\IObservableMessage.cs" />
+    <Compile Include="Consumers\IObservableMessageDequeuer.cs" />
+    <Compile Include="Consumers\ConsumerConfigurator.cs" />
+    <Compile Include="Consumers\ObservableMessage.cs" />
+    <Compile Include="Consumers\ObservableMessageDequeuer.cs" />
     <Compile Include="Exchanges\IRabbitExchangeConfiguration.cs" />
     <Compile Include="Queues\IRabbitQueueConfiguration.cs" />
     <Compile Include="Producers\ProducerConfigurator.cs" />
-    <Compile Include="Producers\RabbitEnqueuer.cs" />
+    <Compile Include="Producers\MessageEnqueuer.cs" />
     <Compile Include="Producers\IMessageEnqueuer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RabbitConnectionFactory.cs" />

@@ -4,13 +4,13 @@ using RabbitMQ.Client;
 
 namespace FluffyRabbit.Producers
 {
-    public sealed class RabbitEnqueuer<TMessage> : IMessageEnqueuer<TMessage>
+    internal sealed class MessageEnqueuer<TMessage> : IMessageEnqueuer<TMessage>
     {
         private readonly IModel _channel;
         private readonly string _exchangeName;
         private readonly string _routingKey;
 
-        public RabbitEnqueuer(IModel channel, string exchangeName, string routingKey = null)
+        public MessageEnqueuer(IModel channel, string exchangeName, string routingKey = null)
         {
             _channel = channel;
             _exchangeName = exchangeName;
