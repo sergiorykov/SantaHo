@@ -62,7 +62,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\RabbitMQ.Client.3.4.3\lib\net35\RabbitMQ.Client.dll</HintPath>
     </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.0.316.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\StackExchange.Redis.1.0.394\lib\net45\StackExchange.Redis.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -81,6 +86,11 @@
     <Compile Include="IncomingLetters\IncomingLetterSettings.cs" />
     <Compile Include="IncomingLetters\IncomingLetterModule.cs" />
     <Compile Include="IncomingLetters\IncomingLettersQueueManager.cs" />
+    <Compile Include="Infrastructure\Rabbit\Queues\ToyOrdersQueueManager.cs" />
+    <Compile Include="Infrastructure\Rabbit\RabbitConnectionFactory1.cs" />
+    <Compile Include="Infrastructure\Redis\RedisConnectionFactory.cs" />
+    <Compile Include="Infrastructure\Redis\RedisKeyEvaluator.cs" />
+    <Compile Include="Infrastructure\Redis\SettingsRepository.cs" />
     <Compile Include="Modules\InfrastructureModule.cs" />
     <Compile Include="Modules\PresentsModule.cs" />
     <Compile Include="Modules\SantaOfficeModule.cs" />
@@ -122,10 +132,6 @@
     <ProjectReference Include="..\SantaHo.Domain\Domain.csproj">
       <Project>{6df91132-b02b-4b67-bfc5-1ad5561d3a0e}</Project>
       <Name>Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SantaHo.Infrastructure\Infrastructure.csproj">
-      <Project>{9be57860-75d8-451e-8b6c-b86a6e72c407}</Project>
-      <Name>Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
